@@ -1,0 +1,116 @@
+title = "barcha-yangiliklar"
+url = "/barcha-yangiliklar/:slug?"
+layout = "yangiliklar_va_boshqa"
+is_hidden = 0
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 2
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+postFeatured = 0
+postPage = "yangilik"
+categoryPage = 404
+==
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">Blog Grid View</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="index.html">Home</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">Blog Grid View</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+    
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <!--grid-section-->
+        <section class="ttm-row grid-section clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                
+                  {% set posts = newsPosts.posts %}               
+                  {% for post in posts %}
+                 <!-- kalonka boshlandi -->
+                    <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                        <!-- featured-imagebox-post -->
+                        <div class="featured-imagebox featured-imagebox-post style1">
+                            <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                 {% if post.image %}
+                                 <a href="/{{ postPage }}/{{ post.slug }}"><img class="img-fluid"  src="{{ post.image|media | resize(350, 265,  { mode: 'crop', quality: '50' }) }}" alt="{{ post.title }}"></a>
+                                 {% else %}
+                                   <a href="/{{ postPage }}/{{ post.slug }}"><img class="img-fluid"  src="{{ "/storage/app/media/sahifalar/2020%20avgust/20-11-05undraw_share_online_r87b222.png"  | resize(350, 265,  { mode: 'crop', quality: '50' }) }}" alt="{{ post.title }}"></a>
+                                 {% endif %}
+                            </div>
+                            <div class="featured-content featured-content-post">
+                                <div class="ttm-box-post-date">
+                                    <span class="ttm-entry-date">
+                                        <time class="entry-date" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('Y-m-d') }}</time>
+                                    </span>
+                                </div>
+                                <div class="post-meta">
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{"Chop etdi"|_}}</span>
+                                    <span class="ttm-meta-line cat-link"><i class="fa fa-tag"></i>{{ post.user.full_name }}</span>
+                                </div>
+                                <div class="post-title featured-title">
+                                    <h5 style=" margin-top: 5px; 
+                                    margin-bottom: 0; 
+                                    font-size: 20px; 
+                                    line-height: 34px; 
+                                    font-weight: 400; 
+                                    text-overflow: ellipsis; 
+                                    overflow: hidden; display: -webkit-box;
+                                    -webkit-line-clamp: 4 ;
+                                    -webkit-box-orient: vertical;"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h5>
+                                </div>
+                               {# <div class="post-desc featured-desc">
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,...</p>
+                                </div>#}
+                            </div>
+                        </div><!-- featured-imagebox-post end-->
+                    </div>                    
+                <!-- kalonka tugadi -->
+                
+                {% else %}
+                <span class="post-nodata">{{ noPostsMessage }}</span>
+                {% endfor %}
+                    
+             
+                      
+                    
+            </div><!-- row end -->
+
+
+
+
+
+
+<div class="pagination-block">
+                   
+                            {{ posts.render|raw }}
+                       
+                        </div>
+
+
+
+
+        </div>
+    </section>
+    <!--grid-section end-->
+  </div>

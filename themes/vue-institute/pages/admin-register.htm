@@ -1,0 +1,50 @@
+title = "admin register"
+url = "/admin-register"
+layout = "admin/reg-login"
+is_hidden = 0
+
+[account]
+redirect = "dashboard"
+paramCode = "code"
+forceSecure = 1
+requirePassword = 1
+==
+<!-- Start Register Area -->
+        <div class="register-area bg-image">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="register-form">
+                        <div class="logo">
+                            <a href="dashboard-analytics.html"><img src="https://transfer.cspi.uz/storage/app/uploads/public/8ac/c17/bfc/thumb__132_70_0_0_crop.png" alt="image"></a>
+                        </div>
+
+                        <h2>Ro'yxatdan o'tish</h2>
+                        
+
+
+
+
+
+{% if not user %}
+
+   
+            {% partial account ~ '::register' %}
+   
+
+
+{% else %}
+
+    {% partial account ~ '::activation_check' %}
+
+    {% partial account ~ '::update' %}
+
+    {% partial account ~ '::deactivate_link' %}
+
+{% endif %}
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Register Area -->

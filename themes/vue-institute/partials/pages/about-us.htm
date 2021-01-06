@@ -1,0 +1,91 @@
+description = "Biz haqimizda qismi eng yuqori qismdan"
+
+[viewBag]
+
+[BizHaqimizdaComponent]
+id_find = 1
+==
+<style>
+    @media (max-width:980px) {
+      img#optionalstuff {
+        display: none;
+      }
+    } 
+     
+
+  
+    </style>
+    <!--introduction-section-->
+    <section class="ttm-row introduction-section clearfix">
+        <div class="container" style="max-width: 1600px">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <div class="title-header">
+                        
+                  {% for post in BizHaqimizdaComponent.bizhaqimizda %}
+                  {% if post %}
+   
+   <h5>{{ post.h5 }}</h5>
+                            <h2 class="title">{{ post.h2 }}</h2>
+                        </div>
+                        <div class="heading-seperator"><span></span></div>
+                    </div><!-- section title end -->
+                    <p> {{ post.text|raw }}</p>
+                   
+                    <!-- <h5 class="text-center">Institut haqida qisqacha</h5> -->
+                    <div class="row mt-25 mb-10">
+                        
+
+                        <div class="col-lg-6 col-md-5 col-sm-6">
+                            <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+                            
+                           {% for list in post.list_key_chap %}
+                                <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><a href="{{ list.list_url}}">{{ list.list_nomi}}</a></div></li>
+                                
+                                {% endfor %}
+                                <!--<li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content">Guaranted career grow security</div></li>
+                                <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content">Experienced faculty and teachers</div></li>-->
+                            </ul>
+                        </div>
+                       <div class="col-lg-6 col-md-5 col-sm-6">
+                            <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+                                {% for list in post.list_key_ong %}
+                                <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><a href="{{ list.list_url}}">{{ list.list_nomi}}</a></div></li>
+                                
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-lg-4 col-md-5 col-sm-6">
+                            <div class="mt-30 res-991-mt-15">
+                                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="#">{{ "Ko'proq o'qish"|_}}</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-5 col-sm-6">
+                            <div class="mt-30 res-991-mt-15 res-991-mb-30">
+                                <h6 class="ttm-textcolor-skincolor mb-2">{{ post.qabulhona_tel}} </h6>
+                                <h6 class="font-weight-normal">{{ post.qabul_text}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 d-none d-sm-block d-md-none d-lg-block ">
+                    <!-- ttm_single_image-wrapper -->
+                    <div class="ttm_single_image-wrapper" style="height: 520px;">
+                        <img class="img-fluid lazyload" style="height: 520px;" data-src="{{ post.image|media }}" alt=""  id="optionalstuff">
+                    </div>
+                </div>
+                {% else %}
+                    {{ notFoundMessage }}
+                {% endif %}
+              
+              {% endfor %}          
+                            
+                
+            </div><!-- row end -->
+        </div>
+    </section>
+    <!--introduction-section end-->

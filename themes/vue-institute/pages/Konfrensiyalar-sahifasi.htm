@@ -1,0 +1,207 @@
+title = "Konfrensiyalar sahifasi"
+url = "/konfrensiyalar-sahifasi/:item_slug"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[item]
+item = 0
+itemSlug = "{{ :item_slug }}"
+catListPage = 404
+tagListPage = 404
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Отсутсвие постов"
+sortOrder = "published_at desc"
+postFeatured = 0
+postPage = 404
+
+[viewBag]
+localeUrl[en] = "/konfrensiyalar-sahifasi"
+localeUrl[ru] = "/konfrensiyalar-sahifasi"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{ '/storage/app/media/dji0.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+          
+            <h1 class="mb-3 bread">{{"Konfrensiyalar haqida"|_}}</h1>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<section class="ftco-section ftco-degree-bg">
+
+
+
+
+
+
+
+
+    {% set item = item.item %}
+
+      <div class="container">
+      
+        <div class="row">
+        
+          <div class="col-md-8 ftco-animate">
+            
+            
+           
+
+
+
+
+
+<h2>{{"Konfrensiya nomi"|_}}: {{ item.title }}</h2>
+
+<h4>{{"Saytga qo'yilgan"|_}}: {{ item.created_at|date('j m Y') }}</h4>
+<br/>
+<h3> <center> Mazmuni </center></h3>
+
+  {% for image in item.images %}
+
+
+<a   style="background-image: url(/{{ image.path }}"><img style="width: 100%; height: auto;" class="img" src="{{ image.path }}" alt="{{ image.title }}"></a>
+
+      {% endfor %}
+
+
+
+
+
+
+
+<p>{{ item.description|raw }}</p>
+
+
+
+
+ {% for tag in item.tags %}
+                <a href="{{ tag.pageUrl }}"><span class="label label-default">{{ tag.name }}</span></a>
+                {% endfor %}
+
+   
+
+
+
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" placeholder="Bu yerdan qidiring......">
+                </div>
+              </form>
+            </div>
+            
+            
+            
+         {#   {% set categories = newsCategories.categories %}
+<div class="sidebar-box ftco-animate">
+ <div class="categories">
+                <h3>{{"Farmon va qarorlar Bo'limlari"|_}}</h3>
+{% for category in categories %}
+
+
+    {% if loop.first %}
+        <ul>
+    {% endif %}
+
+    <li><a href="{{'/barcha-yangiliklar/'}}{{ category.slug }}">{{ category.name }}</a></li>
+    {% if loop.last %}
+        </ul>
+    {% endif %}
+{% else %}
+    <span class="post-nodata">{{ noPostsMessage }}</span>
+    </div>
+            </div>
+{% endfor %}
+#}
+            
+          
+            
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"So'ngi yangiliklar"|_}}</h3>
+                 
+{% set posts = newsPosts.posts %}
+                    {% for post in posts %}
+
+      
+<div class="block-21 mb-4 d-flex">
+   
+              <div class="blog-img mr-4">
+        {% if post.image %}<a   style="background-image: url({{ postPage }}/{{ post.slug }}); "><img  style="width: 80px; height: 80px;" src="{{ post.image|media }}" 
+        alt="{{ post.title }}"></a>{% endif %}</div>
+        
+        
+
+        <div class="text">
+        <h3 class="heading"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h3>
+        
+        <div class="meta">
+        
+        <div><a href="#"><span class="icon-calendar"></span>{{ post.published_at|date('Y-m-d') }}</a></div>
+         <div><a href="#"><span class="icon-person"></span> {{ post.user.first_name}}</a></div>
+         <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+         </div>
+          
+    
+              </div>
+</div>
+               
+   
+    {% else %}
+    <span >{{ noPostsMessage }}</span>
+    {% endfor %}
+            </div>
+
+
+
+
+{#
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"Taglar"|_}}</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">medical</a>
+                <a href="#" class="tag-cloud-link">cure</a>
+                <a href="#" class="tag-cloud-link">remedy</a>
+                <a href="#" class="tag-cloud-link">health</a>
+                <a href="#" class="tag-cloud-link">workout</a>
+                <a href="#" class="tag-cloud-link">medicine</a>
+                <a href="#" class="tag-cloud-link">doctor</a>
+                <a href="#" class="tag-cloud-link">medic</a>
+              </div>
+            </div>#}
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"Sayt Betta holatda ishlamoqda"|_}} </h3>
+              <p>{{"Noqulayliklar yuzaga kelsa, uzur so'raymiz. :)"|_}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->

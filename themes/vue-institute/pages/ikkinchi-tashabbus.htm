@@ -1,0 +1,85 @@
+title = "Ikkinchi tashabbus"
+url = "/ikkinchi-tashabbus"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[magnific]
+idGallery = 2
+height = 100
+width = "auto"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{ 'assets/images/bg_12.jpg'|theme }}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+           
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+
+          <br>
+         <br>
+         
+         <h1 class="mb-3 bread text-center">{{"Ikkinchi tashabbus suratlarda"|_}}</h1>
+       	
+
+<div id="{{ magnific }}" class="magnific">
+  {% for i, image in magnific.gallery.images %}
+  <a href="{{ image.path }}"><img title="{{ image.title }}" alt="{{ image.description }}" src="{{ image.thumb( width , height ) }}" width="{{ magnific.property('width') }}" height="{{ magnific.property('height') }}"></a>
+  {% endfor %}
+  <br>
+  
+  <br>
+         
+         <h1 class="mb-3 bread text-center">{{"Ikkinchi tashabbus videolarda"|_}}</h1>
+       	
+
+
+  
+<table style="height: 38px; width: 100%;">
+<tbody>
+<tr>
+<td style="width: 32.2443%;"> <iframe width="100%" height="315"  src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-12_15-53-11.mp4"></iframe> </td>
+
+<td style="width: 34.8461%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-08_09-25-16.mp4"></iframe> </td>
+<td style="width: 29.5005%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-08_09-26-28.mp4"></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-12_15-56-08.mp4"></iframe></td>
+<td style="width: 34.8461%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-05_11-01-37.mp4"></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%" height="315" src=""></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/ikkinchi_tashabbus/video_2020-05-07_14-04-51.mp4"></iframe></td>
+<!-- <td style="width: 34.8461%;"><iframe width="100%" height="315"  src=""></iframe></td> -->
+<!-- <td style="width: 29.5005%;"><iframe width="100%" height="315" src=""></iframe></td> -->
+<!-- </tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src=""></iframe></td> -->
+<!-- td style="width: 34.8461%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%"  src=""></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 34.8461%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%"  src=""></iframe></td>-->
+</tr>
+</tbody>
+</table>
+         
+         
+         <br>
+         
+</div>
+      </div>
+    </section>

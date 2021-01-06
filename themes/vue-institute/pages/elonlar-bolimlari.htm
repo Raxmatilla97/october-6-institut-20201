@@ -1,0 +1,143 @@
+title = "Elonlar bo'limlari"
+url = "/elonlar-bolimlari/:slug?"
+layout = "default"
+description = "Elonlarni barcha sini ko'rsatish va boshqa kategoryalardagi elonlarni ko'rsatadi."
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[viewBag]
+localeUrl[en] = "/elonlar-bolimlari"
+localeUrl[ru] = "/elonlar-bolimlari"
+
+[staticPage]
+useContent = 1
+default = 1
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "elonlar"
+exceptCategories = ":slug"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/social-media-voice.png'}}); background-attachment:fixed;">
+      <div class="overlay"></div>{% component 'staticPage' %}
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+           
+            <h1 class="mb-3 bread">
+            
+            
+            
+             {% if category.name == false %}
+          
+          
+    {{"OTM e'lonlari"|_}}</h1>
+    
+
+
+{% else %}
+            {{ category.name }}</h1>
+             
+            {% endif %}
+          
+
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  
+<section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            {#<h2 class="mb-4">{{"Institut e'lonlari"|_}}</h2>#}
+          </div>
+        </div>
+        <div class="row d-flex">
+{% set posts = blogPosts.posts %}
+ {% for post in posts %}
+ 
+ 
+ 
+ 
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry align-self-stretch  ">
+            
+                {% for image in post.featured_images %}
+                
+        <a href="{{ post.url}}" class="block-20"><img style="width: 100%;height: auto;" data-src="{{ image.filename }}" src="{{ image.path }}" alt="/ Toshkent viloyati Chirchiq davlat pedagogika instituti. / Ташкентская область Чирчикский педагогический институт / Chirchiq State Pedagogical Institute of Tashkent region.  / {{ post.title }} / {{ postPage }} / {{ post.slug }} /  {{ image.description }} / {{ image.title }}"></a>
+        {% endfor %}
+              </a>
+              
+                     {{ post.description }}
+<div class="text p-4 d-block">
+<div class="meta mb-3">
+   
+       <div><a href="#"></a>{{ post.published_at|date('M d, Y') }}</div>
+                  <div><a href="#"></a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span></a></div>
+                </div>
+
+
+       
+               
+                <h3 class="heading mt-3"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+           
+     
+            <p 
+                Posted
+                {% if post.categories.count %} in {% endif %}
+                {% for category in post.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                on 
+            </p>
+            
+            </div>
+</div>
+          </div>
+           
+
+
+      
+          {% endfor %}
+          
+          
+        
+
+
+
+   
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+               
+              
+                <li>{{ posts.render|raw }}</li>
+               
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+        
+        </div>
+      </div>
+    </section>

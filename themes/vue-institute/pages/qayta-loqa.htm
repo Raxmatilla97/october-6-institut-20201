@@ -1,0 +1,106 @@
+title = "Qayta a'loqa"
+url = "/qayta-loqa"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[staticPage]
+useContent = 1
+default = 1
+
+[genericForm]
+messages_success = "Sizning xabaringiz jo'natildi. Javob xati email pochtangizga yuboriladi."
+messages_errors = "Xatolik yuzaga keldi!"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_enabled = 0
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "compact"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/contact-bg.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>{{"Qayta a'loqa"|_}}</span></p>
+            <h1 class="mb-3 bread">{{"Qayta a'loqa bo'limi"|_}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section contact-section ftco-degree-bg">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-12 mb-4">
+            <h2 class="h4">{{"Contact ma'lumotlar"|_}}</h2>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-md-3">
+            <p><span>{{'Manzil:'|_}}</span>{{"Manzil: Chirchiq shahri, Amir Temur ko'chasi 104 uy"|_}} </p>
+          </div>
+          <div class="col-md-3">
+            <p><span>{{'Telefon:'|_}}</span> <a href="tel://998707124541">{{'+99870 716-68-05'|_}}</a></p>
+          </div>
+          <div class="col-md-3">
+            <p><span>{{'Elektron pochta'|_}}</span> <a href="mailto:tvchdpi@edu.uz">{{'tvchdpi@edu.uz'|_}}</a></p>
+          </div>
+          
+        </div>
+        
+        
+
+           <div class="col-xl-auto">
+          
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+            
+              <h2  ><center>Qayta a'loqa formasi</center></h2>
+          
+          
+                       
+          <form data-request="{{ genericForm }}::onFormSubmit">
+
+    {{ form_token() }}
+
+    <div id="{{ genericForm }}_forms_flash"></div>
+
+    <div class="form-group">
+        <label for="name">Ismingiz:</label>
+        <input type="text" id="name" name="Ism" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Qisqacha murojat mavzusi:</label>
+        <input type="text" id="subject" name="Qisqa-nomi" class="form-control">
+    </div>
+
+    <div class="form-group">
+    
+        <textarea id="comments" name="Asosiy-qism" rows="8" cols="80"></textarea>
+    </div>
+
+   
+    <button id="simpleContactSubmitButton" type="submit" class="btn btn-default"><center>Jo'natish</center></button>
+
+</form>
+       
+
+          
+          
+    
+   </div>
+          </div>
+             
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,81 @@
+description = "Konfrensiyalar"
+
+[viewBag]
+
+[Konfrensiyalar]
+display = 4
+sort = "created_at desc"
+==
+{% set records = Konfrensiyalar.konfrense %}    
+
+<!--event-section-->
+    <section class="ttm-row event2-section bg-img1 ttm-bgcolor-darkgrey clearfix">
+        <div class="container" style="max-width: 1300px">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- section title -->
+                    <div class="section-title title-style-center_text">
+                        <div class="title-header">
+                            <h5>{{"OTM AXBOROT XIZMATI"|_}}</h5>
+                            <h2 class="title">{{"KONFERENSIYALAR"|_}}</h2>
+                            <br>
+                            <h6>{{"Konferensiyalarda qatnashish orqali o`z ilmiy salogiyatingizni yuksaltiring."|_}}</h6>
+                        </div>
+                        <div class="heading-seperator"><span></span></div>
+                    </div><!-- section title end -->
+                </div>
+            </div><!-- row end -->
+            <!-- slick_slider -->
+            <div class="row slick_slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 3, "arrows":false, "autoplay":true, "centerMode":true, "centerPadding":"300px", "infinite":true, "responsive": [{"breakpoint":991,"settings":{"slidesToShow": 1, "centerPadding":"0px","centerMode":false }} ]}'>
+                          
+                     
+             
+                {% for record in records %}
+                <div class="ttm-box-col-wrapper col-lg-4">
+                    <!-- featured-imagebox-event -->
+                    <div class="featured-imagebox featured-imagebox-event">
+                        <div class="ttm-event-thumbnail featured-thumbnail">
+                            <img class="img-fluid lazyload" data-src="{{ record.image|media| resize (740, 510 , { mode: 'crop', quality: '70' }) }}" alt="{{ record.title }}">
+                            <div class="ttm-box-event-date">
+                                <span class="ttm-entry-date">
+                                    <time class="entry-date" datetime="{{ record.kun_soat|date('d-M') }}">{{ record.kun_soat|date('d-M') }}</time>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="featured-content featured-content-event">
+                            <div class="event-title featured-title">
+                                <h5><a href="courses-single.html">{{ record.title }}</a></h5>
+                            </div>
+                            <div class="ttm-box-meta ttm-events-meta">
+                                <div class="ttm-meta-details ttm-event-meta-details">
+                                    <div class="ttm-event-meta-item ttm-event-date"> 
+                                        <i class="fa fa-clock-o"></i> {{ record.kun_soat|date('H:i:s') }}
+                                    </div>
+                                    <div class="ttm-event-meta-item ttm-event-vanue"> 
+                                        <i class="fa fa-map-marker"></i> {{ record.manzil }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ttm-eventbox-footer">
+                                 <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-square ttm-icon-btn-right ttm-btn-style-fill ttm-btn-color-skincolor" href="#">{{"To'liq o'qish"|_}}<i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox-event end-->
+                </div>
+                
+                    {% else %}
+                        <li class="no-data">{{ noRecordsMessage }}</li>
+                    {% endfor %}
+
+
+            </div>
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mt-20 mb_25 text-center"><p>{{"Yanada ko'proq konferensiyalar haqida bilmoqchi bo'lsangiz"|_}} <u><a href="home-3.html#">{{"BU YERGA BOSING."|_}}</a></u></p></div>
+                </div>
+            </div><!-- row end -->
+        </div>
+    </section>
+    <!--event-section-->

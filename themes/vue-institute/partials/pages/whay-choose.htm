@@ -1,0 +1,217 @@
+description = "Tanlash bo'lagi sayt o'rtasi kotta"
+
+[viewBag]
+
+[AxborotCompoment]
+display = 3
+sort = "created_at desc"
+
+[majmualarCompoment]
+sort = "created_at desc"
+sort2 = "created_at asc"
+display = 4
+display2 = 3
+
+[IlmiyMaqolalar]
+sort = "created_at desc"
+display = 3
+==
+<!-- Axborot xizmati uchun component -->
+  {% set axborot = AxborotCompoment.axborot %}
+<!-- Axborotlarni soni -->
+  {% set axborotcount = AxborotCompoment.axborotcount %}
+<!-- Ilmiy maqolalar soni -->
+  {% set ilmiymaqola = IlmiyMaqolalar.ilmiymaqola %}
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    </style>
+<!--why_choose2-section -->
+        <div class="ttm-row why_choose2-section clearfix">
+            <div class="container" style="max-width: 1500px">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- section title -->
+                        <div class="section-title title-style-center_text">
+                            <div class="title-header">
+                                <h5>{{"OTM AXBOROT XIZMATI"|_}}</h5>
+                                <h3 class="title">{{"BOSHQA YANGILIKLAR VA QIZIQARLI MAQOLALAR"|_}}</h3>
+                            </div>
+                            <div class="heading-seperator"><span></span></div>
+                        </div><!-- section title end -->
+                    </div>
+                </div>
+                <!-- row end-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ttm-tabs tabs-style-01" data-effect="fadeIn">
+                            <ul class="tabs clearfix">
+                                <li class="tab active"><a href="#">{{"Axborot makoni"|_}}</a></li>
+                                <li class="tab"><a href="#">{{"Ilmiy maqolalar"|_}}</a></li>                   
+                                <li class="tab"><a href="#">{{"Majmualar"|_}}</a></li>
+                            </ul>
+                            <div class="content-tab">
+                                <!-- content-inner -->
+                                <div class="content-inner">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img class="img-fluid lazyload" data-src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/20-10-30undraw_design_feedback_dexe.png' }}" alt="image">
+                                            <div class="featured-icon-box icon-align-before-content mt_30 ml-auto" style="margin-top: -0px!important;">
+                                                <div class="featured-icon">
+                                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-square ttm-icon_element-color-skincolor ttm-icon_element-size-sm">
+                                                        <i class="flaticon-book"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div class="featured-content " style="width: 200px;margin-right: 460px;bottom: 10px;background: white;border-color: #4569da;border-style: solid;">
+                                                    <div class="featured-title">
+                                                        <h5>{{axborotcount}} ta</h5>
+                                                    </div>
+                                                    <div class="featured-desc">
+                                                        <p>Ma'lumotlar ko'lami</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                <h4 class="font-weight-normal"><strong style="color: #ff4f01;"> Axborot makoni</strong> bu talabalarga qiziqarli va ilmiy ko'rinishdagi yangilik va maqolalarni chop etib boriladigan rukun.</p>
+                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+                                                                                                    
+                                                                                                     
+    
+    
+                                                        {% for record in axborot %}
+         
+
+                                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{record.slug}}">{{record.title}}</a></b></div> <br> <strong style="color: #ff4f01;"> Chop etildi: </strong> {{record.created_at|date('Y-m-d')}} <strong style="color: #ff4f01;">Chop etuvchi:</strong> {{record.user.first_name }} {{record.user.last_name }} <img src=" {{ record.user.avatar.getThumb(80,80, 'crop') }}" alt="Avatar" class="avatar"> 
+                                                            </li>
+                                                            <hr>
+                                                            
+                                                        {% else %}                                                             
+                                                            <h3 style="text-align: center;"> {{"Kechirasiz"|__}} :( <br> <span class="post-nodata">{{ "Hozirda hechqanday yangilik kiritilmagan!"|__ }}</span></h3>
+                                                        {% endfor %}
+
+
+                                                    
+                                                        
+                                                      
+                                                    
+                                                    </ul>
+                                                </div>
+                                                {% for record in records %}
+                                                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="#">{{ "Barcha maqolalarni ko'rish"|_ }}</a>
+                                                {%else%}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- content-inner end-->
+                                
+                                
+                                <!-- content-inner -->
+                                <div class="content-inner">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mb-20">
+                                                <h4 class="font-weight-normal">OTM ilmiy maqolalari</h4>
+                                                <p>Chirchiq davlat pedagogika instituti professor o'qituvchilar tomonidan yozilgan ilmiy maqolalar va elektron jurnallar bo'limi.</p>
+                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                
+                                                
+                                                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 widget-area">
+                                                    <div class="widget style2 widget-out-link clearfix">
+                                                    
+                                                                                       
+                                                      
+                                                        <ul class="widget-post ttm-recent-post-list pr-5">
+                                                        
+                                                        {% for record in ilmiymaqola %} 
+                                                        
+                                               
+                                                     
+                                                            <li>
+                                                                <a href="{{ record.slug}}"><img class=" lazyloaded" data-src="" alt="post-img" src="{{ record.user.avatar.getThumb(80,80, 'crop') }}"></a>
+                                                                  <a href="{{ record.slug}}">{{ record.title}}</a>
+                                                                <span class="post-date">{{ record.created_at|date('Y-m-d')}} <strong>Chop etuvchi:  {{record.user.first_name }} {{record.user.last_name }}</strong>  </span>  
+                                                              
+                                                            </li>
+                                                            <hr>
+                                                          {% endfor %}
+                                                        
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="#">{{"Ko'proq ilmiy maqolalarni o'qish"|_}}</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img class="img-fluid lazyload" data-src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/20-10-30undraw_multitasking_hqg3.png' }}" alt="image">
+                                        </div>
+                                    </div>
+                                </div><!-- content-inner end-->
+                                <!-- content-inner -->
+                                
+                           
+                                
+                                <!-- content-inner -->
+                                <div class="content-inner">
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                <h4 class="font-weight-normal"><strong style="color: #ff4f01;"> {{"So'ngi majmualar"|_}}</strong> {{"Eng so'ngi majmualar bilan tanishing"|_}}</p>
+                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+                                                    
+                                                    {% for post in majmualarCompoment.majmuacomp %}
+                                                        <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{post.slug}}">{{post.title}}</a></b></div> <br> <strong style="color: #ff4f01;"> Chop etildi: </strong> {{post.created_at|date('M d, Y')}} <strong style="color: #ff4f01;">{{"Chop etuvchi"|_}}:</strong> {{post.user.first_name}} {{post.user.last_name}}  <img src="{{post.user.avatar.path}}" alt="Avatar" class="avatar"> 
+                                                        </li>
+                                                        <hr>       
+                                                      {% endfor%}
+                                                    
+                                                    </ul>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="col-md-6" style="background: #f4f6f9 !important;">
+                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                  <h4 class="font-weight-normal"><strong style="color: #ff4f01;"> {{"Mashhur majmualar"|_}}</strong> {{"Eng ko'p ko'rilgan majmualar"|_}}</p>
+                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+                                                    {% for post2 in majmualarCompoment.majmuacomp2 %}
+                                                        <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{post2.slug}}">{{post2.title}}</a></b></div> <br> <strong style="color: #ff4f01;"> Chop etildi: </strong> {{post2.created_at|date('M d, Y')}} <strong style="color: #ff4f01;">{{"Chop etuvchi"|_}}:</strong> {{post2.user.first_name}} {{post2.user.last_name}}  <img src="{{post2.user.avatar.path}}" alt="Avatar" class="avatar"> 
+                                                        </li>
+                                                        <hr>       
+                                                      {% endfor%}
+                                                        
+                                                      
+                                                        
+                                                      
+                                                    
+                                                    </ul>
+                                                </div>
+                                                <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="#">{{ "Barcha maqolalarni ko'rish"|_ }}</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div><!-- content-inner end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--why_choose2-section end-->

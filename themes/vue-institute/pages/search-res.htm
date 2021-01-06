@@ -1,0 +1,94 @@
+title = "Qidirish"
+url = "/search-res"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[siteSearchInclude]
+
+[staticPage]
+useContent = 1
+default = 1
+
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Siz qidirgan ma'lumotlar topilmadi."
+visitPageMessage = "Visit page"
+
+[searchInput]
+useAutoComplete = 0
+autoCompleteResultCount = 10
+showProviderBadge = 0
+searchPage = "search-res.htm"
+
+[viewBag]
+localeUrl[en] = "/qidirish"
+localeUrl[ru] = "/qidirish"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/Depositphotos_67963611_l-2015-min.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>{% component 'staticPage' %}
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+       
+            <h1 class="mb-3 bread">{{"Sayt qidiruv tizimi"|_}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+             
+             
+             </p>
+             
+<section class="ftco-section testimony-section">
+      <div class="container">
+        
+      	
+      	
+      		<form action="{{ searchInput.searchPage | page }}?q={{ query | url_encode(true) }}" class="course-search-form">
+		                <div class="form-group d-flex">
+		                	
+		                  <input name="q" type="text" class="form-control" placeholder="{{'Sayt bo\'ylab qidiruv.....'|_}}" value="{{ searchInput.query }}"
+                   autocomplete="off"
+                   autofocus
+                    {% if searchInput.useAutoComplete %}
+                        data-track-input
+                        data-request="{{ searchInput }}::onType"
+                        data-request-before-update="document.getElementById('autocomplete-results').classList.add('ss-search-form__results--visible')"
+                        data-request-update="'{{ searchInput }}::autocomplete': '#autocomplete-results'"
+                    {% endif %}>
+
+		                <input type="submit" value="{{'Qidrisih'|_}}" class="submit">
+		                </div>
+		            
+		                 
+		              </form>
+		              
+		              
+		              
+		               
+      </div>
+    </section >
+    
+
+<section class="ftco-section">
+    
+      <div class="container">
+{% set results = searchResults.results %}
+
+{% for result in results %}
+    {# Display all results #}
+    {% partial searchResults ~ '::searchresult.htm' result = result %}
+{% else %}
+    {# No results found #}
+    {% partial searchResults ~ '::no-results.htm' %}
+{% endfor %}
+
+{% partial searchResults ~ '::pagination.htm' results = results %}
+
+</div>
+</section>

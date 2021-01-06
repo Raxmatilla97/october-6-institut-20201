@@ -1,0 +1,50 @@
+items:
+    -
+        title: Tuzilma
+        type: url
+        url: '#'
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: tset
+            isExternal: '0'
+        items:
+            -
+                title: Raxbariyat
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                items:
+                    -
+                        title: 'OTM rektori'
+                        type: url
+                        url: /
+                        code: ''
+                        viewBag:
+                            isHidden: '0'
+                            cssClass: ''
+                            isExternal: '0'
+            -
+                title: 'Markaz va bo''limlar'
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                items:
+                    -
+                        title: 'New menu item'
+                        type: url
+                        url: /
+                        code: ''
+                        viewBag:
+                            isHidden: '0'
+                            cssClass: ''
+                            isExternal: '0'
+name: 'Bosh sahifa'

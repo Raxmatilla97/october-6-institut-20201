@@ -1,0 +1,129 @@
+title = "Institut konfrensiyalari"
+url = "/konfrensiyalar-institut"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[viewBag]
+
+[portfolio]
+category = 8
+itemsPerPage = 6
+order = "desc"
+pageNumber = "{{ :page }}"
+selectedTag = "{{ :selected_tag }}"
+selectedCat = "{{ :selected_cat }}"
+catListPage = 404
+itemPage = "Konfrensiyalar-sahifasi"
+tagListPage = 404
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/Best-natural-language-processing-conferences.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>{% component 'staticPage' %}
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+       
+            <h1 class="mb-3 bread">{{"Institutda oʼtkaziladigan ilmiy-amaliy anjumanlar"|_}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<section class="ftco-section">
+    
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+    
+          </div>
+          
+        </div>
+        
+    		<div class="row">
+
+ 		
+
+
+
+ {% for item in portfolio.portfolio %}
+
+
+ {% if item.images|length > 0 %}
+
+
+    
+    <div class="col-md-4 d-flex ftco-animate">
+     <div class="course align-self-stretch">
+      {% set image = item.images.first %}
+        <a   style="background-image: url(/{{ item.pageUrl }})"><img style="width: 100%; height: auto;" class="img" src="{{ image.path }}" alt="{{ image.title }}"></a>{% endif %}
+            
+<div class="text p-4">
+
+
+ <p class="post-cat"><span>{{"Tegishli bo'limi:"|_}} <a href="{{ item.category.pageUrl }}" <span> {{ item.category.name }}</span></a></span></p>
+
+        
+        <h3 class="mb-3"><a href="{{ item.pageUrl }}">{{ item.title }}</a></h3>
+        
+         {% if item.description %}
+            <p>
+                {{ item.qisqa_description|raw }}
+            </p>
+            {% endif %}
+        
+       <p class="post-user"><span>{{"Chop etdi:"|_}} {{ post.user.first_name }}</span></p>
+ <p class="post-date"><span>{{"Chop etildi:"|_}}  {{ item.created_at|date('j m Y') }} </span></p>
+        
+
+        
+    </div>
+    <p><center><a href="{{ item.pageUrl }}/{{ item.p }}" class="btn btn-primary">{{"O'qib chiqish!"|_}}</a></center></p>
+    </div>
+
+
+
+  
+          
+              </div>
+   
+         {% endfor %}
+        
+      
+
+
+
+
+
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+               
+             
+
+ {% if portfolio.portfolio.currentPage > 1 %}
+               
+                {% endif %}
+
+                {% for page in 1..portfolio.portfolio.lastPage %}
+                <li class="{{ portfolio.portfolio.currentPage == page ? 'active' : null }}">
+                    <a href="{{ this.page.baseFileName|page({ page: page }) }}">{{ page }}</a>
+                </li>
+                {% endfor %}
+
+                {% if portfolio.portfolio.lastPage > portfolio.portfolio.currentPage %}
+               
+                {% endif %}
+               
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>

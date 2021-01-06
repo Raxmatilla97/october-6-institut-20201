@@ -1,0 +1,75 @@
+description = "Asosiy frontend sahifa maketi"
+
+[session]
+security = "all"
+==
+{% partial 'general/header'%}
+
+<body>
+
+    <!--page start-->
+    <div class="page">
+
+
+        <!--header start-->
+        <header id="masthead" class="header ttm-header-style-01">
+        
+    
+    {% partial 'pages/fbar-main'%}
+    
+    {% partial 'pages/top-bar'%}
+
+    {% partial 'pages/main-menyu'%}
+            
+
+    
+    {% partial 'pages/banner-slider'%}
+
+    <!--site-main start-->
+    <div class="site-main">
+
+    {% partial 'pages/start-1'%}
+        
+    {% partial 'pages/about-us'%}
+        
+    {% partial 'pages/blog-section'%}
+
+    {% partial 'pages/hisoblagich'%}
+
+    {% partial 'pages/popular-cource'%}
+ 
+    {% partial 'pages/our-events'%}
+
+      
+    {% partial 'pages/whay-choose'%}
+    {% partial 'pages/happy-students'%}
+
+        
+{#    {% partial 'pages/team-tichers'%}#}
+       
+
+    {% partial 'pages/admission'%}
+    
+
+      {#{% partial 'pages/blog2'%}#}
+      
+          {% partial 'pages/interaktiv'%}
+      
+        {% partial 'pages/client-section'%}
+      
+
+    </div><!--site-main end-->
+
+  {% partial 'pages/footer'%}
+   
+    <!--footer end-->
+
+    <!--back-to-top start-->
+    <a id="totop" href="home-3.html#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!--back-to-top end-->
+
+</div><!-- page end -->
+
+{% partial 'general/footer'%}

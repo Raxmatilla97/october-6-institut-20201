@@ -1,0 +1,112 @@
+title = "elonlar-sahifasi"
+url = "/elonlar-sahifasi"
+layout = "default"
+description = "TEst ishlatimayapti"
+is_hidden = 1
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[staticPage]
+useContent = 1
+default = 0
+
+[blogPosts blogPosts2]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = 404
+==
+{% if date("H") > "06" and date("H") <= "10" %}
+<div class="hero-wrap hero-wrap-2" style="background-image: url('{{'/storage/app/media/IMG_3448-min.jpg'}}'); background-attachment:fixed; ">
+
+{% else %}
+<div class="hero-wrap hero-wrap-2" style="background-image: url('{{'/storage/app/media/bannerlar/IMG_4036-min.jpg'}}'); background-attachment:fixed; ">
+{% endif %}
+
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Event</span></p>
+            <h1 class="mb-3 bread">Events</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+        	
+        	
+        	
+        	
+
+          {% set posts = newsPosts.posts %}
+           
+             {% for post in posts %}
+       
+          <div class="col-md-4 d-flex ftco-animate">
+        
+            <div class="blog-entry align-self-stretch">
+             
+                 {% if post.image %}<a class="block-20" style="background-image: url(/{{ postPage }}/{{ post.slug }});"><img style="width: 367px;height: 265px;" src="{{ post.image|media }}" alt="/ Toshkent viloyati Chirchiq davlat pedagogika instituti. / Ташкентская область Чирчикский педагогический институт / Chirchiq State Pedagogical Institute of Tashkent region.  / {{ post.title }} / {{ postPage }} / {{ post.slug }} /  {{ image.description }} / {{ image.title }}"></a>{% endif %}
+             
+              <div class="text p-4 d-block">
+              
+              
+                <div class="meta mb-3">
+                  <div><a href="#">{{ post.published_at|date('Y-m-d') }}</a></div>
+                  <div><a href="#">Admin</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                
+                
+                <h3 class="heading mb-4"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h3>
+                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> <span><i class="icon-map-o"></i> Venue Main Campus</span></p>
+                
+                
+                <p>  {% if post.introductory %}
+        {{ post.introductory|raw }}</p>
+        
+        {% endif %}</p>
+        
+    
+                <p><a href="/{{ postPage }}/{{ post.slug }}">{{'Elon bilan tanishish'|_}} <i class="ion-ios-arrow-forward"></i></a></p>
+             
+              </div>
+              </div>
+              
+              </div>
+              {% endfor %}
+            
+            
+            
+
+
+     
+{{ posts.render|raw }}
+
+          
+    
+          
+         
+        </div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if post.prev().title %}Prev: <a href="{{ 'blog'|page }}/{{ post.prev().slug }}" class="prev">{{ post.prev().title }}</a>{% endif %}
+        <br>
+        {% if post.next().title %}Next: <a href="{{ 'blog'|page }}/{{ post.next().slug }}" class="next">{{ post.next().title }}</a>{% endif %}
+          
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>

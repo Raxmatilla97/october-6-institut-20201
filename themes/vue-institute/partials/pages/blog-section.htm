@@ -1,0 +1,96 @@
+description = "Yangiliklar qismi"
+
+[viewBag]
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Hozirda hechqanday yangilik kiritilmagan!"
+sortOrder = "published_at desc"
+postFeatured = 0
+postPage = "home"
+categoryPage = "home"
+==
+{% set posts = newsPosts.posts %}
+
+
+<!--blog-section-->
+        <section class="ttm-row blog-section bg-img2 ttm-bgcolor-grey ttm-bg ttm-bgimage-yes clearfix">
+            <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+            <div class="container" style="max-width: 1600px">
+                 <!-- row -->
+                <div class="row align-items-center">
+                    <div class="col-xl-10 col-lg-10 col-md-12">
+                        <!-- section-title -->
+                        <div class="section-title style2 clearfix">
+                            <div class="title-header">
+                                <h5>{{ 'OTM AXBOROT XIZMATI'|_}}</h5>
+                                <h2 class="title">{{"OTM YANGILIKLARI"|_}}</h2>
+                            </div>
+                            <div class="title-desc">{{"Institutda bo'layotgan so'ngi yangilik va tadbirlarni bu yerda o'qishingiz mumkin. Yanayam ko'proq yangiliklarni ko'rish uchun"|_}} <strong>{{"Barcha yangiliklar"|_}}</strong> {{"tugmasidan foydalaning."|_}}</div>
+                        </div><!-- section-title end -->
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-12">
+                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark mb-15 float-lg-right" href="index.html#">{{"Barcha yangiliklar"|_}}</a>
+                    </div>
+                </div><!-- row end -->
+                <!-- slick_slider -->
+                <div class="row slick_slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1300,"settings":{"slidesToShow": 3}},{"breakpoint":950,"settings":{"slidesToShow": 2}}, {"breakpoint":540,"settings":{"slidesToShow": 1}}]}'>
+                   
+                   
+            {% for post in posts %}
+                    <div class="ttm-box-col-wrapper col-lg-4">
+                                                   
+                        <!-- featured-imagebox-post -->
+                        <div class="featured-imagebox featured-imagebox-post style1">
+                            <div class="ttm-post-thumbnail featured-thumbnail"> 
+                               {% if post.image %} <img class="img-fluid lazyload" data-src="{{ post.image|media | resize(370, 368,  { mode: 'crop', quality: '80' }) }}" alt="{{ post.title }}">{% endif %}
+                            </div>
+                            <div class="featured-content featured-content-post">
+                                
+                                 <div class="ttm-box-post-date" style="right: 80%; background-color: #4569da; height: 30px;">
+                                    <span class="ttm-entry-date">
+                                      <span  class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i> {{ post.statistics}}</span>
+                                    </span>
+                                </div>
+                                
+                                <div class="ttm-box-post-date">
+                                    <span class="ttm-entry-date">
+                                        <time class="entry-date" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('Y-m-d') }}</time>
+                                    </span>
+                                </div>
+                                <div class="post-meta">
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ post.user.getFullNameAttribute }}</span>
+                                    <span class="ttm-meta-line cat-link"><i class="fa fa-tag"></i>{{ post.category.name }}</span>
+                                </div>
+                                <div class="post-title featured-title">
+                                    <h5 style=" margin-top: 5px; 
+                                    margin-bottom: 0; 
+                                    font-size: 24px; 
+                                    line-height: 34px; 
+                                    font-weight: 400; 
+                                    text-overflow: ellipsis; 
+                                    overflow: hidden; display: -webkit-box;
+                                    -webkit-line-clamp: 4 ;
+                                    -webkit-box-orient: vertical;"><a href="/{{ postPage }}/{{ post.slug }}"  >
+                                    {{ post.title }}
+                                    </a></h5>
+                                    
+                                </div>
+                               {# <div class="post-desc featured-desc">
+                                    {% if post.introductory %}<p>  {{ post.introductory|raw }} </p>{% endif %}
+                                </div>#}
+                            </div>
+                        </div><!-- featured-imagebox-post end-->
+                        
+                    </div>
+                         {% else %}                         
+                            <img style="width:600px !important;" src="{{"storage/app/media/sayt sozlamlari suratlari/trends_in_ux_for_ecommerce_websites.png"}}">                        
+                            <h3  style="text-align: center;"> {{"Kechirasiz"|__}} :) <br> <span class="post-nodata">{{ "Hozirda hechqanday yangilik kiritilmagan!"|__ }}</span></h3>
+                         {% endfor %}
+
+                    
+                </div>
+            </div>
+        </section>
+        <!--blog-section end-->

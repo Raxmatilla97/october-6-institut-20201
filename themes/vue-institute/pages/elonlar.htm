@@ -1,0 +1,172 @@
+title = "Elonlar"
+url = "/elonlar/:slug/"
+layout = "default"
+description = "Elonlarni o'qish uchun sahifa modeli. Bu yerda :slugga tegib bo'lmaydi."
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[viewBag]
+localeUrl[en] = "/elonlar/:slug"
+localeUrl[ru] = "/obyavleniya/:slug"
+localeTitle[ru] = "Объявления"
+localeTitle[en] = "Announcement"
+
+[staticPage]
+useContent = 1
+default = 1
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "elonlar-bolimlari"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = ":slug"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "elonlar-bolimlari"
+postPage = "elonlar"
+
+[alternateHrefLangElements]
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "elonlar"
+==
+<style>.hero-wrap.hero-wrap-2{
+    
+    
+        height: 500px;
+    }</style>
+
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/banner_add_news-1500x410.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+     
+            <h1 class="mb-3 bread">{{ post.title }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-degree-bg ">
+      <div class="container">
+        <div class="row">
+          {% set post = blogPost.post %}
+     {% if post.featured_images.count %}
+<div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">{#{{ post.title }}#}</h2>
+            
+            {% for image in post.featured_images %}
+            <p>
+                <img 
+                 
+                    
+                     src="{{ image.path}}"
+                    alt="/ Toshkent viloyati Chirchiq davlat pedagogika instituti. / Ташкентская область Чирчикский педагогический институт / Chirchiq State Pedagogical Institute of Tashkent region.  / {{ post.title }} / {{ postPage }} / {{ post.slug }} /  {{ image.description }} / {{ image.title }}"
+                     style="width: 100%"
+                   
+                       />
+            </p>
+        {% endfor %}
+        
+            {{ post.content_html|raw }}
+            
+               <style>
+               
+               .fr-fic .fr-dib {
+                   
+                   width: 100%
+                   
+                   }
+               </style>
+ 
+        
+            
+{% endif %}
+
+
+<p class="info">
+    Posted
+    {% if post.categories.count %} in
+        {% for category in post.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+    on {{ post.published_at|date('M d, Y') }}
+</p>
+    
+
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" placeholder="{{"Bu yerdan qidiring......"|_}}">
+                </div>
+              </form>
+            </div>
+            
+            
+            
+            
+            
+            {% if blogCategories.categories|length > 0 %}
+   <div class="sidebar-box ftco-animate">
+ <div class="categories">
+                <h3>{{"Elektron qo'llanmalar bo'limlari"|_}}</h3>
+        {% partial blogCategories ~ "::items"
+            categories = blogCategories.categories
+            currentCategorySlug = blogCategories.currentCategorySlug
+        %}
+    </div>
+            </div>
+{% else %}
+    <p>{{"Yangi habarlar yo'q."|_}}</p>
+{% endif %}
+
+            
+
+
+
+
+            
+
+           
+
+
+
+
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"Taglar"|_}}</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">medical</a>
+                <a href="#" class="tag-cloud-link">cure</a>
+                <a href="#" class="tag-cloud-link">remedy</a>
+                <a href="#" class="tag-cloud-link">health</a>
+                <a href="#" class="tag-cloud-link">workout</a>
+                <a href="#" class="tag-cloud-link">medicine</a>
+                <a href="#" class="tag-cloud-link">doctor</a>
+                <a href="#" class="tag-cloud-link">medic</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"Sayt Betta holatda ishlamoqda"|_}} </h3>
+              <p>{{"Noqulayliklar yuzaga kelsa, uzur so'raymiz. :"|_}})</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->

@@ -1,0 +1,79 @@
+title = "Birinchi tashabbus"
+url = "/birinchi-tashabbus"
+layout = "default"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 0
+
+[magnific]
+idGallery = 1
+height = 100
+width = "auto"
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{ 'assets/images/bg_12.jpg'|theme }}); background-attachment:fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+           
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+
+          <br>
+         <br>
+         
+         <h1 class="mb-3 bread text-center">{{"Birinchi tashabbus suratlarda"|_}}</h1>
+       	
+
+<div id="{{ magnific }}" class="magnific">
+  {% for i, image in magnific.gallery.images %}
+  <a href="{{ image.path }}"><img title="{{ image.title }}" alt="{{ image.description }}" src="{{ image.thumb( width , height ) }}" width="{{ magnific.property('width') }}" height="{{ magnific.property('height') }}"></a>
+  {% endfor %}
+  <br>
+  <br>
+   <h1 class="mb-3 bread text-center">{{"Birinchi tashabbus videolarda"|_}}</h1>
+   <br>
+<table style="height: 38px; width: 100%;">
+<tbody>
+<tr>
+<td style="width: 32.2443%;"> <iframe width="100%" height="315"  src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Sherzodbek%20Toshmatov%20Mut%2018-2.mp4"></iframe> </td>
+
+<td style="width: 34.8461%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Abduqodirov%20Muhammadzohid%20Mut%2018-1.mp4"></iframe> </td>
+<td style="width: 29.5005%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/tolqinov-nodir-mut-19-1.mp4"></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Isoqova%20Guljaxon%20Mut%2019-1.mp4"></iframe></td>
+<td style="width: 34.8461%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/meliqoziyev-rahmonali-mut-19-2.mp4"></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Atxamova%20Laylo%20Mut%2019-1.mp4"></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Sultanova%20Dinara%20Mut%2018-2.mp4"></iframe></td>
+<td style="width: 34.8461%;"><iframe width="100%" height="315"  src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/video_2020-05-14_14-21-31.mp4"></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/tolaboyev-oybek-mut-19-1.mp4"></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%" height="315" src="https://www.cspi.uz/storage/app/media/2020-yilgi/05%20May/Abdullayeva%20Sitora%20Mut%2019-2.mp4"></iframe></td>
+<!-- td style="width: 34.8461%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%"  src=""></iframe></td>
+</tr>
+<tr>
+<td style="width: 32.2443%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 34.8461%;"><iframe width="100%"  src=""></iframe></td>
+<td style="width: 29.5005%;"><iframe width="100%"  src=""></iframe></td>-->
+</tr>
+</tbody>
+</table>
+         
+         <br>
+         
+</div>
+      </div>
+    </section>
