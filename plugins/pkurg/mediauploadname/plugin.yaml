@@ -1,0 +1,6 @@
+plugin:
+    name: 'pkurg.mediauploadname::lang.plugin.name'
+    description: 'pkurg.mediauploadname::lang.plugin.description'
+    author: Vladimir
+    icon: oc-icon-upload
+    homepage: ''

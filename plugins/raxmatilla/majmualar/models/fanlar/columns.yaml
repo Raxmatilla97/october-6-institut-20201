@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'Fan nomi'
+        type: text
+        searchable: true
+        sortable: true

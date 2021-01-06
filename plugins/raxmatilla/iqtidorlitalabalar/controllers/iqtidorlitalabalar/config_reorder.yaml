@@ -1,0 +1,4 @@
+title: IqtidorliTalabalar
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\IqtidorliTalaba
+toolbar:
+    buttons: reorder_toolbar

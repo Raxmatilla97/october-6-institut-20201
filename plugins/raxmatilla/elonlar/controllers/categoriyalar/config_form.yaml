@@ -1,0 +1,10 @@
+name: Categoriyalar
+form: $/raxmatilla/elonlar/models/categoriya/fields.yaml
+modelClass: Raxmatilla\Elonlar\Models\Categoriya
+defaultRedirect: raxmatilla/elonlar/categoriyalar
+create:
+    redirect: 'raxmatilla/elonlar/categoriyalar/update/:id'
+    redirectClose: raxmatilla/elonlar/categoriyalar
+update:
+    redirect: raxmatilla/elonlar/categoriyalar
+    redirectClose: raxmatilla/elonlar/categoriyalar

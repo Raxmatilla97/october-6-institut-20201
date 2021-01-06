@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: Nomlanishi
+        type: text
+        searchable: true
+        sortable: false
+    created_at:
+        label: Yaratilgan
+        type: date
+        sortable: true

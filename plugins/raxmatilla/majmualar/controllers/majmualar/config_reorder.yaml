@@ -1,0 +1,4 @@
+title: Majmualar
+modelClass: Raxmatilla\Majmualar\Models\Majmualar
+toolbar:
+    buttons: reorder_toolbar

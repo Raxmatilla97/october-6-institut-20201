@@ -1,0 +1,10 @@
+name: IlmiyMaqolalar
+form: $/raxmatilla/majmualar/models/ilmiymaqolalar/fields.yaml
+modelClass: Raxmatilla\Majmualar\Models\IlmiyMaqolalar
+defaultRedirect: raxmatilla/majmualar/ilmiymaqolalar
+create:
+    redirect: 'raxmatilla/majmualar/ilmiymaqolalar/update/:id'
+    redirectClose: raxmatilla/majmualar/ilmiymaqolalar
+update:
+    redirect: raxmatilla/majmualar/ilmiymaqolalar
+    redirectClose: raxmatilla/majmualar/ilmiymaqolalar

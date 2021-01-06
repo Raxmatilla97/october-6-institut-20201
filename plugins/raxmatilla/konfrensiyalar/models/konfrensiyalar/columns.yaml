@@ -1,0 +1,21 @@
+columns:
+    title:
+        label: 'Konfrensiya nomi'
+        type: text
+        searchable: true
+        sortable: false
+    active:
+        label: Faolligi
+        type: switch
+        searchable: true
+        sortable: false
+    created_at:
+        label: 'Yaratilgan sana'
+        type: datetime
+        searchable: true
+        sortable: true
+    kun_soat:
+        label: 'Konfrensiya o''tqaziladigan kun'
+        type: datetime
+        searchable: true
+        sortable: true

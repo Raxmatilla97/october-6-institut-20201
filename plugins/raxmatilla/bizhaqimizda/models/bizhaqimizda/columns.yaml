@@ -1,0 +1,6 @@
+columns:
+    h5:
+        label: 'Banner nomi'
+        type: text
+        searchable: true
+        sortable: true

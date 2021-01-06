@@ -1,0 +1,10 @@
+name: Manbalar
+form: $/raxmatilla/majmualar/models/manbalar/fields.yaml
+modelClass: Raxmatilla\Majmualar\Models\Manbalar
+defaultRedirect: raxmatilla/majmualar/manbalar
+create:
+    redirect: 'raxmatilla/majmualar/manbalar/update/:id'
+    redirectClose: raxmatilla/majmualar/manbalar
+update:
+    redirect: raxmatilla/majmualar/manbalar
+    redirectClose: raxmatilla/majmualar/manbalar

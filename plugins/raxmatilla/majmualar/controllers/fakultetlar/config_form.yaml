@@ -1,0 +1,10 @@
+name: Fakultetlar
+form: $/raxmatilla/majmualar/models/fakultetlar/fields.yaml
+modelClass: Raxmatilla\Majmualar\Models\Fakultetlar
+defaultRedirect: raxmatilla/majmualar/fakultetlar
+create:
+    redirect: 'raxmatilla/majmualar/fakultetlar/update/:id'
+    redirectClose: raxmatilla/majmualar/fakultetlar
+update:
+    redirect: raxmatilla/majmualar/fakultetlar
+    redirectClose: raxmatilla/majmualar/fakultetlar

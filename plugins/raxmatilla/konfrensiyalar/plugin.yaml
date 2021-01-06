@@ -1,0 +1,16 @@
+plugin:
+    name: 'raxmatilla.konfrensiyalar::lang.plugin.name'
+    description: 'raxmatilla.konfrensiyalar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-building
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Konfrensiyalar
+        url: raxmatilla/konfrensiyalar/konfrensiyalar
+        icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: 'Konfrensiyalar ro''yxati'
+                url: raxmatilla/konfrensiyalar/konfrensiyalar
+                icon: icon-sitemap

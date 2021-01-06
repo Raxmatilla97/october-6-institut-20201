@@ -1,0 +1,92 @@
+fields:
+    h5:
+        label: 'h5 qismi'
+        span: left
+        placeholder: 'Institut haqida qisqacha'
+        attributes:
+            translatable: 'true'
+        type: text
+    h2:
+        label: 'h2 qismi'
+        span: auto
+        placeholder: 'OTM TARIXI'
+        attributes:
+            translatable: 'true'
+        type: text
+    page_slug:
+        label: 'Sahifani yo''naltirgich'
+        span: auto
+        placeholder: /sahifa_nomi
+        attributes:
+            translatable: 'true'
+        type: text
+    image:
+        label: Surati
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+tabs:
+    fields:
+        text:
+            label: 'Asosiy html qismi'
+            size: giant
+            span: full
+            placeholder: 'Institut 0‘zbekiston Respublikasi Prezidentining <strong>2017-yil 27-iyuldagi PQ-3152 </strong>sonli <strong>"Toshkent viloyati Chirchiq davlat pedagogika institutini tashkil etish to`g`risida"</strong>gi Qaroriga asosan maktabgacha, maktab va maktabdan tashqari taʼlim muassasalarining tarbiyachilar, boshlanglch sinf ayniqsa aniq fanlar va chet tillari bo‘yicha o''qituvchilarga bo‘lgan ehtiyojlarini qondirish, tumanlar va qishloq joylaridagi taʼlim muassasalarini yuqori malakali pedagog kadrlar bilan ta''minlash hamda xalqaro standartlar darajasiga mos oliy maʼIumotli pedagogik kadrlar tayyorlash tizimini joylarda tashkil etishni yanada takomillashtirish va ta''lim sifatini yaxshilash maqsadida tashkil etildi.'
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: textarea
+            tab: 'Asosiy qismi'
+        qabul_text:
+            label: 'Qabulxona text'
+            span: auto
+            attributes:
+                translatable: 'true'
+            type: text
+            tab: 'Qo''shimchalar'
+        qabulhona_tel:
+            label: 'Qabulxona telefon'
+            span: auto
+            type: text
+            tab: 'Qo''shimchalar'
+        list_key_chap:
+            label: 'Qo''shimcha manbalar'
+            prompt: 'yangi qo''shish'
+            span: auto
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: 'Qo''shimchalar'
+            form:
+                fields:
+                    list_nomi:
+                        label: 'Listning nomlanishi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    list_url:
+                        label: 'List manzili'
+                        span: auto
+                        type: text
+        list_key_ong:
+            label: 'O''ng tarafdagi fildlar'
+            prompt: 'Add new item'
+            span: auto
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: 'Qo''shimchalar'
+            form:
+                fields:
+                    list_nomi:
+                        label: 'List nomi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    list_url:
+                        label: 'List manzili'
+                        span: auto
+                        type: text

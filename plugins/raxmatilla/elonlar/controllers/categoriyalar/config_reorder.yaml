@@ -1,0 +1,4 @@
+title: Categoriyalar
+modelClass: Raxmatilla\Elonlar\Models\Categoriya
+toolbar:
+    buttons: reorder_toolbar

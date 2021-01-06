@@ -1,0 +1,4 @@
+title: Konfrensiyalar
+modelClass: Raxmatilla\Konfrensiyalar\Models\Konfrensiyalar
+toolbar:
+    buttons: reorder_toolbar

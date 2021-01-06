@@ -1,0 +1,12 @@
+list: $/raxmatilla/elonlar/models/elonlar/columns.yaml
+modelClass: Raxmatilla\Elonlar\Models\Elonlar
+title: Elonlar
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'raxmatilla/elonlar/elonlar/update/:id'

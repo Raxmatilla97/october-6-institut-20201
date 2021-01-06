@@ -1,0 +1,10 @@
+name: BannerRoyxatlari
+form: $/raxmatilla/bizhaqimizda/models/bizhaqimizda/fields.yaml
+modelClass: Raxmatilla\BizHaqimizda\Models\BizHaqimizda
+defaultRedirect: raxmatilla/bizhaqimizda/bannerroyxatlari
+create:
+    redirect: 'raxmatilla/bizhaqimizda/bannerroyxatlari/update/:id'
+    redirectClose: raxmatilla/bizhaqimizda/bannerroyxatlari
+update:
+    redirect: raxmatilla/bizhaqimizda/bannerroyxatlari
+    redirectClose: raxmatilla/bizhaqimizda/bannerroyxatlari

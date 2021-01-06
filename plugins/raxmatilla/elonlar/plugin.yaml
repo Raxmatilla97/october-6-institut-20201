@@ -1,0 +1,20 @@
+plugin:
+    name: 'raxmatilla.elonlar::lang.plugin.name'
+    description: 'raxmatilla.elonlar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-bullhorn
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'E''lonlar'
+        url: raxmatilla/elonlar/elonlar
+        icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: 'E''lonlar ro''yxati'
+                url: raxmatilla/elonlar/elonlar
+                icon: icon-sitemap
+            side-menu-item2:
+                label: 'Bo''limlar'
+                url: raxmatilla/elonlar/categoriyalar
+                icon: icon-sitemap

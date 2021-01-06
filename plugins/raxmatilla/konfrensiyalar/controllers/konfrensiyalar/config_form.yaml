@@ -1,0 +1,10 @@
+name: Konfrensiyalar
+form: $/raxmatilla/konfrensiyalar/models/konfrensiyalar/fields.yaml
+modelClass: Raxmatilla\Konfrensiyalar\Models\Konfrensiyalar
+defaultRedirect: raxmatilla/konfrensiyalar/konfrensiyalar
+create:
+    redirect: 'raxmatilla/konfrensiyalar/konfrensiyalar/update/:id'
+    redirectClose: raxmatilla/konfrensiyalar/konfrensiyalar
+update:
+    redirect: raxmatilla/konfrensiyalar/konfrensiyalar
+    redirectClose: raxmatilla/konfrensiyalar/konfrensiyalar

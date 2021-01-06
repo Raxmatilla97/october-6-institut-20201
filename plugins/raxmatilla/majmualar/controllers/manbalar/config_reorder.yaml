@@ -1,0 +1,4 @@
+title: Manbalar
+modelClass: Raxmatilla\Majmualar\Models\Manbalar
+toolbar:
+    buttons: reorder_toolbar

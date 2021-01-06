@@ -1,0 +1,16 @@
+plugin:
+    name: 'raxmatilla.iqtidorlitalabalar::lang.plugin.name'
+    description: 'raxmatilla.iqtidorlitalabalar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-child
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Iqtidorli talabalar'
+        url: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+        icon: icon-bookmark
+        sideMenu:
+            side-menu-item:
+                label: 'Ro''yxat'
+                url: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+                icon: icon-sitemap

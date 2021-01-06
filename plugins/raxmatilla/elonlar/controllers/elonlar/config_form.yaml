@@ -1,0 +1,10 @@
+name: Elonlar
+form: $/raxmatilla/elonlar/models/elonlar/fields.yaml
+modelClass: Raxmatilla\Elonlar\Models\Elonlar
+defaultRedirect: raxmatilla/elonlar/elonlar
+create:
+    redirect: 'raxmatilla/elonlar/elonlar/update/:id'
+    redirectClose: raxmatilla/elonlar/elonlar
+update:
+    redirect: raxmatilla/elonlar/elonlar
+    redirectClose: raxmatilla/elonlar/elonlar

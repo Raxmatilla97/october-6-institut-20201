@@ -1,0 +1,53 @@
+fields:
+    title:
+        label: 'E''lon nomi'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'E''lon manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        attributes:
+            translatable: 'true'
+        type: text
+    created_at:
+        label: 'Joylashtirilgan vaqt'
+        mode: datetime
+        span: auto
+        type: datepicker
+    above_status:
+        label: 'Qo''shimcha ma''lumotcha'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    image:
+        label: 'E''lon surati'
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+    active:
+        label: Activligi
+        span: auto
+        default: 1
+        type: switch
+    categoriya:
+        label: 'E''lon bo''limini tanlang'
+        nameFrom: title
+        span: right
+        type: relation
+tabs:
+    fields:
+        content:
+            label: 'Asosiy qism'
+            size: huge
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Tab 1'

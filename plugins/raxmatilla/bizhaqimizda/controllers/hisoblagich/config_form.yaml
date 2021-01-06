@@ -1,0 +1,10 @@
+name: Hisoblagich
+form: $/raxmatilla/bizhaqimizda/models/hisoblagich/fields.yaml
+modelClass: Raxmatilla\BizHaqimizda\Models\Hisoblagich
+defaultRedirect: raxmatilla/bizhaqimizda/hisoblagich
+create:
+    redirect: 'raxmatilla/bizhaqimizda/hisoblagich/update/:id'
+    redirectClose: raxmatilla/bizhaqimizda/hisoblagich
+update:
+    redirect: raxmatilla/bizhaqimizda/hisoblagich
+    redirectClose: raxmatilla/bizhaqimizda/hisoblagich

@@ -1,0 +1,20 @@
+
+fields:
+    section_title:
+        label: 'Manage Media Upload File Name'
+        span: full
+        type: section
+    slugablefilename:
+        label: Sluggable filename
+        type: checkbox
+    dateformat:
+        label: 'Prefix text is date format like "d-m-y-"' 
+        type: checkbox                
+    prefix:
+        label: Filename prefix
+        type: text        
+        span: auto
+    postfix:
+        label: Filename postfix
+        type: text                
+        span: auto

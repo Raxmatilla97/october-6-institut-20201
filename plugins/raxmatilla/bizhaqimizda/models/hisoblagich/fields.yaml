@@ -1,0 +1,35 @@
+fields:
+    orqa_fon:
+        label: 'Orqa fanni almashtirish'
+        mode: image
+        imageWidth: '500'
+        span: auto
+        type: mediafinder
+tabs:
+    fields:
+        hisoblagich:
+            label: 'Hisoblagich funksiyalari'
+            prompt: 'Yangi qo''shish'
+            span: full
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: Funksiyalar
+            form:
+                fields:
+                    hisoblagich:
+                        label: 'Hisoblagich funksiyalari'
+                        span: auto
+                        containerAttributes:
+                            translatable: 'true'
+                        type: text
+                    raqami:
+                        label: 'Hisoblagich raqami'
+                        span: auto
+                        type: text
+                    text:
+                        label: 'Hisoblagich texti'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text

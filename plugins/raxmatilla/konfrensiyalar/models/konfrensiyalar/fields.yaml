@@ -1,0 +1,57 @@
+fields:
+    title:
+        label: 'Konfrensiya nomi'
+        span: left
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Konfrensiya manzili'
+        span: right
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    kun_soat:
+        label: 'Konfrensiya o''tqaziladigan vaqt'
+        mode: datetime
+        span: auto
+        type: datepicker
+    created_at:
+        label: 'E''lon yaratilgan sana'
+        mode: datetime
+        span: auto
+        type: datepicker
+    manzil:
+        label: 'Konfrensiya manzili'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    image:
+        label: 'Konfrensiya surati'
+        mode: image
+        imageWidth: '200'
+        span: right
+        required: 1
+        type: mediafinder
+    active:
+        label: Faolligi
+        span: left
+        default: 1
+        required: 1
+        type: switch
+tabs:
+    fields:
+        content:
+            label: 'Asosiy ma''lumotlar qismi'
+            size: huge
+            span: full
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Asosiy qismi'

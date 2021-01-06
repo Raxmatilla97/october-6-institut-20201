@@ -1,0 +1,36 @@
+plugin:
+    name: 'raxmatilla.majmualar::lang.plugin.name'
+    description: 'raxmatilla.majmualar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-bell
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Majmualar
+        url: raxmatilla/majmualar/majmualar
+        icon: icon-clipboard
+        sideMenu:
+            side-menu-item:
+                label: 'Majmualar ro''yxati'
+                url: raxmatilla/majmualar/majmualar
+                icon: icon-spotify
+            side-menu-item2:
+                label: Manbalar
+                url: raxmatilla/majmualar/manbalar
+                icon: icon-suitcase
+            side-menu-item3:
+                label: Fakultetlar
+                url: raxmatilla/majmualar/fakultetlar
+                icon: icon-weixin
+            side-menu-item4:
+                label: Kafedralar
+                url: raxmatilla/majmualar/kafedralar
+                icon: icon-weibo
+            side-menu-item5:
+                label: Fanlar
+                url: raxmatilla/majmualar/fanlar
+                icon: icon-sort-amount-asc
+            side-menu-item6:
+                label: 'Ilmiy Maqolalar'
+                url: raxmatilla/majmualar/ilmiymaqolalar
+                icon: icon-star-half-empty

@@ -1,0 +1,20 @@
+plugin:
+    name: Bannerlar
+    description: 'raxmatilla.bizhaqimizda::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-archive
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Bannerlar
+        url: raxmatilla/bizhaqimizda/bannerroyxatlari
+        icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: 'Banner ro''yxati'
+                url: raxmatilla/bizhaqimizda/bannerroyxatlari
+                icon: icon-sitemap
+            side-menu-item2:
+                label: Hisoblagich
+                url: raxmatilla/bizhaqimizda/hisoblagich
+                icon: icon-sitemap

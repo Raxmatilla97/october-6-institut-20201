@@ -1,0 +1,10 @@
+name: Fanlar
+form: $/raxmatilla/majmualar/models/fanlar/fields.yaml
+modelClass: Raxmatilla\Majmualar\Models\Fanlar
+defaultRedirect: raxmatilla/majmualar/fanlar
+create:
+    redirect: 'raxmatilla/majmualar/fanlar/update/:id'
+    redirectClose: raxmatilla/majmualar/fanlar
+update:
+    redirect: raxmatilla/majmualar/fanlar
+    redirectClose: raxmatilla/majmualar/fanlar

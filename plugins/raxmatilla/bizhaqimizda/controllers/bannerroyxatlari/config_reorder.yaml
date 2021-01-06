@@ -1,0 +1,4 @@
+title: BannerRoyxatlari
+modelClass: Raxmatilla\BizHaqimizda\Models\BizHaqimizda
+toolbar:
+    buttons: reorder_toolbar

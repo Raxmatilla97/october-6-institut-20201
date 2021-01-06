@@ -1,0 +1,66 @@
+fields:
+    title:
+        label: 'Majmuaning nomi'
+        span: auto
+        type: text
+    slug:
+        label: 'Majmua manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    user:
+        label: 'Chop etuvchi'
+        nameFrom: full_name
+        descriptionFrom: description
+        span: auto
+        type: relation
+tabs:
+    fields:
+        manbalar:
+            label: Manbalar
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Guruhlashtirish
+        fakultetlar:
+            label: Fakultetlar
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Guruhlashtirish
+        kafedralar:
+            label: Kafedralar
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Guruhlashtirish
+        fanlar:
+            label: Fanlar
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Guruhlashtirish
+        content:
+            label: 'Asosiy qism'
+            size: giant
+            span: full
+            type: richeditor
+            tab: 'Asosiy qism'
+secondaryTabs:
+    fields:
+        file_upload1:
+            label: 'Majmualarni yuklash qismi'
+            mode: file
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: 'Fayllarni yuklash qismi'

@@ -1,0 +1,12 @@
+fields:
+    title:
+        label: 'Fakultet nomi'
+        span: auto
+        type: text
+    slug:
+        label: Manzili
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text

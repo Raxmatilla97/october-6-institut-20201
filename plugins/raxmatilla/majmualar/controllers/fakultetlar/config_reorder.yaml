@@ -1,0 +1,4 @@
+title: Fakultetlar
+modelClass: Raxmatilla\Majmualar\Models\Fakultetlar
+toolbar:
+    buttons: reorder_toolbar

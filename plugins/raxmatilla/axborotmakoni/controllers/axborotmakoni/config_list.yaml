@@ -1,0 +1,12 @@
+list: $/raxmatilla/axborotmakoni/models/axborotmakoni/columns.yaml
+modelClass: Raxmatilla\AxborotMakoni\Models\AxborotMakoni
+title: AxborotMakoni
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'raxmatilla/axborotmakoni/axborotmakoni/update/:id'

@@ -1,0 +1,13 @@
+columns:
+    title:
+        label: 'Talaba ismi'
+        type: text
+        searchable: true
+    created_at:
+        label: 'Yozilgan sana'
+        type: date
+        sortable: true
+    updated_at:
+        label: 'O''zgartirilgan sana'
+        type: datetime
+        sortable: true

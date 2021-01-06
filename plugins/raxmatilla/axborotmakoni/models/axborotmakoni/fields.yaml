@@ -1,0 +1,41 @@
+fields:
+    title:
+        label: 'Maqola nomini yozing'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Maqola manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    image:
+        label: 'Maqola suratini yuklang'
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+    user:
+        label: Relation
+        nameFrom: last_name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    created_at:
+        label: 'Maqola yozilgan vaqt'
+        mode: datetime
+        span: right
+        type: datepicker
+tabs:
+    fields:
+        content:
+            label: 'Asosiy qismni yozing'
+            size: huge
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Asosiy qism'

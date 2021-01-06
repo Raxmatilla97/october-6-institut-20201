@@ -1,0 +1,12 @@
+fields:
+    title:
+        label: 'Manba nomi'
+        span: auto
+        type: text
+    slug:
+        label: 'Manba manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text

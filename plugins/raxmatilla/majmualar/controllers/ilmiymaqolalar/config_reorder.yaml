@@ -1,0 +1,4 @@
+title: IlmiyMaqolalar
+modelClass: Raxmatilla\Majmualar\Models\IlmiyMaqolalar
+toolbar:
+    buttons: reorder_toolbar

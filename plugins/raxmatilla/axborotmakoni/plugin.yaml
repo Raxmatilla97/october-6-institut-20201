@@ -1,0 +1,16 @@
+plugin:
+    name: 'raxmatilla.axborotmakoni::lang.plugin.name'
+    description: 'raxmatilla.axborotmakoni::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-angellist
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Axborot makoni'
+        url: raxmatilla/axborotmakoni/axborotmakoni
+        icon: icon-th-list
+        sideMenu:
+            side-menu-item:
+                label: 'Ro''yxatlar'
+                url: raxmatilla/axborotmakoni/axborotmakoni
+                icon: icon-sitemap

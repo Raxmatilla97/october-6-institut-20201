@@ -1,0 +1,19 @@
+columns:
+    image:
+        label: 'E''lon  surati'
+        type: text
+        searchable: true
+        width: '100'
+    title:
+        label: 'E''lon nomi'
+        type: text
+    created_at:
+        label: created_at
+        type: datetime
+        searchable: true
+        sortable: true
+    active:
+        label: Holati
+        type: text
+        searchable: true
+        sortable: false

@@ -1,0 +1,4 @@
+title: Fanlar
+modelClass: Raxmatilla\Majmualar\Models\Fanlar
+toolbar:
+    buttons: reorder_toolbar

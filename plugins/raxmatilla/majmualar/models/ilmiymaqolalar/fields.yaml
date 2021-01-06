@@ -1,0 +1,56 @@
+fields:
+    title:
+        label: 'Ilmiy maqola nomi'
+        span: left
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Ilmiy maqola manzili'
+        span: right
+        required: 1
+        preset:
+            field: title
+            type: slug
+        attributes:
+            translatable: 'true'
+        type: text
+    image_foto:
+        label: 'Ilmiy maqola surati'
+        mode: image
+        imageWidth: '300'
+        useCaption: 1
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        containerAttributes: {  }
+        type: fileupload
+    user:
+        label: 'Chop etuvchi ism familyasi'
+        nameFrom: full_name
+        descriptionFrom: description
+        span: auto
+        type: relation
+tabs:
+    fields:
+        content:
+            label: 'Asosiy maqola qismi Text ko''rinishida'
+            size: giant
+            span: full
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Content qismi'
+        file_upload1:
+            label: 'Ilmiy maqola PDF fayllni yuklash'
+            mode: file
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: 'File yuklash'

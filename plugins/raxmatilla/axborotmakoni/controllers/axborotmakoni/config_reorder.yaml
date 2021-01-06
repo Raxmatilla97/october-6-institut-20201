@@ -1,0 +1,4 @@
+title: AxborotMakoni
+modelClass: Raxmatilla\AxborotMakoni\Models\AxborotMakoni
+toolbar:
+    buttons: reorder_toolbar

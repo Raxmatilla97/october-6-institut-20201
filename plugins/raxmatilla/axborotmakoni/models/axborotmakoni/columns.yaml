@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: 'Maqola nomi'
+        type: text
+        searchable: true
+        sortable: false
+    created_at:
+        label: 'Maqola yozilgan vaqt'
+        type: datetime
+        sortable: true

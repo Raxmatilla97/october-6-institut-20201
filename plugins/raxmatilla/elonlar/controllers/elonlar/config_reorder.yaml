@@ -1,0 +1,4 @@
+title: Elonlar
+modelClass: Raxmatilla\Elonlar\Models\Elonlar
+toolbar:
+    buttons: reorder_toolbar

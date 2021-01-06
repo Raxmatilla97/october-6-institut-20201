@@ -1,0 +1,4 @@
+title: Hisoblagich
+modelClass: Raxmatilla\BizHaqimizda\Models\Hisoblagich
+toolbar:
+    buttons: reorder_toolbar

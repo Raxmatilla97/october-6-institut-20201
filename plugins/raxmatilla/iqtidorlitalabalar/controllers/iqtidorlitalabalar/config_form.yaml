@@ -1,0 +1,10 @@
+name: IqtidorliTalabalar
+form: $/raxmatilla/iqtidorlitalabalar/models/iqtidorlitalaba/fields.yaml
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\IqtidorliTalaba
+defaultRedirect: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+create:
+    redirect: 'raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar/update/:id'
+    redirectClose: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+update:
+    redirect: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+    redirectClose: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar

@@ -1,0 +1,4 @@
+title: Kafedralar
+modelClass: Raxmatilla\Majmualar\Models\Kafedralar
+toolbar:
+    buttons: reorder_toolbar

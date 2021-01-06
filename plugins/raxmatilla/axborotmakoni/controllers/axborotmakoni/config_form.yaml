@@ -1,0 +1,10 @@
+name: AxborotMakoni
+form: $/raxmatilla/axborotmakoni/models/axborotmakoni/fields.yaml
+modelClass: Raxmatilla\AxborotMakoni\Models\AxborotMakoni
+defaultRedirect: raxmatilla/axborotmakoni/axborotmakoni
+create:
+    redirect: 'raxmatilla/axborotmakoni/axborotmakoni/update/:id'
+    redirectClose: raxmatilla/axborotmakoni/axborotmakoni
+update:
+    redirect: raxmatilla/axborotmakoni/axborotmakoni
+    redirectClose: raxmatilla/axborotmakoni/axborotmakoni
