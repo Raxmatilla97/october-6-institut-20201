@@ -135,6 +135,8 @@ class Posts extends ComponentBase
                 return Redirect::to($this->currentPageUrl([$pageNumberParam => $lastPage]));
             }
         }
+
+        
     }
 
     protected function prepareVars()
