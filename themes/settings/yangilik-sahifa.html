@@ -1,0 +1,147 @@
+</style>
+
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{ 'assets/images/bg_tg.jpg'|theme }}); background-attachment:fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <h1>Test</h1>
+        <h1 class="mb-3 bread"></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section ftco-degree-bg">
+      <div class="container">
+
+        <div class="row">
+
+
+
+
+
+{% set post = newsPost.post %}
+
+          <div class="col-md-8 ftco-animate">
+
+
+
+
+
+{#pastroqdagisi title o'rnida#}
+        <h2 class="mb-3"></h2>
+
+
+        <p class="post-user"><span>{{"Chop etdi:"|_}} {{ post.user.first_name }} || {{"Ko'rildi"|_}}: {{ post.statistics }} {{"marta"|_}}</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span>{{"Chop etildi:"|_}}  {{ post.published_at|date('Y-m-d') }} </span>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp             <span>{{"Tegishli bo'limi:"|_}} <a href="{{'/barcha-yangiliklar/'}}{{ post.category.slug}}" <span> {{ post.category.name }}</span></a></span>
+        <hr>
+        <center><h3>{{ post.title }}</h3></center><br/>
+        <hr>
+     <!--    {% if post.image %}<div ><p><img style="" src="{{ post.image|media }}" alt="/ Toshkent viloyati Chirchiq davlat pedagogika instituti. / Ташкентская область Чирчикский педагогический институт / Chirchiq State Pedagogical Institute of Tashkent region.  / {{ post.title }} / {{ postPage }} / {{ post.slug }} /  {{ image.description }} / {{ image.title }}" class="img-fluid"></p></div>{% endif %}
+      -->
+
+
+        {#{% if post.content %}<p><div class="post-content" class="mb-3 mt-5">{{ post.content|raw }}</div></p>{% endif %}#}
+
+
+
+        {% if post.content %}<div class="img-fluid">{{ post.content|raw }}</div>{% endif %}
+
+
+
+
+
+              <hr>
+
+
+
+
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+            <div class="sidebar-box">
+          <!--     <form action="#" class="search-form">
+            <div class="form-group">
+              <span class="icon fa fa-search"></span>
+              <input type="text" class="form-control" placeholder="Bu yerdan qidiring......">
+            </div>
+          </form> -->
+            </div>
+
+
+
+            {% set categories = newsCategories.categories %}
+<div class="sidebar-box ftco-animate">
+ <div class="categories">
+                <h3>{{"Yangiliklar Bo'limlari"|_}}</h3>
+{% for category in categories %}
+
+
+    {% if loop.first %}
+        <ul>
+    {% endif %}
+
+    <li><a href="{{'/barcha-yangiliklar/'}}{{ category.slug }}">{{ category.name }}</a></li>
+    {% if loop.last %}
+        </ul>
+    {% endif %}
+{% else %}
+    <span class="post-nodata">{{ noPostsMessage }}</span>
+    </div>
+            </div>
+{% endfor %}
+
+
+
+
+
+            <div class="sidebar-box ftco-animate">
+              <h3>{{"So'ngi yangiliklar"|_}}</h3>
+
+{% set posts = newsPosts.posts %}
+                    {% for post in posts %}
+
+
+<div class="block-21 mb-4 d-flex">
+
+              <div class="blog-img mr-4">
+        {% if post.image %}<a   style="background-image: url({{ postPage }}/{{ post.slug }}); "><img  style="width: 80px; height: 80px;" src="{{ post.image|media }}"
+        alt="{{ post.title }}"></a>{% endif %}</div>
+
+
+
+        <div class="text">
+        <h3 class="heading"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h3>
+
+        <div class="meta">
+
+        <div><a href="#"><span class="icon-calendar"></span>{{ post.published_at|date('Y-m-d') }}</a></div>
+         <div><a href="#"><span class="icon-person"></span> {{ post.user.first_name}}</a></div>
+         <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+         </div>
+
+
+              </div>
+</div>
+
+
+    {% else %}
+    <span >{{ noPostsMessage }}</span>
+    {% endfor %}
+            </div>
+
+
+
+
+
+
+
+          <!--   <div class="sidebar-box ftco-animate">
+            <h3>{{"Sayt Betta holatda ishlamoqda"|_}} </h3>
+            <p>{{"Noqulayliklar yuzaga kelsa, uzur so'raymiz. :)"|_}}</p>
+          </div> -->
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
