@@ -8,7 +8,7 @@ postsPerPage = 10
 noPostsMessage = "Hozirda hechqanday yangilik kiritilmagan!"
 sortOrder = "published_at desc"
 postFeatured = 0
-postPage = "home"
+postPage = "yangilik"
 categoryPage = "home"
 ==
 {% set posts = newsPosts.posts %}
@@ -48,9 +48,9 @@ categoryPage = "home"
                             </div>
                             <div class="featured-content featured-content-post">
                                 
-                                 <div class="ttm-box-post-date" style="right: 80%; background-color: #4569da; height: 30px;">
+                                 <div class="ttm-box-post-date" style="right: 80%; background-color: #4569da; height: 30px; padding: 3px 6px 0px;">
                                     <span class="ttm-entry-date">
-                                      <span  class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i> {{ post.statistics}}</span>
+                                      <span  class="ttm-count ttm-meta-line"><i class="fa fa-eye" aria-hidden="true"></i> {{ post.statistics}}</span>
                                     </span>
                                 </div>
                                 

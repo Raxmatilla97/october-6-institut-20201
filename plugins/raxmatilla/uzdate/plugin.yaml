@@ -1,0 +1,6 @@
+plugin:
+    name: 'raxmatilla.uzdate::lang.plugin.name'
+    description: 'raxmatilla.uzdate::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-adjust
+    homepage: ''
