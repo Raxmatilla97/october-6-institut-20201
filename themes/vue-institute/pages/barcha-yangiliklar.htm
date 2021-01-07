@@ -99,6 +99,7 @@ categoryPage = 404
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -158,7 +159,110 @@ categoryPage = 404
             </div>
           </div>
         </div>
+=======
+<<<<<<< Updated upstream
+ <div class=" p12">
+     {{ results | raw }}
+>>>>>>> 8f8e156a2060ad42473df9923073121afbeedf9e
     </div>
+=======
+<style>
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px; }
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important; }
+  .col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%; }
+  .text-center {
+  text-align: center !important; }
+  .block-27 ul {
+  padding: 0;
+  margin: 0; }
+  .block-27 ul li {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 400; }
+    .block-27 ul li a, .block-27 ul li span {
+      color: #167ce9;
+      text-align: center;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      border: 1px solid #8bbef4; }
+    .block-27 ul li.active a, .block-27 ul li.active span {
+      background: #8bbef4;
+      color: #167ce9;
+      border: 1px solid transparent; }
+      .pagination {
+    display: contents;
+    
+    }
+
+</style>
+
+>>>>>>> Stashed changes
+
+          {% if results.hasPages %}
+    <ul class="pagination">
+        <li>
+            {% if results.currentPage > 1 %}
+                <a href="{{ results.previousPageUrl }}" rel="prev">«</a>
+            {% else %}
+                <span class="disabled">«</span>
+            {% endif %}
+        </li>
+
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< Updated upstream
+        {% for page in range(1, results.lastPage) %}
+            <li>
+                <a href="{{ results.url(page) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        <li>
+            {% if results.hasMorePages %}
+                <a href="{{ results.nextPageUrl }}" rel="next">»</a>
+            {% else %}
+                <span class="disabled">»</span>
+            {% endif %}
+        </li>
+    </ul>
+{% endif %}                  
+                       
+                    
+=======
+
+<div class="pagination">
+<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">            
+    
+                 {{ posts.render|raw }}
+                       
+             
+            </div>
+          </div>
+        </div>
+</div>
+>>>>>>> 8f8e156a2060ad42473df9923073121afbeedf9e
 
 
 
@@ -166,9 +270,12 @@ categoryPage = 404
 
 
 
+<<<<<<< HEAD
+=======
 
 
-
+>>>>>>> Stashed changes
+>>>>>>> 8f8e156a2060ad42473df9923073121afbeedf9e
 
 
 
