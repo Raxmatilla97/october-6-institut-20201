@@ -1,5 +1,5 @@
 title = "Elonlar bo'limlari"
-url = "/elonlar-bolimlari/"
+url = "/elonlar-bolimlari/:slug?"
 layout = "yangiliklar_va_boshqa"
 description = "Elonlarni barcha sini ko'rsatish va boshqa kategoryalardagi elonlarni ko'rsatadi."
 is_hidden = 0
@@ -7,28 +7,22 @@ is_hidden = 0
 [viewBag]
 localeUrl[en] = "/elonlar-bolimlari"
 localeUrl[ru] = "/elonlar-bolimlari"
-
-[Elonlar]
-sort = "created_at asc"
-display = 4
 ==
-{% set records = Elonlar.elonlarlist %}
- 
- <!-- page-title -->
+<!-- page-title -->
         <div class="ttm-page-title-row">
             <div class="ttm-page-title-row-inner ttm-textcolor-white">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-12">
                             <div class="page-title-heading">
-                                <h2 class="title">{{"OTM E'lonlari"|_}}</h2>
+                                <h2 class="title">{{"OTM E'lonlari"|__}}</h2>
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span>
-                                    <a title="Homepage" href="{{'/'}}">{{"Bosh Sahifa"|_}}</a>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh Sahifa"|__}}</a>
                                 </span>
                                 <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                                <span class="current">{{"Siz turgan sahifa"|__}}</span>
                             </div>
                         </div>
                     </div>
@@ -47,102 +41,35 @@ display = 4
                 <div class="row ">
                 
                 
-                  {% for record in records %}
+                
                     <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6">
                         <!-- featured-imagebox-course -->
                         <div class="featured-imagebox featured-imagebox-course">
                             <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid" src="{{ record.image|media| resize (255,228, { mode: 'crop', quality: '70' })}}" alt="{{ record.title }}"> 
+                                <img class="img-fluid" src="images/course/course-one-526x470.jpg" alt="image"> 
                             </div>
                             <div class="featured-content featured-content-post">
                                 <div class="featured-content-post-inner">
                                     <div class="post-title featured-title">
-                                        <h5 style="-webkit-line-clamp: 3;"><a href="{{ record.slug }}">{{ record.title }}</a></h5>
+                                        <h5><a href="courses-single.html">Complete Beginner to the Web Design</a></h5>
                                     </div>
-                                   <!--  <div class="post-desc featured-desc">
-                                       <p></p>
-                                   </div> -->
+                                    <div class="post-desc featured-desc">
+                                        <p>Are you excited to learn the web design, but not start yet...</p>
+                                    </div>
                                 </div>
                                 <div class="ttm-course-box-meta">
                                     <div class="ttm-enrolled">
-                                        <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>{{ record.status }}</span>
+                                        <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>78</span>
                                         <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
                                     </div>  
-                                    <span class="ttm-lp-price"><ins>{{ record.categoriya.title}}</ins></span>                            
+                                    <span class="ttm-lp-price"><ins>&#36;69.00</ins></span>                            
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-course end-->
                     </div>
-                     {% else %}
-                      
-                        <img style="width:600px !important;" src="{{"storage/app/media/sayt sozlamlari suratlari/trends_in_ux_for_ecommerce_websites.png"}}">                        
-                        <h3 style="text-align: center;"> {{"Kechirasiz"|__}} :) <br> <span class="post-nodata">{{ "Hozirda hechqanday e'lon kiritilmagan!"|__ }}</span></h3>
-                       
-                    {% endfor %}
-                
                     
                     
                     
-
-    <style> 
-        .row {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-          margin-right: -15px;
-          margin-left: -15px; }
-        .mt-5,
-        .my-5 {
-          margin-top: 3rem !important; }
-          .col {
-          -ms-flex-preferred-size: 0;
-          flex-basis: 0;
-          -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-          flex-grow: 1;
-          max-width: 100%; }
-          .text-center {
-          text-align: center !important; }
-          .block-27 ul {
-          padding: 0;
-          margin: 0; }
-          .block-27 ul li {
-            display: inline-block;
-            margin-bottom: 4px;
-            font-weight: 400; }
-            .block-27 ul li a, .block-27 ul li span {
-              color: #167ce9;
-              text-align: center;
-              display: inline-block;
-              width: 40px;
-              height: 40px;
-              line-height: 40px;
-              border-radius: 50%;
-              border: 1px solid #8bbef4; }
-            .block-27 ul li.active a, .block-27 ul li.active span {
-              background: #8bbef4;
-              color: #167ce9;
-              border: 1px solid transparent; }
-              .pagination {
-            display: contents;
-            
-            }
-
-    </style>
-
-    <div class="pagination">
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-                {{ records.paginate|raw }}   
-            </div>
-          </div>
-        </div>
-    </div>
-
-
                     
                 </div>
             </div>
