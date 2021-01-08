@@ -56,7 +56,7 @@ categoryPage = "yangiliklar-bolimlari"
                                  {% if post.image %}
                                  <a href="/{{ postPage }}/{{ post.slug }}"><img class="img-fluid"  src="{{ post.image|media | resize(350, 265,  { mode: 'crop', quality: '50' }) }}" alt="{{ post.title }}"></a>
                                  {% else %}
-                                   <a href="/{{ postPage }}/{{ post.slug }}"><img class="img-fluid"  src="{{ "/storage/app/media/sahifalar/2020%20avgust/20-11-05undraw_share_online_r87b222.png"  | resize(350, 265,  { mode: 'crop', quality: '50' }) }}" alt="{{ post.title }}"></a>
+                                   <a href="/{{ postPage }}/{{ post.slug }}"><img class="img-fluid"  src="{{ "/storage/app/media/sahifalar/2020%20avgust/20-11-05undraw_share_online_r87b222.png"  | resize(350, 265,  { mode: 'crop', quality: '50' }) }}" alt="{{ post.title}}"></a>
                                  {% endif %}
                             </div>
                             <div class="featured-content featured-content-post">
@@ -66,7 +66,7 @@ categoryPage = "yangiliklar-bolimlari"
                                     </span>
                                 </div>
                                 <div class="post-meta">
-                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ post.user.full_name }}</span>
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ post.user.last_name }}</span>
                                     <span class="ttm-meta-line cat-link"><i class="fa fa-tag">{{ post.category.name }}</i></span>
                                 </div>
                                 <div class="post-title featured-title">

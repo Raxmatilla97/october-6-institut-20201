@@ -1,33 +1,15 @@
 title = "Elonlar bo'limlari"
 url = "/elonlar-bolimlari/:slug?"
-layout = "default"
+layout = "yangiliklar_va_boshqa"
 description = "Elonlarni barcha sini ko'rsatish va boshqa kategoryalardagi elonlarni ko'rsatadi."
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
 
 [viewBag]
 localeUrl[en] = "/elonlar-bolimlari"
 localeUrl[ru] = "/elonlar-bolimlari"
-
-[staticPage]
-useContent = 1
-default = 1
-
-[blogPosts]
-pageNumber = "{{ :page }}"
-categoryFilter = "{{ :slug }}"
-postsPerPage = 10
-noPostsMessage = "No posts found"
-sortOrder = "published_at desc"
-categoryPage = 404
-postPage = "elonlar"
-exceptCategories = ":slug"
 ==
 <div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/social-media-voice.png'}}); background-attachment:fixed;">
-      <div class="overlay"></div>{% component 'staticPage' %}
+      <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">

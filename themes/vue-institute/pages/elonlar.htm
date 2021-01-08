@@ -3,40 +3,12 @@ url = "/elonlar/:slug/"
 layout = "default"
 description = "Elonlarni o'qish uchun sahifa modeli. Bu yerda :slugga tegib bo'lmaydi."
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
 
 [viewBag]
 localeUrl[en] = "/elonlar/:slug"
 localeUrl[ru] = "/obyavleniya/:slug"
 localeTitle[ru] = "Объявления"
 localeTitle[en] = "Announcement"
-
-[staticPage]
-useContent = 1
-default = 1
-
-[blogCategories]
-slug = "{{ :slug }}"
-displayEmpty = 0
-categoryPage = "elonlar-bolimlari"
-
-[blogPosts]
-pageNumber = "{{ :page }}"
-categoryFilter = ":slug"
-postsPerPage = 10
-noPostsMessage = "No posts found"
-sortOrder = "published_at desc"
-categoryPage = "elonlar-bolimlari"
-postPage = "elonlar"
-
-[alternateHrefLangElements]
-
-[blogPost]
-slug = "{{ :slug }}"
-categoryPage = "elonlar"
 ==
 <style>.hero-wrap.hero-wrap-2{
     
