@@ -1,0 +1,102 @@
+title = "yangilik-bolim"
+url = "/yangilik-bolim/"
+layout = "Sahifalar-test"
+is_hidden = 0
+
+[viewBag]
+localeUrl[en] = "/yangilik-bolim"
+localeUrl[ru] = "/yangilik-bolim"
+
+[staticPage]
+useContent = 1
+default = 1
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "Отсутсвие постов"
+sortOrder = "created_at desc"
+postFeatured = 0
+postTranslated = 1
+postPage = "yangilik"
+categoryPage = 404
+==
+<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/news-1.jpg'}}); background-attachment:fixed;">
+      <div class="overlay"></div>{% component 'staticPage' %}
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Course</span></p>
+            <h1 class="mb-3 bread">{{"Oliy ta'lim muassasi yangiliklari"|_}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row">
+
+ 		
+
+{% set posts = newsPosts.posts %}
+ 
+    {% for post in posts %}
+    
+    <div class="col-md-4 d-flex ftco-animate">
+     <div class="course align-self-stretch">
+     
+        {% if post.image %}<a   style="background-image: url(/{{ postPage }}/{{ post.slug }})"><img style="width: 350px;height: 255px;" class="img" src="{{ post.image|media }}" alt="/ Toshkent viloyati Chirchiq davlat pedagogika instituti. / Ташкентская область Чирчикский педагогический институт / Chirchiq State Pedagogical Institute of Tashkent region.  / {{ post.title }} / {{ postPage }} / {{ post.slug }} /  {{ image.description }} / {{ image.title }}"></a>{% endif %}
+            
+<div class="text p-4">
+
+
+<p class="post-cat"><span>Tegishli bo'limi: {{ post.category.name }}</span></p>
+
+        
+        <h3 class="mb-3"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h3>
+        
+       
+        
+       <p class="post-user"><span>Chop etdi: {{ post.user.first_name }}</span></p>
+ <p class="post-date"><span>Chop etildi:  {{ post.published_at|date('Y-m-d') }} </span></p>
+        
+
+        
+    </div>
+    <p><center><a href="/{{ postPage }}/{{ post.slug }}" class="btn btn-primary">{{"Yangilikni o'qish!"|_}}</a></center></p>
+    </div>
+
+
+
+  
+          
+              </div>
+    {% else %}
+    <center><span class="post-nodata">{{ noPostsMessage }}<center></span>
+    {% endfor %}
+
+              {{ posts.render|raw }}
+
+
+
+
+
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
