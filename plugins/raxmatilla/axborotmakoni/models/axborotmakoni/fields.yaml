@@ -29,6 +29,13 @@ fields:
         mode: datetime
         span: right
         type: datepicker
+    small_content:
+        label: 'Kichik qism uchun'
+        size: large
+        span: right
+        attributes:
+            translatable: 'true'
+        type: textarea
 tabs:
     fields:
         content:

@@ -18,7 +18,7 @@ class ListCompoment extends ComponentBase
         $sort = $this->property('sort');
         $sort = explode(' ', $sort);
         $this->elonlarlist = Elonlar::orderBy($sort[0], $sort[1])->get()->take($this->property('display'));
-
+        
     
     }
 
