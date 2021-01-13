@@ -1,5 +1,5 @@
 title = "Elonlar bo'limlari"
-url = "/elonlar-bolimlari/"
+url = "/elonlar-bolimlari/:page?"
 layout = "yangiliklar_va_boshqa"
 description = "Elonlarni barcha sini ko'rsatish va boshqa kategoryalardagi elonlarni ko'rsatadi."
 is_hidden = 0
@@ -8,12 +8,27 @@ is_hidden = 0
 localeUrl[en] = "/elonlar-bolimlari"
 localeUrl[ru] = "/elonlar-bolimlari"
 
-[Elonlar]
-sort = "created_at asc"
-display = 4
+[builderList]
+modelClass = "Raxmatilla\Elonlar\Models\Elonlar"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "elonlar"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "id"
+recordsPerPage = 4
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
 ==
-{% set records = Elonlar.elonlarlist %}
- 
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
  <!-- page-title -->
         <div class="ttm-page-title-row">
             <div class="ttm-page-title-row-inner ttm-textcolor-white">
@@ -57,7 +72,7 @@ display = 4
                             <div class="featured-content featured-content-post">
                                 <div class="featured-content-post-inner">
                                     <div class="post-title featured-title">
-                                        <h5 style="-webkit-line-clamp: 3;"><a href="{{ record.slug }}">{{ record.title }}</a></h5>
+                                        <h5 style="-webkit-line-clamp: 3;"><a href="{{'/elonlar'}}/{{ record.slug }}">{{ record.title }}</a></h5>
                                     </div>
                                    <!--  <div class="post-desc featured-desc">
                                        <p></p>
@@ -84,67 +99,41 @@ display = 4
                     
                     
 
-    <style> 
-        .row {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-          margin-right: -15px;
-          margin-left: -15px; }
-        .mt-5,
-        .my-5 {
-          margin-top: 3rem !important; }
-          .col {
-          -ms-flex-preferred-size: 0;
-          flex-basis: 0;
-          -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-          flex-grow: 1;
-          max-width: 100%; }
-          .text-center {
-          text-align: center !important; }
-          .block-27 ul {
-          padding: 0;
-          margin: 0; }
-          .block-27 ul li {
-            display: inline-block;
-            margin-bottom: 4px;
-            font-weight: 400; }
-            .block-27 ul li a, .block-27 ul li span {
-              color: #167ce9;
-              text-align: center;
-              display: inline-block;
-              width: 40px;
-              height: 40px;
-              line-height: 40px;
-              border-radius: 50%;
-              border: 1px solid #8bbef4; }
-            .block-27 ul li.active a, .block-27 ul li.active span {
-              background: #8bbef4;
-              color: #167ce9;
-              border: 1px solid transparent; }
-              .pagination {
-            display: contents;
-            
-            }
-
-    </style>
-
-    <div class="pagination">
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-                {{ records.paginate|raw }}   
-            </div>
-          </div>
-        </div>
-    </div>
+    
+   
+   
 
 
                     
                 </div>
+                
+     <style>
+        .current2{
+        background-color: #4569da !important;
+           
+        }
+
+    </style>
+
+    
+     {% if records.lastPage > 1 %}
+   <div class="pagination-block"  >
+        {% if records.currentPage > 1 %}
+            <a class="prev page-numbers" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;</a>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <div style="background-color: #ff4f01;" class="page-numbers {{ records.currentPage == page ? 'current2' : null }}">
+                <a style=" color: #ffffff;" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </div>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <a  class="next page-numbers" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}"> &rarr;</a>
+        {% endif %}
+     </div>
+{% endif %}
+    
             </div>
         </section>
         <!--grid-section-->
