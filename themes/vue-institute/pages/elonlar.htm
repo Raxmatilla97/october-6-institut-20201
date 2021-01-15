@@ -21,10 +21,33 @@ notFoundMessage = "Record not found"
 sort = "created_at asc"
 display = 6
 ==
+<?php
+use Raxmatilla\Elonlar\Models\Elonlar as Elon;
+use Illuminate\Support\Facades\Db;
+function onStart()
+{
+    $post = Elon::where('slug','=',$this->param('slug'))->first();
+
+    $Key = Session::put("blog", $post->id);
+
+    if (Session::has($Key)) {
+
+        Db::table('raxmatilla_elonlar_table')
+        ->where('id', $post->id)
+        ->increment('status', 1);
+        Session::put($Key, 1);
+    }
+    $post->reload();
+    dump($post->status);
+
+}
+?>
+==
 {% set posts = Elonlar.elonlarlist %}
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}
+
 
 
 
@@ -73,13 +96,13 @@ display = 6
                 <div class="row">
                     <div class="col-xl-9 col-lg-8 content-area">
                         <!-- post -->
-                       
+
                         <article class="post ttm-blog-single clearfix">
                             <!-- ttm-post-featured-wrapper -->
                             <div class="ttm-post-featured-wrapper ttm-featured-wrapper mb-20">
                                 <div class="ttm-post-featured">
                                     <img class="img-fluid" src="{{ record.image|media|resize(840,640,  { mode: 'crop', quality: '80' }) }}" alt="">
-                                   
+
                                 </div>
                                 <div class="ttm-box-post-date" style="height: 85px; width: 95px;">
                                     <span class="ttm-entry-date">
@@ -114,7 +137,7 @@ display = 6
                                             </div>
                                         #}
 
-                                    
+
 
 
 
