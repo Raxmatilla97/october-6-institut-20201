@@ -1,0 +1,63 @@
+fields:
+    fish:
+        label: 'Ism familya sharif'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    mavqe:
+        label: Lavozimi
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    ish_joyi:
+        label: 'Joylashgan joyi'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    telefon:
+        label: 'Qabulhona telefoni'
+        span: auto
+        required: 1
+        type: text
+    qabul_vaqti:
+        label: 'Qabul kunlari'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    email:
+        label: 'Email manzili'
+        span: auto
+        type: text
+    avatar:
+        label: Surati
+        mode: image
+        imageWidth: '100'
+        span: auto
+        type: mediafinder
+tabs:
+    fields:
+        content:
+            label: 'Asosiy ma''lumotlar'
+            size: giant
+            span: full
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: Kontent
+        biografiya:
+            label: 'Biografiya ma''lumotlari'
+            span: full
+            size: giant
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: Biografiya

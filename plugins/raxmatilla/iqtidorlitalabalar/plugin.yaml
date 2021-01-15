@@ -6,11 +6,15 @@ plugin:
     homepage: ''
 navigation:
     main-menu-item:
-        label: 'Iqtidorli talabalar'
+        label: TEAMLAR
         url: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
-        icon: icon-bookmark
+        icon: icon-briefcase
         sideMenu:
             side-menu-item:
-                label: 'Ro''yxat'
+                label: 'Iqtidorli talabalar'
                 url: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
+                icon: icon-star
+            side-menu-item2:
+                label: Raxbariyat
+                url: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller
                 icon: icon-sitemap

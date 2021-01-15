@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table fenncs_newspageviews_views'
+    - create_table_fenncs_newspageviews_views.php

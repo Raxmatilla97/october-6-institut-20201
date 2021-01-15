@@ -1,0 +1,14 @@
+columns:
+    fish:
+        label: 'Ism sharifi'
+        type: text
+        searchable: true
+        sortable: true
+    mavqe:
+        label: Lavozimi
+        type: text
+        searchable: true
+    email:
+        label: 'Email manzili'
+        type: text
+        searchable: true

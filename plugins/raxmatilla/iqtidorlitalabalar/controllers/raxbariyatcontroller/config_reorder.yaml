@@ -1,0 +1,4 @@
+title: RaxbariyatController
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Raxbariyat
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,10 @@
+name: RaxbariyatController
+form: $/raxmatilla/iqtidorlitalabalar/models/raxbariyat/fields.yaml
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Raxbariyat
+defaultRedirect: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller
+create:
+    redirect: 'raxmatilla/iqtidorlitalabalar/raxbariyatcontroller/update/:id'
+    redirectClose: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller
+update:
+    redirect: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller
+    redirectClose: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller

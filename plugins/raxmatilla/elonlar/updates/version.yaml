@@ -24,3 +24,6 @@
 1.0.9:
     - 'Updated table raxmatilla_elonlar_table'
     - builder_table_update_raxmatilla_elonlar_table_4.php
+1.0.10:
+    - 'Created table raxmatilla_elonlar_tendr'
+    - builder_table_create_raxmatilla_elonlar_tendr.php
