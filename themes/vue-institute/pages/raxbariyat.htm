@@ -1,8 +1,29 @@
 title = "Raxbariyat"
-url = "/raxbariyat"
+url = "/raxbariyat/:page?"
 layout = "yangiliklar_va_boshqa"
 is_hidden = 0
+
+[builderList]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Raxbariyat"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "Ma'lumot topilmadi!"
+detailsPage = "-"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "id"
+recordsPerPage = 10
+pageNumber = "{{ :page }}"
+sortColumn = "number"
+sortDirection = "asc"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
 <!-- page-title -->
         <div class="ttm-page-title-row">
             <div class="ttm-page-title-row-inner ttm-textcolor-white">
@@ -35,9 +56,41 @@ is_hidden = 0
             <div class="container">
                 <div class="row">
                 
-                
-                
-                    <div class="ttm-box-col-wrapper col-lg-3 col-md-3 col-sm-6">
+                    {% for record in records %}
+                    
+                    {% if record.number == 1 %}
+                    <div class="ttm-box-col-wrapper col-lg-12 col-md-3 col-sm-6">
+                        <!-- featured-imagebox-team -->
+                        <div class="featured-imagebox featured-imagebox-team" style="margin-bottom: 40px;border-bottom-width: 20px;border-bottom-style: solid;">
+                            <div class="ttm-team-box-view-overlay">
+                                <div class="featured-iconbox ttm-media-link">
+                                    <div class="media-block">
+                                        <ul class="social-icons list-inline">
+                                            <li class="social-facebook"><a href="instructors.html#"><i class="ti ti-facebook"></i></a></li>
+                                            <li class="social-twitter"><a href="instructors.html#"><i class="ti ti-twitter-alt"></i></a></li>
+                                            <li class="social-instagram"><a href="instructors.html#"><i class="ti ti-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="featured-thumbnail">
+                                    <img class="img-fluid" src="{{ record.avatar|media |resize (255,297, { mode: 'crop', quality: '80' }) }}" alt="image"> 
+                                </div>
+                            </div>
+                            <div class="featured-content featured-content-team">
+                                <div class="featured-title">
+                                    <h5><a href="instructor-profile.html">{{ record.fish}}</a></h5>
+                                </div>
+                                <div class="team-position">{{ record.mavqe}}</div>
+                            </div>
+                        </div><!-- featured-imagebox-team end-->
+                         </br>
+                    <hr style="border: 1px;">
+                    </div>
+                    
+                    </br>
+                    <hr style="border: 1px;">
+                    {% elseif record.number > 1 %}
+                       <div class="ttm-box-col-wrapper col-lg-3 col-md-3 col-sm-6">
                         <!-- featured-imagebox-team -->
                         <div class="featured-imagebox featured-imagebox-team">
                             <div class="ttm-team-box-view-overlay">
@@ -51,19 +104,40 @@ is_hidden = 0
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/team-member/team-img01.jpg" alt="image"> 
+                                    <img class="img-fluid" src="{{ record.avatar|media |resize (255,297, { mode: 'crop', quality: '80' }) }}" alt="image"> 
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h5><a href="instructor-profile.html">Duck Peter</a></h5>
+                                    <h5><a href="instructor-profile.html">{{ record.fish}}</a></h5>
                                 </div>
-                                <div class="team-position">CEO At Lab</div>
+                                <div class="team-position">{{ record.mavqe}}</div>
                             </div>
                         </div><!-- featured-imagebox-team end-->
                     </div>
-                    
-                   
+                    {% endif %}
+                       {% else %}
+                            <li ><h2>{{ noRecordsMessage }}</h2></li>
+                    {% endfor %}
+
+
+        {% if records.lastPage > 1 %}
+            <ul class="pagination">
+                {% if records.currentPage > 1 %}
+                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                {% endif %}
+        
+                {% for page in 1..records.lastPage %}
+                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+        
+                {% if records.lastPage > records.currentPage %}
+                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
                    
                 </div><!-- row end -->
             </div>
