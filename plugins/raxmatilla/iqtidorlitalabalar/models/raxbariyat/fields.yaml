@@ -6,6 +6,13 @@ fields:
         attributes:
             translatable: 'true'
         type: text
+    slug:
+        label: 'Sahifa manzili'
+        span: auto
+        preset:
+            field: fish
+            type: slug
+        type: text
     mavqe:
         label: Lavozimi
         span: auto
@@ -42,6 +49,18 @@ fields:
         imageWidth: '100'
         span: auto
         type: mediafinder
+    number:
+        label: Nomeri
+        span: auto
+        required: 1
+        type: number
+    ilmiy_daraja:
+        label: 'Ilmiy darajasi'
+        span: left
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
 tabs:
     fields:
         content:
