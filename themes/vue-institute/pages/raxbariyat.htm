@@ -9,7 +9,7 @@ scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "slug"
 noRecordsMessage = "Ma'lumot topilmadi!"
-detailsPage = "-"
+detailsPage = "raxbarlar-sahifasi"
 detailsKeyColumn = "slug"
 detailsUrlParameter = "id"
 recordsPerPage = 10
@@ -78,7 +78,7 @@ sortDirection = "asc"
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h5><a href="instructor-profile.html">{{ record.fish}}</a></h5>
+                                    <h5><a href="{{'/raxbarlar-sahifasi'}}/{{ record.slug }}">{{ record.fish}}</a></h5>
                                 </div>
                                 <div class="team-position">{{ record.mavqe}}</div>
                             </div>
@@ -109,7 +109,7 @@ sortDirection = "asc"
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h5><a href="instructor-profile.html">{{ record.fish}}</a></h5>
+                                    <h5><a href="{{'/raxbarlar-sahifasi'}}/{{ record.slug }}">{{ record.fish}}</a></h5>
                                 </div>
                                 <div class="team-position">{{ record.mavqe}}</div>
                             </div>
