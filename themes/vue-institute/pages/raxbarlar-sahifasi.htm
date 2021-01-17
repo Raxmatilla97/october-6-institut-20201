@@ -1,0 +1,138 @@
+title = "Raxbarlar sahifasi"
+url = "/raxbarlar-sahifasi/:slug?"
+layout = "yangiliklar_va_boshqa"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Raxbariyat"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "slug"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+        {% set displayColumn = builderDetails.displayColumn %}
+        {% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+        <!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ record.fish }}</h2>
+                                <h4>{{ record.mavqe }}</h4>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span>
+                                 <a title="Homepage" href="{{'/raxbariyat'}}">{{"Raxbariyat sahifasi"|_}}</a>
+                                 </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+
+    <!--site-main start-->
+    <div class="site-main">
+
+
+        <section class="ttm-row clearfix">
+            <div class="ttm-team-member-single-content-wrapper ttm-team-member-view-default">
+                <div class="container">
+                    <div class="ttm-team-member-single-content row">
+                        <div class="col-lg-12">
+                            <!-- ttm-learn-press-profile-header -->
+                            <div class="ttm-learn-press-profile-header">
+                                <div class="ttm-learn-press-profile-item clearfix">
+                                    <div class="ttm-learn-press-left" style="width: 300px;height: 300px;">
+                                        <img src="{{ record.avatar|media| resize(300,300, { mode: 'crop', quality: '80' })}}" alt="Michael Grey" class="avatar alignnone photo">
+                                    </div>
+                                  
+                                    
+                                    <style>
+                                    .tt_fcadm .tt_txts {
+                                        overflow: hidden;
+                                        font-size: 15px;
+                                    }
+                                    .tt_fclines {
+                                        margin-bottom: 15px;
+                                    }
+                                    </style>
+                                    
+                                    <div class="ttm-learn-press-right" style="margin-left: 50px;">
+                                        <h2 class="ttm-authorname">{{ record.fish }}</h2>
+                                        <div class="ttm_instructor_designation">{{ record.mavqe }}</div>
+                                        <div class="ttm-social-links-wrapper">
+                                           <div class="tt_txts">
+                                           <div class="tt_fclines"><strong>{{"Ilmiy daraja"|_}}:</strong> <span> {{ record.ilmiy_daraja }} </span></div>
+                                            <div class="tt_fclines"><strong>{{"Qabul vaqti"|_}}:</strong> <span> {{ record.qabul_vaqti }} </span></div>
+                                            <div class="tt_fclines"><strong>{{"Telefon"|_}}:</strong> <span> {{ record.telefon }} </span></div>
+                                            <div class="tt_fclines"><strong>{{"E-mail"|_}}: <a href="mailto:{{ record.email }}">{{ record.email }}</a></strong><span></span><span> </span></div>
+                                            <div class="tt_fclines">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- ttm-learn-press-profile-header end -->
+                            <div id="learn-press-profile-nav">
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Lavozim vazifalari"|_}}</h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            {{ record.content }}
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Qo'shimcha"|_}}</h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            <h6>{{ record.fish }}{{"ning boshqa ma'lumotlari"|_}}</h6>
+                                            <div class="ttm-tabs ttm-tab-style-horizontal" data-effect="fadeIn">
+                                                <ul class="tabs clearfix">
+                                                    <li class="tab active"><a href="#">{{"Faoliyat"|_}}</a></li>
+                                                    <li class="tab"><a href="#">{{"Ilmiy ishlar"|_}}</a></li>
+                                                    
+                                                </ul>
+                                                <div class="content-tab">
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner active">
+                                                        <div class="learn-press-message success"><i class="fa"></i>{{ record.biografiya|raw }}</div>
+                                                    </div><!-- content-inner end-->
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner">
+                                                        <div class="learn-press-message success"><i class="fa"></i>{{"Bu funksiya hali to'liq ishga tushurilmagan!"|_}}</div>
+                                                    </div><!-- content-inner end-->
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+    </div><!--site-main end-->
