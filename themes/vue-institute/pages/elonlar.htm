@@ -21,7 +21,6 @@ notFoundMessage = "Record not found"
 sort = "created_at asc"
 display = 6
 ==
-<<<<<<< Updated upstream
 <?php
 use Raxmatilla\Elonlar\Models\Elonlar as Elon;
 use Illuminate\Support\Facades\Db;
@@ -39,13 +38,11 @@ function onStart()
         Session::put($Key, 1);
     }
     $post->reload();
-    dump($post->status);
+   
 
 }
 ?>
 ==
-=======
->>>>>>> Stashed changes
 {% set posts = Elonlar.elonlarlist %}
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
@@ -53,10 +50,6 @@ function onStart()
 
 
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         <!-- page-title -->
         <div class="ttm-page-title-row">
             <div class="ttm-page-title-row-inner ttm-textcolor-white">
@@ -102,21 +95,11 @@ function onStart()
                 <div class="row">
                     <div class="col-xl-9 col-lg-8 content-area">
                         <!-- post -->
-<<<<<<< Updated upstream
-
-=======
-                       
->>>>>>> Stashed changes
                         <article class="post ttm-blog-single clearfix">
                             <!-- ttm-post-featured-wrapper -->
                             <div class="ttm-post-featured-wrapper ttm-featured-wrapper mb-20">
                                 <div class="ttm-post-featured">
                                     <img class="img-fluid" src="{{ record.image|media|resize(840,640,  { mode: 'crop', quality: '80' }) }}" alt="">
-<<<<<<< Updated upstream
-
-=======
-                                   
->>>>>>> Stashed changes
                                 </div>
                                 <div class="ttm-box-post-date" style="height: 85px; width: 95px;">
                                     <span class="ttm-entry-date">
@@ -151,11 +134,6 @@ function onStart()
                                             </div>
                                         #}
 
-<<<<<<< Updated upstream
-
-=======
-                                    
->>>>>>> Stashed changes
 
 
 
@@ -219,8 +197,4 @@ function onStart()
         </div>
         <!-- sidebar end -->
 
-<<<<<<< Updated upstream
     </div><!--site-main end-->
-=======
-    </div><!--site-main end-->
->>>>>>> Stashed changes
