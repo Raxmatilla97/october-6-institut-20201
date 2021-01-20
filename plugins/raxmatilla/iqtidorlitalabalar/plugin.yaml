@@ -1,5 +1,5 @@
 plugin:
-    name: 'raxmatilla.iqtidorlitalabalar::lang.plugin.name'
+    name: TEAMLAR
     description: 'raxmatilla.iqtidorlitalabalar::lang.plugin.description'
     author: Raxmatilla
     icon: oc-icon-child
@@ -18,3 +18,7 @@ navigation:
                 label: Raxbariyat
                 url: raxmatilla/iqtidorlitalabalar/raxbariyatcontroller
                 icon: icon-sitemap
+            side-menu-item3:
+                label: 'Markaz va bo''limlar'
+                url: raxmatilla/iqtidorlitalabalar/markazbolimlar
+                icon: icon-stack-overflow

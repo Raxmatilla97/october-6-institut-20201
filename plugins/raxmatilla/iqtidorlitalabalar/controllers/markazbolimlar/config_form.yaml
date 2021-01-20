@@ -1,0 +1,10 @@
+name: MarkazBolimlar
+form: $/raxmatilla/iqtidorlitalabalar/models/bolimlar/fields.yaml
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Bolimlar
+defaultRedirect: raxmatilla/iqtidorlitalabalar/markazbolimlar
+create:
+    redirect: 'raxmatilla/iqtidorlitalabalar/markazbolimlar/update/:id'
+    redirectClose: raxmatilla/iqtidorlitalabalar/markazbolimlar
+update:
+    redirect: raxmatilla/iqtidorlitalabalar/markazbolimlar
+    redirectClose: raxmatilla/iqtidorlitalabalar/markazbolimlar

@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: 'Markaz nomi'
+        type: text
+        searchable: true
+        sortable: true
+    b_boshligi:
+        label: 'Bo''lim boshligi'
+        type: text
+        searchable: true

@@ -1,0 +1,4 @@
+title: MarkazBolimlar
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Bolimlar
+toolbar:
+    buttons: reorder_toolbar

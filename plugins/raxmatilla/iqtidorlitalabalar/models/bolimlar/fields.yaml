@@ -1,0 +1,149 @@
+fields:
+    title:
+        label: 'Bo''lim nomi'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: Manzili
+        span: auto
+        required: 1
+        preset:
+            field: title
+            type: slug
+        attributes:
+            translatable: 'true'
+        type: text
+    joylashuv:
+        label: 'Bo''limning joylashuv joyi'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    email:
+        label: 'Email manzil'
+        span: auto
+        type: text
+    tell:
+        label: 'Qabul telefoni'
+        span: auto
+        required: 1
+        type: text
+    logo:
+        label: 'Bo''lim logotipi'
+        mode: image
+        imageWidth: '300'
+        span: auto
+        type: mediafinder
+    tartib_raqam:
+        label: 'Sahifada joylashish o''rni'
+        span: auto
+        type: number
+    markaz_or_bolim:
+        label: 'Markaz 0 agarda Bo''lim 1'
+        span: auto
+        type: number
+tabs:
+    fields:
+        bolim_vazifalari:
+            label: 'Rich editor'
+            size: giant
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Bo''lim vazifalari'
+        bolim_maqsadi:
+            label: 'Bo''lim maqsadi'
+            size: giant
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Bo''lim maqsadi'
+        team:
+            label: Repeater
+            prompt: 'Add new item'
+            span: full
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: 'Bo''limda ishlovchi hodimlar'
+            form:
+                fields:
+                    fish:
+                        label: 'Team ismi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    lavozim:
+                        label: Lavozimi
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    yoshi:
+                        label: 'Team yoshi'
+                        span: auto
+                        type: text
+                    team_slug:
+                        label: 'Sahifaga uzatish manzili'
+                        span: auto
+                        type: text
+                    team_logo:
+                        label: 'Team surati'
+                        mode: image
+                        imageWidth: '200'
+                        useCaption: true
+                        thumbOptions:
+                            mode: crop
+                            extension: auto
+                        span: auto
+                        type: fileupload
+        hujjatlar:
+            label: 'Hujjatlar uchun'
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: Hujjatlar
+            form:
+                fields:
+                    hujjatlar_fayl:
+                        label: 'Faylni belgilash'
+                        mode: file
+                        useCaption: true
+                        thumbOptions:
+                            mode: crop
+                            extension: auto
+                        span: left
+                        type: fileupload
+                    file_nomi:
+                        label: 'Faylning nomini yozing'
+                        span: auto
+                        preset:
+                            field: hujjatlar_fayl
+                            type: file
+                        type: text
+        b_boshligi:
+            label: 'Bo''lim boshligi ism sharifi'
+            span: auto
+            attributes:
+                translatable: 'true'
+            type: text
+            tab: 'Bo''lim boshligi'
+        b_boshligi_url_sahifa:
+            label: 'Bo''lim boshligi sahifa url manzili'
+            span: auto
+            type: text
+            tab: 'Bo''lim boshligi'
+        b_boshligi_avatar:
+            label: 'Bo''lim boshligi surati'
+            mode: image
+            imageWidth: '300'
+            span: auto
+            type: mediafinder
+            tab: 'Bo''lim boshligi'
