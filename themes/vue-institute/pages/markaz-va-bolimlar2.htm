@@ -54,78 +54,69 @@ pageNumber = "{{ :page }}"
                 <!-- row -->
                 <div class="row">
                     <div class="col-lg-12 content-area">
-                        <p class="products-result-count">Showing 1–9 of 23 results</p>
-                        <form class="products-ordering float-sm-right" method="get">
-                            <div class="orderby">
-                                <select name="orderby" class="select2-hidden-accessible">
-                                    <option value="menu_order" selected="selected">Default sorting</option>
-                                    <option value="popularity">Sort by popularity</option>
-                                    <option value="rating">Sort by average rating</option>
-                                    <option value="date">Sort by newness</option>
-                                    <option value="price">Sort by price: low to high</option>
-                                    <option value="price-desc">Sort by price: high to low</option>
-                                </select>
-                            </div>
-                        </form>
+                      
                         <div class="products row">
                         
-
+                        {% for record in records %}
                             <!-- product -->                            
                             <div class="product col-lg-3 col-md-6 col-xs-12">
                                 <div class="ttm-product-box">
                                     <!-- ttm-product-box-inner -->
                                     <div class="ttm-product-box-inner">
                                         <div class="ttm-shop-icon">
-                                            <div class="product-btn"><a href="shop.html#" class="add-to-wishlist"><i class="ti ti-heart"></i></a></div>
-                                            <div class="product-btn"><a href="shop.html#" class="compare button"><i class="ti ti-pin-alt"></i></a></div>
+                                        
+                                        
+                                            <div class="product-btn"> <img class="img-fluid" src="{{ record.b_boshligi_avatar|media | resize(100,100, { mode:'crop', quality: '80' }) }}" alt=""></div>
+                                            <div class="product-btn"> <h5 style="color: #fff;">{{ record.title }}</h5></div>
                                         </div>
                                         <div class="ttm-product-image-box">
-                                            <img class="img-fluid" src="images/product/product-one.jpg" alt="">
+                                            <img class="img-fluid" src="{{ record.logo|media | resize(251,251, { mode:'crop', quality: '80' }) }}" alt="">
                                         </div>
-                                    </div><!-- ttm-product-box-inner end -->
+                                    </div>
                                     <div class="ttm-product-content">
-                                        <a class="ttm-product-title" href="product-details.html">
-                                            <h2>Clock Work</h2>
+                                        <a class="ttm-product-title" href="#">
+                                            <h2>{{ record.title }}</h2>
                                         </a>
                                         <div class="star-ratings"></div>
                                         <span class="price"><span class="product-Price-amount">
-                                            <span class="product-Price-currencySymbol">$</span>30.00</span>
+                                            <span class="product-Price-currencySymbol">{% if record.markaz_or_bolim == 0 %} {{"OTM Markazi"|_}} {% else %} {{"OTM Bo'limi"|_}} {% endif %}</span>
                                         </span>
                                         <div class="add-to-cart-btn">
-                                            <a href="shop.html#" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Add to cart</a>
+                                            <a href="shop.html#" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{% if record.markaz_or_bolim == 0 %} {{"Markaz haqida"|_}} {% else %} {{"Bo'lim haqida"|_}} {% endif %}</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- product end -->
+                            </div>
                             
+                            
+                            {% else %}
+                            
+                            {% endfor %}
                             
                             
                             
 
-{% if records.lastPage > 1 %}
-    <ul class="pagination">
-        {% if records.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
 
-        {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
-
-        {% if records.lastPage > records.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}
 
                         </div>
-                        <div class="pagination-block">
-                            <span class="page-numbers current">1</span>
-                            <a class="page-numbers" href="shop.html#">2</a>
-                            <a class="next page-numbers" href="shop.html#"><i class="ti ti-arrow-right"></i></a>
-                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
                     </div>
                
                 </div><!-- row end -->
