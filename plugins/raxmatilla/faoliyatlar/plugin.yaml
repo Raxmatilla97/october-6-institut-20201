@@ -1,0 +1,16 @@
+plugin:
+    name: 'raxmatilla.faoliyatlar::lang.plugin.name'
+    description: 'raxmatilla.faoliyatlar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-bank
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Faoliyatlar
+        url: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
+        icon: icon-clipboard
+        sideMenu:
+            side-menu-item:
+                label: 'Ilmiy Faoliyat'
+                url: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
+                icon: icon-slideshare

@@ -1,0 +1,56 @@
+fields:
+    title:
+        label: 'Ilmiy faoliyat nomi'
+        span: auto
+        required: 1
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Sahifa manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    active:
+        label: 'Hammaga ko''rinsinmi?'
+        span: auto
+        default: 1
+        type: switch
+    images:
+        label: Logotip
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+tabs:
+    fields:
+        content:
+            label: Content
+            size: giant
+            span: full
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Asosiy qism ma''lumotlari'
+        hujjatlar:
+            label: 'Kerakli hujjatlar'
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: Hujjatlarim
+            form:
+                fields:
+                    title:
+                        label: 'Fayl nomi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    file:
+                        label: 'Media finder'
+                        mode: file
+                        span: auto
+                        type: mediafinder

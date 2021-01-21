@@ -1,0 +1,10 @@
+name: IlmiyFaoliyatController
+form: $/raxmatilla/faoliyatlar/models/ilmiyfaoliyat/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\IlmiyFaoliyat
+defaultRedirect: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
+create:
+    redirect: 'raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
+update:
+    redirect: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
+    redirectClose: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller

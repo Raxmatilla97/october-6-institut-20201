@@ -1,0 +1,12 @@
+list: $/raxmatilla/faoliyatlar/models/ilmiyfaoliyat/columns.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\IlmiyFaoliyat
+title: IlmiyFaoliyatController
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller/update/:id'

@@ -1,0 +1,4 @@
+title: IlmiyFaoliyatController
+modelClass: Raxmatilla\Faoliyatlar\Models\IlmiyFaoliyat
+toolbar:
+    buttons: reorder_toolbar
