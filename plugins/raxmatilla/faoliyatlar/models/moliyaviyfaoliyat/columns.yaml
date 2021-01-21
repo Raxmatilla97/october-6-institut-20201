@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'Moliyaviy faoliyat nomi'
+        type: text
+        searchable: true
+        sortable: true

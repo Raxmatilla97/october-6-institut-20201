@@ -14,3 +14,7 @@ navigation:
                 label: 'Ilmiy Faoliyat'
                 url: raxmatilla/faoliyatlar/ilmiyfaoliyatcontroller
                 icon: icon-slideshare
+            side-menu-item2:
+                label: 'Moliyaviy faoliyat'
+                url: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
+                icon: icon-yen

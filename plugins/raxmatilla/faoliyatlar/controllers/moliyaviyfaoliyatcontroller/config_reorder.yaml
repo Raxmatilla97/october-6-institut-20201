@@ -1,0 +1,4 @@
+title: MoliyaviyFaoliyatController
+modelClass: Raxmatilla\Faoliyatlar\Models\MoliyaviyFaoliyat
+toolbar:
+    buttons: reorder_toolbar

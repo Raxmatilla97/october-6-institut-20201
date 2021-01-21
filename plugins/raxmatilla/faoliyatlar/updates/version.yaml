@@ -9,3 +9,9 @@
 1.0.4:
     - 'Updated table raxmatilla_faoliyatlar_ilmiy_faoliyat'
     - builder_table_update_raxmatilla_faoliyatlar_ilmiy_faoliyat_2.php
+1.0.5:
+    - 'Created table raxmatilla_faoliyatlar_moliyaviy_faoliyat'
+    - builder_table_create_raxmatilla_faoliyatlar_moliyaviy_faoliyat.php
+1.0.6:
+    - 'Updated table raxmatilla_faoliyatlar_moliyaviy_faoliyat'
+    - builder_table_update_raxmatilla_faoliyatlar_moliyaviy_faoliyat.php

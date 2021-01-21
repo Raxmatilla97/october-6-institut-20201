@@ -1,0 +1,10 @@
+name: MoliyaviyFaoliyatController
+form: $/raxmatilla/faoliyatlar/models/moliyaviyfaoliyat/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\MoliyaviyFaoliyat
+defaultRedirect: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
+create:
+    redirect: 'raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
+update:
+    redirect: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
+    redirectClose: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
