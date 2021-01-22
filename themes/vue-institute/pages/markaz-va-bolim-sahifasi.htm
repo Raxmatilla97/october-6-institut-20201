@@ -31,7 +31,7 @@ notFoundMessage = "Record not found"
                                 </span>
                                 <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                                 <span>
-                                 <a title="Homepage" href="{{'/raxbariyat'}}">{{"Raxbariyat sahifasi"|_}}</a>
+                                 <a title="Homepage" href="{{'/markaz-bolimlar'}}">{{"Markaz va bo'limlar"|_}}</a>
                                  </span>
                                 <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                                 <span class="current">{{"Siz turgan sahifa"|_}}</span>
@@ -42,7 +42,7 @@ notFoundMessage = "Record not found"
             </div>                    
         </div><!-- page-title end-->
 
- {{ record }}
+
     <!--site-main start-->
     <div class="site-main">
 
@@ -56,7 +56,11 @@ notFoundMessage = "Record not found"
                             <div class="ttm-learn-press-profile-header">
                                 <div class="ttm-learn-press-profile-item clearfix">
                                     <div class="ttm-learn-press-left" style="width: 240px;height: 240px;">
-                                        <img src="{{ record.b_boshligi_avatar|media| resize(240,240, { mode: 'crop', quality: '80' })}}" alt="Michael Grey" class="avatar alignnone photo">
+                                        {% if record.b_boshligi_avatar %}
+                                            <img src="{{ record.b_boshligi_avatar|media| resize(240,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.b_boshligi }}" class="avatar alignnone photo">
+                                            {% else %}
+                                             <img src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_male_avatar_323b.png' | resize(240,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.b_boshligi }}" class="avatar alignnone photo">
+                                        {% endif %}
                                     </div>
                                   
                                     
@@ -67,6 +71,56 @@ notFoundMessage = "Record not found"
                                     }
                                     .tt_fclines {
                                         margin-bottom: 15px;
+                                    }
+                                    *, ::after, ::before {
+                                        box-sizing: border-box;
+                                    }
+                                    blockquote {
+                                    display: block;
+                                    margin-block-start: 1em;
+                                    margin-block-end: 1em;
+                                    margin-inline-start: 40px;
+                                    margin-inline-end: 40px;
+                                }
+                                 blockquote {
+                                    display: block;
+                                    padding: 25px 20px 25px 85px;
+                                    position: relative;
+                                    font-style: normal;
+                                    font-size: 19px;
+                                    min-height: 100px;
+                                    line-height: 28px;
+                                    font-style: normal;
+                                    margin: 24px 0;
+                                    font-weight: 400;
+                                    border-left-width: 5px;
+                                    border-left-style: solid;                                        
+                                    background-color: #f4f6f9;                                   
+
+                                }
+                                
+                               blockquote:before {
+                                    position: absolute;
+                                    content: '\f10d';
+                                    font-family: "FontAwesome";
+                                    font-size: 37px;
+                                    line-height: 37px;
+                                    top: 28px;
+                                    left: 25px;
+                                    color: #ff4f01;
+                                }
+                                   .img-fluid {
+                                        max-width: 100%;
+                                    }
+                                    p img{
+                                        max-width: 100%;
+                                        height: auto !important;
+                                    }
+                                    .center {
+                                      display: block;
+                                      margin-left: auto;
+                                      margin-right: auto;
+                                      width: 50%;
                                     }
                                     </style>
                                     
@@ -126,7 +180,7 @@ notFoundMessage = "Record not found"
                                                 <div class="content-tab">
                                                     <!-- content-inner -->
                                                     <div class="content-inner active">                                                  
-                                                      <div class="learn-press-message success" style="background: #fbfbfb !important;"><i class="fa"></i>
+                                                      <div class="learn-press-message success" {% if record.team %}style="background: #fbfbfb !important;" {% else %} style="background: #fff !important;" {% endif %} ><i class="fa"></i>
                                                         <div class="col-md-12">
                                                             <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
                                                                
@@ -145,7 +199,7 @@ notFoundMessage = "Record not found"
                                                                             <hr> 
                                                                             
                                                                             {% else %}
-                                                                            
+                                                                             <img style="" src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_Posts_re_ormv.png' | resize(400,279,  { mode: 'crop', quality: '80' })}}"  class="avatar center">
                                                                             
                                                                           {% endfor%} 
                                                                           
@@ -164,13 +218,28 @@ notFoundMessage = "Record not found"
                                                         
                                                     </div><!-- content-inner end-->
                                                     <!-- content-inner -->
-                                                    <div class="content-inner">
-                                                        <div class="learn-press-message success"><i class="fa"></i>
+                                                    <div class="content-inner"> 
+                                                        <div class="learn-press-message success" {% if record.team %}style="background: #fbfbfb !important;" {% else %} style="background: #fff !important;" {% endif %} ><i class="fa"></i>
+                                                         <div class="col-md-12">
+                                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                               
+                                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                                
+                                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">   
+                                                                         {% for hujjat in record.hujjatlar %}
+                                                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{url('/')}}{{ hujjat.hujjatlar_fayl|media}}"> {{ hujjat.file_nomi }} </a></b> </div> <br> 
+                                                                            </li>                                                                            
+                                                                            <hr> 
+                                                                             {% else %}   
+                                                                              <img style="" src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_teamwork_hpdk.png' | resize(400,279,  { mode: 'crop', quality: '80' })}}"  class="avatar center">
+                                                                   {% endfor%} 
+                                                                    </ul>
+                                                                     
+                                                                </div>
+                                                              </div>
+                                                        </div>
                                                         
-                                                        {% for hujjat in record.hujjatlar %}
-                                                          {{ hujjat.file_nomi }}
-                                                          {{ hujjat.hujjatlar_fayl|media}}
-                                                         {% endfor%} 
+                                                      
                                                         </div>
                                                     </div><!-- content-inner end-->
                                                   
