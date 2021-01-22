@@ -9,7 +9,8 @@ scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "slug"
 noRecordsMessage = "No records found"
-detailsPage = "-"
+detailsPage = "markaz-va-bolim-sahifasi"
+detailsKeyColumn = "slug"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
@@ -83,7 +84,7 @@ pageNumber = "{{ :page }}"
                                         </div>
                                     </div>
                                     <div class="ttm-product-content">
-                                        <a class="ttm-product-title" href="#">
+                                        <a class="ttm-product-title" href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}">
                                             <h2>{{ record.title }}</h2>
                                         </a>
                                         <div class="star-ratings"></div>
@@ -91,7 +92,7 @@ pageNumber = "{{ :page }}"
                                             <span class="product-Price-currencySymbol">{% if record.markaz_or_bolim == 0 %} {{"OTM Markazi"|_}} {% else %} {{"OTM Bo'limi"|_}} {% endif %}</span>
                                         </span>
                                         <div class="add-to-cart-btn">
-                                            <a href="shop.html#" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{% if record.markaz_or_bolim == 0 %} {{"Markaz haqida"|_}} {% else %} {{"Bo'lim haqida"|_}} {% endif %}</a>
+                                            <a href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{% if record.markaz_or_bolim == 0 %} {{"Markaz haqida"|_}} {% else %} {{"Bo'lim haqida"|_}} {% endif %}</a>
                                         </div>
                                     </div>
                                 </div>
