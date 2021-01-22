@@ -116,7 +116,7 @@ notFoundMessage = "Record not found"
                                             <h4>{{"Qo'shimcha"|_}}</h4>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-12">
-                                            <h6>{{ record.fish }}{{"ning boshqa ma'lumotlari"|_}}</h6>
+                                            <h6>{{ record.title }}{{"ga tegishli boshqa ma'lumotlar"|_}}</h6>
                                             <div class="ttm-tabs ttm-tab-style-horizontal" data-effect="fadeIn">
                                                 <ul class="tabs clearfix">
                                                     <li class="tab active"><a href="#">{{"Hodimlar"|_}}</a></li>
@@ -125,23 +125,51 @@ notFoundMessage = "Record not found"
                                                 </ul>
                                                 <div class="content-tab">
                                                     <!-- content-inner -->
-                                                    <div class="content-inner active">
-                                                        {% for hujjat in record.hujjatlar %}
-                                                      {{ hujjat.file_nomi }}
-                                                      {{ hujjat.hujjatlar_fayl|media}}
-                                                         {% endfor%} 
+                                                    <div class="content-inner active">                                                  
+                                                      <div class="learn-press-message success" style="background: #fbfbfb !important;"><i class="fa"></i>
+                                                        <div class="col-md-12">
+                                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                               
+                                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">   
+                                                                         {% for hodim in record.team %}
+                                                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{'/'}}{{ hodim.slug}}">{{ hodim.fish }} </a></b> </div> <br> <strong style="color: #ff4f01;"> {{"Lavozimi"|_}}  </strong> {{ hodim.lavozim }}
+                                                                            {% if hodim.yoshi %}
+                                                                            <strong style="color: #ff4f01;">{{"Yoshi"|_}}:</strong> {{ hodim.yoshi}} {{"yoshda"|_}} 
+                                                                            {% else %}
+                                                                            <strong style="margin-left: 5% !important;"></strong>
+                                                                            {% endif %}
+                                                                            <img style="margin-left: 10%; border-radius: 50%; margin-top: -30px; " src="{{ hodim.team_logo|media | resize(80, 80,  { mode: 'crop', quality: '80' })}}" alt="{{ hodim.fish }}" class="avatar">
+                                                                            </li>
+                                                                            
+                                                                            <hr> 
+                                                                            
+                                                                            {% else %}
+                                                                            
+                                                                            
+                                                                          {% endfor%} 
+                                                                          
+                                                                    
+                                                                    </ul>
+                                                                </div>
+                                                              </div>
+                                                        </div>
+      
+    
+                                                     </div>
+                                                    
+                                                        
+                                                        
+                                                        
                                                         
                                                     </div><!-- content-inner end-->
                                                     <!-- content-inner -->
                                                     <div class="content-inner">
                                                         <div class="learn-press-message success"><i class="fa"></i>
                                                         
-                                                         {% for hodim in record.team %}
-                                                      {{ hodim.fish }}
-                                                      {{ hodim.lavozim}}
-                                                      {{ hodim.yoshi}}
-                                                      {{ hodim.team_slug}}
-                                                      {{ hujjat.team_logo|media}}
+                                                        {% for hujjat in record.hujjatlar %}
+                                                          {{ hujjat.file_nomi }}
+                                                          {{ hujjat.hujjatlar_fayl|media}}
                                                          {% endfor%} 
                                                         </div>
                                                     </div><!-- content-inner end-->
