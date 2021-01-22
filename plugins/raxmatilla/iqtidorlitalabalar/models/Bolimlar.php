@@ -10,7 +10,7 @@ class Bolimlar extends Model
     use \October\Rain\Database\Traits\Validation;
     
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-    public $translatable = ['title', 'joylashuv', 'bolim_vazifalari', 'team', 'b_boshligi', 'bolim_maqsadi', 'hujjatlar'];
+    public $translatable = ['title', 'joylashuv', 'bolim_vazifalari', 'team', 'b_boshligi', 'bolim_maqsadi'];
 
     /*
      * Disable timestamps by default.
