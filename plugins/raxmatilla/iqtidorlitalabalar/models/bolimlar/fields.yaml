@@ -95,15 +95,11 @@ tabs:
                         span: auto
                         type: text
                     team_logo:
-                        label: 'Team surati'
+                        label: 'Hodim surati'
                         mode: image
                         imageWidth: '200'
-                        useCaption: true
-                        thumbOptions:
-                            mode: crop
-                            extension: auto
                         span: auto
-                        type: fileupload
+                        type: mediafinder
         hujjatlar:
             label: 'Hujjatlar uchun'
             prompt: 'Add new item'
@@ -112,15 +108,6 @@ tabs:
             tab: Hujjatlar
             form:
                 fields:
-                    hujjatlar_fayl:
-                        label: 'Faylni belgilash'
-                        mode: file
-                        useCaption: true
-                        thumbOptions:
-                            mode: crop
-                            extension: auto
-                        span: left
-                        type: fileupload
                     file_nomi:
                         label: 'Faylning nomini yozing'
                         span: auto
@@ -128,6 +115,11 @@ tabs:
                             field: hujjatlar_fayl
                             type: file
                         type: text
+                    hujjatlar_fayl:
+                        label: 'Kerakli hujjat'
+                        mode: file
+                        span: auto
+                        type: mediafinder
         b_boshligi:
             label: 'Bo''lim boshligi ism sharifi'
             span: auto
