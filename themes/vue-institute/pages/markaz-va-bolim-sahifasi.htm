@@ -1,0 +1,161 @@
+title = "Markaz va bo'lim sahifasi"
+url = "/markaz-va-bolim-sahifasi/:slug?"
+layout = "yangiliklar_va_boshqa"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Bolimlar"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "slug"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+        {% set displayColumn = builderDetails.displayColumn %}
+        {% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+        <!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ record.title }}</h2>
+                                <h5>{% if record.markaz_or_bolim == 0 %} {{"Markaz boshlig'i:"|_}} {% else%} {{"Bo'lim boshlig'i:"|_}} {% endif %}{{ record.b_boshligi }}</h5>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span>
+                                 <a title="Homepage" href="{{'/raxbariyat'}}">{{"Raxbariyat sahifasi"|_}}</a>
+                                 </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+ {{ record }}
+    <!--site-main start-->
+    <div class="site-main">
+
+
+        <section class="ttm-row clearfix">
+            <div class="ttm-team-member-single-content-wrapper ttm-team-member-view-default">
+                <div class="container">
+                    <div class="ttm-team-member-single-content row">
+                        <div class="col-lg-12">
+                            <!-- ttm-learn-press-profile-header -->
+                            <div class="ttm-learn-press-profile-header">
+                                <div class="ttm-learn-press-profile-item clearfix">
+                                    <div class="ttm-learn-press-left" style="width: 240px;height: 240px;">
+                                        <img src="{{ record.b_boshligi_avatar|media| resize(240,240, { mode: 'crop', quality: '80' })}}" alt="Michael Grey" class="avatar alignnone photo">
+                                    </div>
+                                  
+                                    
+                                    <style>
+                                    .tt_fcadm .tt_txts {
+                                        overflow: hidden;
+                                        font-size: 15px;
+                                    }
+                                    .tt_fclines {
+                                        margin-bottom: 15px;
+                                    }
+                                    </style>
+                                    
+                                    <div class="ttm-learn-press-right" style="margin-left: 50px;">
+                                        <h2 class="ttm-authorname">{{ record.b_boshligi }}</h2>
+                                        {#<div class="ttm_instructor_designation">{{ record.mavqe }}</div>#}
+                                        <div class="ttm-social-links-wrapper">
+                                           <div class="tt_txts">
+                                           <div class="tt_fclines"><strong>{{"Joylashuv"|_}}:</strong> <span> {{ record.joylashuv }} </span></div>
+                                            
+                                            <div class="tt_fclines"><strong>{{"Telefon"|_}}:</strong> <span> {{ record.tell }} </span></div>
+                                            <div class="tt_fclines"><strong>{{"E-mail"|_}}: <a href="mailto:{{ record.email }}">{{ record.email }}</a></strong><span></span><span> </span></div>
+                                            <div class="tt_fclines">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- ttm-learn-press-profile-header end -->
+                            <div id="learn-press-profile-nav">
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{% if record.markaz_or_bolim == 0 %} {{"Markaz vazifalari"|_}} {% else%} {{"Bo'lim vazifalari:"|_}} {% endif %} </h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            {{ record.bolim_vazifalari|raw }}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{% if record.markaz_or_bolim == 0 %} {{"Markaz maqsadi"|_}} {% else%} {{"Bo'lim maqsadi:"|_}} {% endif %} </h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            {{ record.bolim_maqsadi|raw }}
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Qo'shimcha"|_}}</h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            <h6>{{ record.fish }}{{"ning boshqa ma'lumotlari"|_}}</h6>
+                                            <div class="ttm-tabs ttm-tab-style-horizontal" data-effect="fadeIn">
+                                                <ul class="tabs clearfix">
+                                                    <li class="tab active"><a href="#">{{"Hodimlar"|_}}</a></li>
+                                                    <li class="tab"><a href="#">{{"Xujjatlar"|_}}</a></li>
+                                                    
+                                                </ul>
+                                                <div class="content-tab">
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner active">
+                                                        {% for hujjat in record.hujjatlar %}
+                                                      {{ hujjat.file_nomi }}
+                                                      {{ hujjat.hujjatlar_fayl|media}}
+                                                         {% endfor%} 
+                                                        
+                                                    </div><!-- content-inner end-->
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner">
+                                                        <div class="learn-press-message success"><i class="fa"></i>
+                                                        
+                                                         {% for hodim in record.team %}
+                                                      {{ hodim.fish }}
+                                                      {{ hodim.lavozim}}
+                                                      {{ hodim.yoshi}}
+                                                      {{ hodim.team_slug}}
+                                                      {{ hujjat.team_logo|media}}
+                                                         {% endfor%} 
+                                                        </div>
+                                                    </div><!-- content-inner end-->
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+    </div><!--site-main end-->
