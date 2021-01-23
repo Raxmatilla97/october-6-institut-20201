@@ -9,7 +9,8 @@ scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "slug"
 noRecordsMessage = "No records found"
-detailsPage = "-"
+detailsPage = "ilmiy-faoliyat-sahifasi"
+detailsKeyColumn = "slug"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
@@ -70,24 +71,24 @@ pageNumber = "{{ :page }}"
                         
                         {%if record.active == 1 %}
                             <!-- product -->                            
-                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 20px;">
-                                <div class="ttm-product-box">
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 0px;">
+                                <div class="ttm-product-box" style="margin: 0px 0 0px;">
                                     <!-- ttm-product-box-inner -->
-                                    <div class="ttm-product-box-inner shadow">
+                                    <div class="ttm-product-box-inner shadow" style="background-color: #4569da91;">
                                       
                                         <div class="ttm-product-image-box">
-                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.images |media | resize(251,251, { mode:'crop', quality: '80' }) }}" alt="">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.images |media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
                                         </div>
                                     </div>
                                     <div class="ttm-product-content">
-                                        <a class="ttm-product-title" href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}">
+                                        <a  class="ttm-product-title" href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}">
                                             <h2>{{ record.title }}</h2>
                                         </a>
 
                                       
-                                        <div class="add-to-cart-btn">
-                                            <a href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
-                                        </div>
+                                       {# <div class="add-to-cart-btn">
+                                            <a href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
+                                        </div>#}
                                     </div>
                                 </div>
                             </div>
