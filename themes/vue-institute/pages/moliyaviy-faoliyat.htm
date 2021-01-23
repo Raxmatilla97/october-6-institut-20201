@@ -1,524 +1,133 @@
 title = "Moliyaviy faoliyat"
 url = "/moliyaviy-faoliyat"
-layout = "default"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
+
+[builderList]
+modelClass = "Raxmatilla\Faoliyatlar\Models\MoliyaviyFaoliyat"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
-<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/2018-12-08-2.jpg'}}); background-attachment:fixed;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 ftco-animate text-center">
-      
-            <h1 class="mb-3 bread">{{"Moliyaviy faoliyat"|_}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
 
 
-<div><br/><br/><br/><br/></div>
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"Moliyaviy faoliyat"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
 
-  <section class="wrapper">
-  
-    <div class=" ftco-animate text-center">
-      
-            <h1 class="bread">{{"Moliyaviy faoliyat"|_}}</h1>
-          </div>
-          
-          <br/><br/><br/>
-   {# <div class="container-fostrap">#}
-        {#<div>
-            <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png" class="fostrap-logo"/>
-            <h1 class="heading">
-               Bootstrap Card Responsive 
-            </h1>
-        </div>#}
-        <div class="content">
+
+
+ <style>
+   .shadow {
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
             <div class="container">
+                <!-- row -->
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="card">
-                            <a class="img-card" href="{{'/muassasa-byujeti'}}">
-                            <img src="{{'/storage/app/media/2019-%20yilgi/12.2019/servicio-de-contabilidad-administrativa.jpg'}}" />
-                          </a>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    <a href="{{'/muassasa-byujeti'}}"> <center>{{"Muassasa Byujeti"|_}}</center>
-                                  </a>
-                                </h4>
-                                
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                        
+                        {% for record in records %}
+                        
+                        {%if record.active == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 0px;">
+                                <div class="ttm-product-box" style="margin: 0px 0 0px;">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow" style="background-color: #4569da91;">
+                                      
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image |media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a  class="ttm-product-title" href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+
+                                      
+                                       {# <div class="add-to-cart-btn">
+                                            <a href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
+                                        </div>#}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-read-more">
-                                <a href="{{'/muassasa-byujeti'}}" class="btn btn-link btn-block">
-                                    {{"Yo'nalishga o'tish"|_}}
-                                </a>
-                            </div>
+                            {% else %}
+                            
+                            {% endif %}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                            
+                            
+                            
+
+
+
                         </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
                     </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="card">
-                            <a class="img-card" href="{{'/ish-xaqini-xisoblash-va-mukofotlarni-taqsimlash-qoidalari'}}">
-                            <img src="{{'/storage/app/media/2019-%20yilgi/12.2019/un_uzb_img_influence_on_social_payment.jpg'}}" />
-                          </a>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    <a href="{{'/ish-xaqini-xisoblash-va-mukofotlarni-taqsimlash-qoidalari'}}"><center>{{"Ish xaqini xisoblash va mukofotlarni taqsimlash qoidalari"|_}}</center>
-                                  </a>
-                                </h4>
-                               
-                            </div>
-                            <div class="card-read-more">
-                                <a href="{{'/ish-xaqini-xisoblash-va-mukofotlarni-taqsimlash-qoidalari'}}" class="btn btn-link btn-block">
-                                     {{"Yo'nalishga o'tish"|_}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="card">
-                            <a class="img-card" href="{{'/davlat-xaridlariga-oid-tuzilgan-shartnomalar'}}">
-                            <img src="{{'/storage/app/media/2019-%20yilgi/12.2019/carrera-de-contabilidad_1_1.jpg'}}" />
-                          </a>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    <a href="{{'/davlat-xaridlariga-oid-tuzilgan-shartnomalar'}}"><center>{{"Davlat xaridlariga oid tuzilgan shartnomalar"|_}}</center>
-                                  </a>
-                                </h4>
-                              
-                            </div>
-                            <div class="card-read-more">
-                                <a href="{{'/davlat-xaridlariga-oid-tuzilgan-shartnomalar'}}" class="btn btn-link btn-block">
-                                    {{"Yo'nalishga o'tish"|_}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                          <div class="col-xs-12 col-sm-4">
-                        <div class="card">
-                            <a class="img-card" href="{{'/chirchiq-davlat-pedagogika-institutining-2019-yil-yakuni-boyicha-moliyaviy-korsatkichlari'}}">
-                            <img src="{{'/storage/app/media/2020-yilgi/09%20sentiyabr/muoliyaviy_faoliyat_.jpg'}}" />
-                          </a>
-                            <div class="card-content">
-                                <h4 class="card-title">
-                                    <a href="{{'/chirchiq-davlat-pedagogika-institutining-2019-yil-yakuni-boyicha-moliyaviy-korsatkichlari'}}"><center>{{"Moliyaviy ko'rsatkichlar"|_}}</center>
-                                  </a>
-                                </h4>
-                              
-                            </div>
-                            <div class="card-read-more">
-                                <a href="{{'/chirchiq-davlat-pedagogika-institutining-2019-yil-yakuni-boyicha-moliyaviy-korsatkichlari'}}" class="btn btn-link btn-block">
-                                    {{"Yo'nalishga o'tish"|_}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
+               
+                </div><!-- row end -->
             </div>
         </div>
-   {# </div>#}
-</section>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<style>
-
- /*
-    
-    talabalar va abituriantlar dagi karta css
-    */
-
-    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-
-html,
-body {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
-  height: 100%;
-  width: 100%; 
-  background: #FFF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-}
- 
-    .wrapper {
-      display: table;
-      height: 60%;
-      width: 100%;
-    }
-    
-    .container-fostrap {
-      display: table-cell;
-      padding: 1em;
-      text-align: center;
-      vertical-align: middle;
-    }
-    .fostrap-logo {
-      width: 100px;
-      margin-bottom:15px
-    }
-    h1.heading {
-      color: #fff;
-      font-size: 1.15em;
-      font-weight: 900;
-      margin: 0 0 0.5em;
-      color: #505050;
-    }
-    @media (min-width: 450px) {
-      h1.heading {
-        font-size: 3.55em;
-      }
-    }
-    @media (min-width: 760px) {
-      h1.heading {
-        font-size: 3.05em;
-      }
-    }
-    @media (min-width: 900px) {
-      h1.heading {
-        font-size: 3.25em;
-        margin: 0 0 0.3em;
-      }
-    } 
-    .card {
-      display: block; 
-        margin-bottom: 20px;
-        line-height: 1.42857143;
-        background-color: #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
-        transition: box-shadow .25s; 
-    }
-    .card:hover {
-      box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    }
-    .img-card {
-      width: 100%;
-      height:200px;
-      border-top-left-radius:2px;
-      border-top-right-radius:2px;
-      display:block;
-        overflow: hidden;
-    }
-    .img-card img{
-      width: 100%;
-      height: 200px;
-      object-fit:cover; 
-      transition: all .25s ease;
-    } 
-    .card-content {
-      padding:15px;
-      text-align:left;
-    }
-    .card-title {
-      margin-top:0px;
-      font-weight: 700;
-      font-size: 1.65em;
-    }
-    .card-title a {
-      color: #000;
-      text-decoration: none !important;
-    }
-    .card-read-more {
-      border-top: 1px solid #D4D4D4;
-    }
-    .card-read-more a {
-      text-decoration: none !important;
-      padding:10px;
-      font-weight:600;
-      text-transform: uppercase
-    }
-</style>
-
-
- {#<section class="ftco-section">
- 
- 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-align-center">
-      <h2 class="bold_font">Bakalavriyat turlari</h2><br>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-      <img class="img-responsive" style=" height: 100%; width: 99.9%;" src="{{'/storage/app/media/MA_Education_teacherlibrarianship_Banner_01-min.jpg'}}">
-      <div class="overlay mx-3">
-        <div class="overlay-content">
-          <img style=" height: 120px; width: 200px;" src="{{'/assets/images/oq%20logo.png'|theme}}" class="img-responsive center-block">
-             <a class="item" href="{{'/kunduzgi-talim'}}"> 
-          <div class="spacer overlay-text " style="color: #fff; "><b>Kunduzgi ta'lim</b></div>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-      <img class="img-responsive" style=" height: 317px; width: 99.9%;" src="{{"/storage/app/media/istock-963192098-min.jpg"}}">
-      <div class="overlay mx-3">
-        <div class="overlay-content">
-          <img style=" height: 120px; width: 200px;" src="{{'/assets/images/oq%20logo.png'|theme}}"  class="img-responsive center-block">
-             <a class="item" href="ssdd"> 
-          <div class="spacer overlay-text" style="color: #fff; "><b>Sirtqi ta'lim</b></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-      <img class="img-responsive"  style=" height: 317px; width: 99.9%;" src="{{'/storage/app/media/workingatnight4460x4460crop658x494420preview-min.jpg'}}">
-      <div class="overlay mx-3">
-        <div class="overlay-content px-3">
-          <img style=" height: 120px; width: 200px;" src="{{'/assets/images/oq%20logo.png'|theme}}"  class="img-responsive center-block">
-          <a class="item" href="ssdd"> 
-          <div class="spacer overlay-text " style="color: #fff; "><b >Kechki ta'lim</b></div>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        </div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-           
-            </div>
-          </div>
-        
-    </section>#}
-  {#
-  <style>
-  .item:hover {
-  //styling here
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #f3a64c99;
-}
-
-.col-md-4:hover .overlay {
-  opacity: 1;
-}
-
-.overlay-content {
-  color: white;
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.exact-center {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.spacer {
-  margin: 20px 0px 20px 0px;
-}
-  </style>#}
-{#<section class="ftco-section">
-    
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-     <h2 class="bold_font">Talaba bakalavriati</h2><br>
-          </div>
-          
-        </div>
-        
-    	
-
-    		<div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/file_5b602d8b1e0ab9.225328551533029771.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/2018-2019-oquv-yilidagi-talim-yonalishlari'}}">{{"2018-2019 о‘quv yilidagi ta’lim yо‘nalishlari"|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/studentresidential10.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/yoriqnoma'}}">{{"Yo'riqnoma"|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/hero-psychology-in-education-1600.png'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/ozlashtirish'}}">{{"O'zlashtirish"|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          
-           <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/2019-timetable.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/dars-jadvali'}}">{{'Dars jadvali'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/illustration-of-a-classrom-in-shades-of-grey.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/davomat'}}">{{'Davomat'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          
-          
-          
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/exam_650x400_41520240030.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/iqtidorli-talabalar'}}">{{'Iqtidorli talabalar'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/education-cours-formation-ligne-enseignement-distance_1200-405.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/stipendiyalar'}}">{{'Stipendiyalar'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/pngtree-geometric-vector-house-banner-fig.-photo-322472.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/talabalar-turar-joylari'}}">{{'Talabalar turar joylari'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          
-          
-          
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/image-109-calendar-with-marked-dates.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/davlat-imtihonlari'}}">{{'Davlat imtihonlari'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-             <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/degree7591.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">2018-2019 yil</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/talaba/bitiruv-malakaviy-ish-himoyasi'}}">{{'Bitiruv malakaviy ish himoyasi'|_}}</a></h3>
-                <p>________________________________________________</p>
-              </div>
-            </div>
-          </div>
-          
-          
-        </div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>#}
+    </div><!--site-main end-->
