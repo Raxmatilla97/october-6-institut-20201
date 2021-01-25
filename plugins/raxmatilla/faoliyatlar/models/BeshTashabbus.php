@@ -9,7 +9,8 @@ class BeshTashabbus extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     
-
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    public $translatable = ['title', 'content', 'hujjatlar'];
     /**
      * @var string The database table used by the model.
      */
@@ -18,6 +19,15 @@ class BeshTashabbus extends Model
     /**
      * @var array Validation rules
      */
+
+    public $attachOne = [
+        
+        
+        'fayl' => 'System\Models\File',
+	
+    ];
+    public $jsonable = ['hujjatlar'];
+
     public $rules = [
     ];
 }

@@ -1,0 +1,4 @@
+title: BeshTashabbusMarkazi
+modelClass: Raxmatilla\Faoliyatlar\Models\BeshTashabbus
+toolbar:
+    buttons: reorder_toolbar

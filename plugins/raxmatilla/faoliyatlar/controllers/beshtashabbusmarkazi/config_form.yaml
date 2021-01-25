@@ -1,0 +1,10 @@
+name: BeshTashabbusMarkazi
+form: $/raxmatilla/faoliyatlar/models/beshtashabbus/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\BeshTashabbus
+defaultRedirect: raxmatilla/faoliyatlar/beshtashabbusmarkazi
+create:
+    redirect: 'raxmatilla/faoliyatlar/beshtashabbusmarkazi/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/beshtashabbusmarkazi
+update:
+    redirect: raxmatilla/faoliyatlar/beshtashabbusmarkazi
+    redirectClose: raxmatilla/faoliyatlar/beshtashabbusmarkazi

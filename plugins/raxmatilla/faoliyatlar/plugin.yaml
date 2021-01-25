@@ -18,3 +18,7 @@ navigation:
                 label: 'Moliyaviy faoliyat'
                 url: raxmatilla/faoliyatlar/moliyaviyfaoliyatcontroller
                 icon: icon-yen
+            side-menu-item3:
+                label: 'Besh tashabbus markazi'
+                url: raxmatilla/faoliyatlar/beshtashabbusmarkazi
+                icon: icon-street-view
