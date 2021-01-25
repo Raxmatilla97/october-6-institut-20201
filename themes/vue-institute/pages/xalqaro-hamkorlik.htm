@@ -1,96 +1,131 @@
 title = "Xalqaro hamkorlik"
 url = "/xalqaro-hamkorlik"
-layout = "default"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
 
-[staticPage]
-useContent = 1
-default = 1
+[builderList]
+modelClass = "Raxmatilla\Faoliyatlar\Models\XalqaroXamkorlik"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "xalqaro-hamkorlik-sahifasi"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
-<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/csm_Fotolia_94883014_Subscription_Monthly_XXL_d5fd3a802c.jpg'}}); background-attachment:fixed;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 ftco-animate text-center">
-           
-            <h1 class="mb-3 bread">{{'Xalqaro hamkorlik'|_}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-<section class="ftco-section">
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"Xalqaro hamkorlik"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+
+
+ <style>
+   .shadow {
     
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-    
-          </div>
-          
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                        
+                        {% for record in records %}
+                        
+                        {%if record.active == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 0px;">
+                                <div class="ttm-product-box" style="margin: 0px 0 0px;">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow" style="background-color: #4569da91;">
+                                      
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image |media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a  class="ttm-product-title" href="{{'/moliyaviy-faoliyat-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+
+                                      
+                                       {# <div class="add-to-cart-btn">
+                                            <a href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
+                                        </div>#}
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            
+                            {% endif %}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                            
+                            
+                            
+
+
+
+                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
+                    </div>
+               
+                </div><!-- row end -->
+            </div>
         </div>
-        
-    	
-    		<div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/UzB_IDB.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#"></a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/institutning-xorijiy-hamkorlari'}}">{{"Institutning xorijiy hamkorlari"|_}}</a></h3>
-                <p>...............................................................................</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/23wld905im.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#"></a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/'}}">{{'Chet eldagi amaliy o‘quv kurslari, xalqaro stipendiyalar va grantlar'|_}}</a></h3>
-                <p>...............................................................................</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url({{'/storage/app/media/partnery.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                  <div><a href="#">August 12, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/'}}">{{'Jalb etilgan xorijiy loyihalar'|_}}</a></h3>
-                <p>...............................................................................</p>
-              </div>
-            </div>
-          </div>
-        </div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
+
+    </div><!--site-main end-->
