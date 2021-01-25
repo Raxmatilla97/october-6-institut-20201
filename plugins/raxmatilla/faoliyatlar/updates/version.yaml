@@ -15,3 +15,6 @@
 1.0.6:
     - 'Updated table raxmatilla_faoliyatlar_moliyaviy_faoliyat'
     - builder_table_update_raxmatilla_faoliyatlar_moliyaviy_faoliyat.php
+1.0.7:
+    - 'Created table raxmatilla_faoliyatlar_5tashabbus'
+    - builder_table_create_raxmatilla_faoliyatlar_5tashabbus.php
