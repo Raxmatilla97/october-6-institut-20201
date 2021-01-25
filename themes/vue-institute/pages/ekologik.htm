@@ -1,131 +1,140 @@
 title = "Ekologiya sahifasi"
-url = "/ekologiya/"
-layout = "default"
+url = "/ekologiya-va-atrof-muhitni-muhofaza-qilish"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
+
+[builderList]
+modelClass = "Raxmatilla\Faoliyatlar\Models\Ekologiya"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
-<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/ekologikt.jpg'}}); background-attachment:fixed;">
-      <div class="overlay"></div>{% component 'staticPage' %}
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 ftco-animate text-center">
-       
-            <h1 class="mb-3 bread">{{"Ekologiya va atrof-muhitni muhofaza qilish"|_}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
-<section class="ftco-section">
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"Ekologiya va atrof-muhitni muhofaza qilish"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+
+
+ <style>
+   .shadow {
     
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-    
-          </div>
-          
-        </div>
-        
-    		<div class="row">
-<div>
- 		<p class="western" style="margin-right: -0cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="center"><span lang="uz-Cyrl-UZ">Ушбу саҳифа Ў</span>збекистон <span lang="uz-Cyrl-UZ">Р</span>еспубликаси <span lang="uz-Cyrl-UZ">В</span>азирлар <span lang="uz-Cyrl-UZ">М</span>аҳкамасининг<span lang="uz-Cyrl-UZ"> 2019 йил</span><br /> <span lang="uz-Cyrl-UZ">27 майдаги &ldquo;</span><span lang="uz-Cyrl-UZ"><strong>Ў</strong></span><strong>збекистон </strong><span lang="uz-Cyrl-UZ"><strong>Р</strong></span><strong>еспубликасида экологик таълимни ривожлантириш концепциясини тасдиқлаш тўғрисида</strong><span lang="uz-Cyrl-UZ"><strong>&rdquo;</strong></span><span lang="uz-Cyrl-UZ">ги </span><span lang="uz-Cyrl-UZ">434-сонли </span>қарори<span lang="uz-Cyrl-UZ"> ижроси юзасидан ташкил қилинган</span></p>
-<p class="western" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span lang="uz-Cyrl-UZ"><em><strong>МАҚСАД:</strong></em></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">Институтда фаолият олиб бораётган профессор-ўқитувчилар, ходимлар ва талабаларда экологик билим, онг ва маданиятни янада ривожлантириш, уларни экология соҳасидаги жаҳоннинг илғор инновацион технологиялари билан таништириш, шунингдек, экологик таълим-тарбия жараёнини самарали ташкил этишдан иборат.</span></span></p>
-<p class="western" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ"><em><strong>ВАЗИФА:</strong></em></span></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">экологик таълим-тарбия беришни, экологик билимларни тарғиб қилишни, ноширлик фаолиятини, кўрик-танловлар ўтказишни, ижтимоий реклама ва шу кабиларни ташкил этиш;</span></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">профессор-ўқитувчилар, ходимлар ва талабаларнинг эътиборини умумбашарий экологик муаммоларга қаратиш орқали уларнинг она табиатнинг қайта тикланмас манбаларини сақлаб қолиш ва улардан оқилона фойдаланиш бўйича масъулиятини кучайтириш;</span></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">экологик таълимнинг самарали шакллари ва усулларини ҳамда тарғибот-ташвиқот ишларини тизимли равишда йўлга қўйиш ва жорий этиш;</span></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">профессор-ўқитувчилар, ходимлар ва талабаларни экология соҳасига ва экологик таълимга оид меъёрий-ҳуқуқий ҳужжатлар, янгиликлар ва мавжуд экологик муаммолар билан таништириб бориш;</span></span></p>
-<p class="western" style="text-indent: 1.5cm; margin-bottom: 0cm; line-height: 100%; background: #ffffff;" align="justify"><span style="color: #000000;"><span lang="uz-Cyrl-UZ">экология ва атроф муҳитни муҳофаза қилиш бўйича давлат органлари таълим соҳасининг ўзаро манфаатли ҳамкорлигини ривожлантириш.</span></span></p>&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</div>
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                <p>Ushbu sahifa Oʼzbekiston Respublikasi Vazirlar Mahkamasining 2019 yil<br />27 maydagi &ldquo;Oʼzbekiston Respublikasida ekologik taʼlimni rivojlantirish kontseptsiyasini tasdiqlash toʼgʼrisida&rdquo;gi 434-sonli qarori ijrosi yuzasidan tashkil qilingan</p>
+                    <p style="text-align: center;"><strong>MАQSАD:</strong></p>
+                    <p>Institutda faoliyat olib borayotgan professor-oʼqituvchilar, xodimlar va talabalarda ekologik bilim, ong va madaniyatni yanada rivojlantirish, ularni ekologiya sohasidagi jahonning ilgʼor innovatsion texnologiyalari bilan tanishtirish, shuningdek, ekologik taʼlim-tarbiya jarayonini samarali tashkil etishdan iborat.</p>
+                    <p style="text-align: center;"><strong>VАZIFА:</strong></p>
+                    <p>ekologik taʼlim-tarbiya berishni, ekologik bilimlarni targʼib qilishni, noshirlik faoliyatini, koʼrik-tanlovlar oʼtkazishni, ijtimoiy reklama va shu kabilarni tashkil etish;</p>
+                    <p>professor-oʼqituvchilar, xodimlar va talabalarning eʼtiborini umumbashariy ekologik muammolarga qaratish orqali ularning ona tabiatning qayta tiklanmas manbalarini saqlab qolish va ulardan oqilona foydalanish boʼyicha masʼuliyatini kuchaytirish;</p>
+                    <p>ekologik taʼlimning samarali shakllari va usullarini hamda targʼibot-tashviqot ishlarini tizimli ravishda yoʼlga qoʼyish va joriy etish;</p>
+                    <p>professor-oʼqituvchilar, xodimlar va talabalarni ekologiya sohasiga va ekologik taʼlimga oid meʼyoriy-huquqiy hujjatlar, yangiliklar va mavjud ekologik muammolar bilan tanishtirib borish;</p>
+                    <p>ekologiya va atrof muhitni muhofaza qilish boʼyicha davlat organlari taʼlim sohasining oʼzaro manfaatli hamkorligini rivojlantirish.</p>
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                        
+                        {% for record in records %}
+                        
+                        {%if record.active == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 0px;">
+                                <div class="ttm-product-box" style="margin: 0px 0 0px;">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow" style="background-color: #4569da91;">
+                                      
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image |media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a  class="ttm-product-title" href="{{'/moliyaviy-faoliyat-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+
+                                      
+                                       {# <div class="add-to-cart-btn">
+                                            <a href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
+                                        </div>#}
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            
+                            {% endif %}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                            
+                            
+                            
 
 
 
-
-
- <section class="ftco-section">
-    	<div class="container">
-    		<div class="row d-flex">
-    		
-    		
-    		
-    		
-    		
-    		
-    			        <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/ekologiya-bolimlari/ekologiya-yangiliklari'}}" class="block-20" style="background-image: url('{{'/storage/app/media/2019-%20yilgi/08.2019/ekologiya222.jpg'}}');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/ekologiya-bolimlari/ekologiya-yangiliklari'}}">{{"Yangiliklar"|_}}</a></h3>
-                <p>{{"................................................................................."|_}}</p>
-              </div>
-            </div>
-          </div>
-    		
-    			        <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/ekologiya-bolimlari/ekologiya-qarorlari'}}" class="block-20" style="background-image: url('{{'/storage/app/media/2019-%20yilgi/08.2019/ekologiya-hujjart.jpg'}}');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/ekologiya-bolimlari/ekologiya-qarorlari'}}">{{"Sohaga oid me’yoriy-huquqiy hujjatlar "|_}}</a></h3>
-                <p>{{"................................................................................."|_}}</p>
-              </div>
-            </div>
-          </div>
-    		
-    		
-    		
-    		
-  
-    		
-    			        <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/ekologiya-bolimlari/ekologik-ishlar'}}" class="block-20" style="background-image: url(http://cspi.uz/storage/app/media/2019-%20yilgi/08.2019/ekologfds.jpg);">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/ekologiya-bolimlari/ekologik-ishlar'}}">{{"Amalga oshirilgan ishlar"|_}}</a></h3>
-                <p>{{"................................................................................."|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-
-   
-        </div>
-    	
-    	</div>
-    </section>
-
-
-
-</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
+                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
+                    </div>
                
-             
-
-               
-               
-              </ul>
+                </div><!-- row end -->
             </div>
-          </div>
         </div>
-    	</div>
-    </section>
+
+    </div><!--site-main end-->
