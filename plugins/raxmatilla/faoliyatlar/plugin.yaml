@@ -22,3 +22,7 @@ navigation:
                 label: 'Besh tashabbus markazi'
                 url: raxmatilla/faoliyatlar/beshtashabbusmarkazi
                 icon: icon-street-view
+            side-menu-item4:
+                label: 'Xalqaro xamkorlik'
+                url: raxmatilla/faoliyatlar/xalqaroxamkorlik
+                icon: icon-user-plus

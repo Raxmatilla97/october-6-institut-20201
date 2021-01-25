@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'Xalqaro xamkorlar nomi'
+        type: text
+        searchable: true
+        sortable: true

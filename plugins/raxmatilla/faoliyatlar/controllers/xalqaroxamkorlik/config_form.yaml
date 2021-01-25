@@ -1,0 +1,10 @@
+name: XalqaroXamkorlik
+form: $/raxmatilla/faoliyatlar/models/xalqaroxamkorlik/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\XalqaroXamkorlik
+defaultRedirect: raxmatilla/faoliyatlar/xalqaroxamkorlik
+create:
+    redirect: 'raxmatilla/faoliyatlar/xalqaroxamkorlik/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/xalqaroxamkorlik
+update:
+    redirect: raxmatilla/faoliyatlar/xalqaroxamkorlik
+    redirectClose: raxmatilla/faoliyatlar/xalqaroxamkorlik

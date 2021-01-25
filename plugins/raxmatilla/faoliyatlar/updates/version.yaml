@@ -18,3 +18,6 @@
 1.0.7:
     - 'Created table raxmatilla_faoliyatlar_5tashabbus'
     - builder_table_create_raxmatilla_faoliyatlar_5tashabbus.php
+1.0.8:
+    - 'Created table raxmatilla_faoliyatlar_xalqaroxamkorlik'
+    - builder_table_create_raxmatilla_faoliyatlar_xalqaroxamkorlik.php

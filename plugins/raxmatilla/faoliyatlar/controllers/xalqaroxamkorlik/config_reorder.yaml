@@ -1,0 +1,4 @@
+title: XalqaroXamkorlik
+modelClass: Raxmatilla\Faoliyatlar\Models\XalqaroXamkorlik
+toolbar:
+    buttons: reorder_toolbar
