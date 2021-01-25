@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'Ekologiya yangiligi nomi'
+        type: text
+        searchable: true
+        sortable: true

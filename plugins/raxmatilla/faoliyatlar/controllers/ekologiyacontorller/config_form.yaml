@@ -1,0 +1,10 @@
+name: EkologiyaContorller
+form: $/raxmatilla/faoliyatlar/models/ekologiya/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\Ekologiya
+defaultRedirect: raxmatilla/faoliyatlar/ekologiyacontorller
+create:
+    redirect: 'raxmatilla/faoliyatlar/ekologiyacontorller/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/ekologiyacontorller
+update:
+    redirect: raxmatilla/faoliyatlar/ekologiyacontorller
+    redirectClose: raxmatilla/faoliyatlar/ekologiyacontorller

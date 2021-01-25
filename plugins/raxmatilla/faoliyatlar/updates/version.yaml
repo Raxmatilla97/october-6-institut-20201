@@ -21,3 +21,6 @@
 1.0.8:
     - 'Created table raxmatilla_faoliyatlar_xalqaroxamkorlik'
     - builder_table_create_raxmatilla_faoliyatlar_xalqaroxamkorlik.php
+1.0.9:
+    - 'Created table raxmatilla_faoliyatlar_ekologiya'
+    - builder_table_create_raxmatilla_faoliyatlar_ekologiya.php

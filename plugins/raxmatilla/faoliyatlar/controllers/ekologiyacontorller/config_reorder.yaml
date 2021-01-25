@@ -1,0 +1,4 @@
+title: EkologiyaContorller
+modelClass: Raxmatilla\Faoliyatlar\Models\Ekologiya
+toolbar:
+    buttons: reorder_toolbar

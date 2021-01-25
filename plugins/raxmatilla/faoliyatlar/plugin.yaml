@@ -26,3 +26,7 @@ navigation:
                 label: 'Xalqaro xamkorlik'
                 url: raxmatilla/faoliyatlar/xalqaroxamkorlik
                 icon: icon-user-plus
+            side-menu-item5:
+                label: 'Ekologiya va atrof muhitni muhofaza qilish'
+                url: raxmatilla/faoliyatlar/ekologiyacontorller
+                icon: icon-tree
