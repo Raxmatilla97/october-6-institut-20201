@@ -1,0 +1,140 @@
+title = "Sohaga oid me’yoriy-huquqiy hujjatlar"
+url = "/sohaga-oid-meyoriy-huquqiy-hujjatlar/:page?"
+layout = "yangiliklar_va_boshqa"
+is_hidden = 0
+
+[builderList]
+modelClass = "Raxmatilla\Faoliyatlar\Models\Ekologiya"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
+
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"Sohaga oid me’yoriy-huquqiy hujjatlar"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current"><a  href="{{'/ekologiya-va-atrof-muhitni-muhofaza-qilish'}}">{{"Ekologiya sahifasi"|_}}</a></span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+
+
+ <style>
+   .shadow {
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                        
+                        {% for record in records %}
+                        
+                        {%if record.category_id == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 0px;">
+                                <div class="ttm-product-box" style="margin: 0px 0 0px;">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow" style="background-color: #4569da91;">
+                                      
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image |media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a  class="ttm-product-title" href="{{'/ekologiya-ichki-malumotlar-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+
+                                      
+                                       {# <div class="add-to-cart-btn">
+                                            <a href="{{'/ilmiy-faoliyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Batafsil bilish"|_}}</a>
+                                        </div>#}
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            
+                               
+                            
+                            {% endif %}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                         
+                            
+                            
+                            
+                            
+
+
+
+                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
+                    </div>
+               
+                </div><!-- row end -->
+            </div>
+        </div>
+
+    </div><!--site-main end-->
