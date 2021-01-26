@@ -115,6 +115,11 @@ tabs:
                         label: 'Hodimning sahifa manzili'
                         span: auto
                         type: text
+                    dekan_movini:
+                        label: 'Dekan movinimi?'
+                        span: auto
+                        default: 0
+                        type: checkbox
         kafedralar:
             label: 'Kafedralar ro''yxati'
             prompt: 'Add new item'
