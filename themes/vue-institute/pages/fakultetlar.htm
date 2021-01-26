@@ -1,177 +1,132 @@
 title = "Fakultetlar"
-url = "/fakultetlar"
-layout = "default"
+url = "/fakultetlar/:page?"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
+
+[builderList]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Fakultetlar"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "asc"
 ==
-<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/Kafedralar/ScienceEducation-640x416.png' }}); background-attachment:fixed;">
-	<div class="overlay">
-		<br>
-	</div>
-	<div class="container">
-		<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-			<div class="col-md-8 ftco-animate text-center">
-
-			
-				<h1 class="mb-3 bread">{{'Fakultetlar'|_}}</h1>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<section class="ftco-section bg-light " style=" padding-top: 0px;">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">{{'Institut fakultetlari'|_}}</h2>
-          </div>
-        </div>
-        <div class="row">
-        
-        
-        
-        
-        
-           <!-- yangi fakultetlar stroka-->
-          
-          
-           <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/photo_2019-12-02_11-18-08.jpg'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/fakultetlarr/aniq-fakultet'}}">{{'Aniq fanlar fakulteti'|_}}</a></h3>
-         
-                 
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"OTM Fakultetlari"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-             
-            </div>
-          </div>
-          
-        
-        
-           <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/tabiy_fanlar_logo.jpg'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/tabiiy-fanlar-fakulteti'}}">{{'Tabiiy fanlar fakulteti'|_}}</a></h3>
-              
-                 
-                </div>
-              </div>
-             
-            </div>
-          </div>
-          
-        
-          <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/photo_2019-12-03_16-13-08.jpg'}}); "></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'fakultetlarr/tarixvatillarfakulteti'}}">{{'Tarix va tillar fakulteti'|_}}</a></h3>
+            </div>                    
+        </div><!-- page-title end-->
+ <style>
+   .shadow {
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                      
+                        {% for record in records %}
+                         {% if record.active == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-4 col-md-6 col-xs-12" style="padding-bottom: 20px;">
+                                <div class="ttm-product-box">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow">
+                                        <div class="ttm-shop-icon">
+                                        
+                                        
+                                            <div class="product-btn"> <img class="img-fluid" style="border-radius: 50%;" src="{%if record.dekan_surati%}{{ record.dekan_surati|media | resize(150,150, { mode:'crop', quality: '80' }) }}{% else %} {% endif %}" alt=""></div>
+                                            <div class="product-btn"> <h5 style="color: #fff;">{{"Dekan"|_}}: {{ record.dekan_fish }}</h5></div>
+                                        </div>
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image|media | resize(251,251, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a class="ttm-product-title" href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+                                        <div class="star-ratings"></div>
+                                       {# <span class="price"><span class="product-Price-amount">
+                                            <span class="product-Price-currencySymbol">{% if record.markaz_or_bolim == 0 %} {{"OTM Markazi"|_}} {% else %} {{"OTM Bo'limi"|_}} {% endif %}</span>
+                                        </span>#}
+                                        <div class="add-to-cart-btn">
+                                            <a href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Fakultet haqida"|_}} </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif%}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                            
+                            
+                            
+
+
+
+                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
+                    </div>
                
-                 
-                </div>
-              </div>
-             
+                </div><!-- row end -->
             </div>
-          </div>
-          
-          
-        
-        
-        <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-              
-             
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/pedagogika%20fakulteti%20logo.jpg'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/fakultetlarr/pedagogikavapsixologiya'}}">{{"Pedagogika fakulteti"|_}}</a></h3>
-              
-                  
-                </div>
-              </div>
-             
-            </div>
-          </div>
-        
-        
-        
-        
-        
-          <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-              
-             
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/maktabgacha%20talim%20fakulteti%20logosi.jpg'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/fakultetlarr/maktabgacha-va-boshlangich-talim-fakulteti'}}">{{"Maktabgacha va boshlang’ich ta’lim fakulteti"|_}}</a></h3>
-            
-                 
-                </div>
-              </div>
-            
-            </div>
-          </div>
-          
-          
-         
-               
-           <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-                <div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/SPORT_VA_CHAQIRIQQACHA_HARBIY_TALIM_FAKULTETI_logo.jpg'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/sport-va-chaqiriqqacha-harbiy-talim-fakulteti'}}">{{"Sport va chaqiriqqacha xarbiy ta'lim fakulteti"|_}}</a></h3>
-                 
-                 
-                </div>
-              </div>
-             
-            </div>
-          </div>
-          
-          
-          
-         {# <div class="col-lg-4 mb-sm-4 ftco-animate">
-            <div class="staff">
-              <div class="d-flex mb-4">
-                <div class="img" style="background-image: url({{'/storage/app/media/tadjibayev_ikram_uralbayevich3d0f.png'}});"></div>
-                <div class="info ml-4">
-                  <h3><a href="{{'/fakultetlarr/aniqvatabiiyfanlar'}}">{{'Tadjibayev Ikram Uralbayevich'|_}}</a></h3>
-                  <span class="position">{{'Dekan'|_}}</span>
-                  <p class="ftco-social d-flex">
-                    <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a>
-                    <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a>
-                    <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a>
-                  </p>
-                </div>
-              </div>
-              <div class="text">
-                <p>{{'Aniq va tabiiy fanla fakulteti raxbari.Ilmiy darajasi: Fizika - matematika fanlari nomzodi. Qabul kunlari: Seshanba - Payshanba, 14:00 - 16:00'|_}}</p>
-              </div>
-            </div>
-          </div>#}
-          
-           
-          
-        
-          
-          
-       
-          
-          
-           
-          
         </div>
-      </div>
-    </section>
+
+    </div><!--site-main end-->
