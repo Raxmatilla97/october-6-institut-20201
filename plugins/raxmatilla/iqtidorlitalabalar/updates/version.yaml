@@ -57,3 +57,18 @@
 1.0.20:
     - 'Updated table raxmatilla_iqtidorlitalabalar_markaz_bolimlar'
     - builder_table_update_raxmatilla_iqtidorlitalabalar_markaz_bolimlar_5.php
+1.0.21:
+    - 'Created table raxmatilla_iqtidorlitalabalar_fakultetlar'
+    - builder_table_create_raxmatilla_iqtidorlitalabalar_fakultetlar.php
+1.0.22:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_fakultetlar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_fakultetlar.php
+1.0.23:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_fakultetlar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_fakultetlar_2.php
+1.0.24:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_fakultetlar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_fakultetlar_3.php
+1.0.25:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_fakultetlar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_fakultetlar_4.php

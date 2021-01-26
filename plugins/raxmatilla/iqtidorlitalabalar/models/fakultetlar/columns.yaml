@@ -1,0 +1,13 @@
+columns:
+    title:
+        label: 'Fakultet nomi'
+        type: text
+        searchable: true
+        sortable: false
+    dekan_fish:
+        label: 'Dekan ismi'
+        type: text
+    created_at:
+        label: 'Yaratilgan sana'
+        type: datetime
+        sortable: true

@@ -1,0 +1,163 @@
+fields:
+    title:
+        label: 'Fakultet nomi'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Sahifa manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    fakultet_joylashuvi:
+        label: 'Fakultet joylashuvi'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    active:
+        label: Faolligi
+        span: auto
+        default: 1
+        type: switch
+    image:
+        label: 'Fakultet logotipi'
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+    created_at:
+        label: 'Yaratilgan sana'
+        mode: datetime
+        span: auto
+        type: datepicker
+tabs:
+    fields:
+        dekan_fish:
+            label: 'Dekan sim sharifi'
+            span: auto
+            required: 1
+            attributes:
+                translatable: 'true'
+            type: text
+            tab: 'Dekan haqida'
+        dekan_telefon:
+            label: 'Dekan telfoni'
+            span: auto
+            type: text
+            tab: 'Dekan haqida'
+        dekan_email:
+            label: 'Dekan email pochtasi'
+            span: auto
+            attributes: {  }
+            type: text
+            tab: 'Dekan haqida'
+        dekan_surati:
+            label: 'Dekan surati'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            type: mediafinder
+            tab: 'Dekan haqida'
+        dekan_slug:
+            label: 'Dekanni sahifasiga o''tqazish uchun joy'
+            span: auto
+            type: text
+            tab: 'Dekan haqida'
+        content:
+            label: 'Asosiy ma''lumotlar qismi'
+            size: giant
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Asosiy qism'
+        teamlar:
+            label: 'Fakultet hodimlari'
+            prompt: 'Add new item'
+            span: full
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: 'Fakultet hodimlari'
+            form:
+                fields:
+                    hodim_fish:
+                        label: 'Hodim ism familyasi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    hodim_lavozimi:
+                        label: 'Hodimning lavozimi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    hodim_emaili:
+                        label: 'Hodim email pochtasi'
+                        span: auto
+                        type: text
+                    hodim_telefoni:
+                        label: 'Hodimning telefoni'
+                        span: auto
+                        type: text
+                    hodim_surati:
+                        label: 'Hodimning surati'
+                        mode: image
+                        imageWidth: '200'
+                        span: auto
+                        type: mediafinder
+                    hodim_slug:
+                        label: 'Hodimning sahifa manzili'
+                        span: auto
+                        type: text
+        kafedralar:
+            label: 'Kafedralar ro''yxati'
+            prompt: 'Add new item'
+            span: full
+            containerAttributes:
+                translatable: 'true'
+            type: repeater
+            tab: Kafedralar
+            form:
+                fields:
+                    kafedra_title:
+                        label: 'Kafedra nomi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    kafedra_manzili:
+                        label: 'Kafedraning sahifa manzili'
+                        span: auto
+                        type: text
+                    kafedra_logosi:
+                        label: 'Kafedra logotipi'
+                        mode: image
+                        imageWidth: '200'
+                        span: auto
+                        type: mediafinder
+        hujjatlar:
+            label: 'Fakultetga tegishli hujjatlar'
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: Hujjatlar
+            form:
+                fields:
+                    hujjat_nomi:
+                        label: 'Hujjatning nomlanishi'
+                        span: auto
+                        attributes:
+                            translatable: 'true'
+                        type: text
+                    hujjat_file:
+                        label: 'Hujjatning yuklash qismi'
+                        mode: file
+                        imageWidth: '200'
+                        span: auto
+                        type: mediafinder

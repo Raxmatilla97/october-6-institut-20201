@@ -22,3 +22,7 @@ navigation:
                 label: 'Markaz va bo''limlar'
                 url: raxmatilla/iqtidorlitalabalar/markazbolimlar
                 icon: icon-stack-overflow
+            side-menu-item4:
+                label: Fakultetlar
+                url: raxmatilla/iqtidorlitalabalar/fakultetlar
+                icon: icon-trophy

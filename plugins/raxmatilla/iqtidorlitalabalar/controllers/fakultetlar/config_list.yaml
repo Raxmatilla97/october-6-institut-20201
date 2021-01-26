@@ -1,0 +1,12 @@
+list: $/raxmatilla/iqtidorlitalabalar/models/fakultetlar/columns.yaml
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Fakultetlar
+title: Fakultetlar
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'raxmatilla/iqtidorlitalabalar/fakultetlar/update/:id'
