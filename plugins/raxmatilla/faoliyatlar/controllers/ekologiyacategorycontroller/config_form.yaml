@@ -1,0 +1,10 @@
+name: EkologiyaCategoryController
+form: $/raxmatilla/faoliyatlar/models/ekologiyacategory/fields.yaml
+modelClass: Raxmatilla\Faoliyatlar\Models\EkologiyaCategory
+defaultRedirect: raxmatilla/faoliyatlar/ekologiyacategorycontroller
+create:
+    redirect: 'raxmatilla/faoliyatlar/ekologiyacategorycontroller/update/:id'
+    redirectClose: raxmatilla/faoliyatlar/ekologiyacategorycontroller
+update:
+    redirect: raxmatilla/faoliyatlar/ekologiyacategorycontroller
+    redirectClose: raxmatilla/faoliyatlar/ekologiyacategorycontroller

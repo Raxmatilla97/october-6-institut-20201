@@ -1,12 +1,12 @@
 plugin:
-    name: TEAMLAR
+    name: Tuzulma
     description: 'raxmatilla.iqtidorlitalabalar::lang.plugin.description'
     author: Raxmatilla
     icon: oc-icon-child
     homepage: ''
 navigation:
     main-menu-item:
-        label: TEAMLAR
+        label: Tuzulma
         url: raxmatilla/iqtidorlitalabalar/iqtidorlitalabalar
         icon: icon-briefcase
         sideMenu:

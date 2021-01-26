@@ -24,6 +24,12 @@ fields:
         imageWidth: '200'
         span: auto
         type: mediafinder
+    category:
+        label: 'Bo''limlar'
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
 tabs:
     fields:
         content:

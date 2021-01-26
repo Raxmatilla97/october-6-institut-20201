@@ -22,6 +22,21 @@ class Ekologiya extends Model
      */
     public $rules = [
     ];
+    
+    public $belongsToMany = [
+        'category' => [
+            'Raxmatilla\Faoliyatlar\Models\EkologiyaCategory',
+            'table' => 'raxmatilla_faoliyatlar_ekologiya_category',
+            'order' => 'title'
+        ]
+    ];
+
+    public $belongsTo = [
+           'category' => ['Raxmatilla\Faoliyatlar\Models\EkologiyaCategory', 'key' => 'category_id']
+        
+            ];
+
+
 
     public $attachOne = [     
         'fayl' => 'System\Models\File',

@@ -1,0 +1,14 @@
+fields:
+    title:
+        label: 'Bo''lim nomi'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Sahifa manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text

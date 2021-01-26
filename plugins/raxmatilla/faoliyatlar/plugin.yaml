@@ -30,3 +30,7 @@ navigation:
                 label: 'Ekologiya va atrof muhitni muhofaza qilish'
                 url: raxmatilla/faoliyatlar/ekologiyacontorller
                 icon: icon-tree
+            side-menu-item6:
+                label: 'Ekologiya bo''limlari'
+                url: raxmatilla/faoliyatlar/ekologiyacategorycontroller
+                icon: icon-sitemap

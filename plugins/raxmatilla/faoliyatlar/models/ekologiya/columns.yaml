@@ -4,3 +4,6 @@ columns:
         type: text
         searchable: true
         sortable: true
+    category_id:
+        label: 'Bo''limi id'
+        type: number

@@ -1,0 +1,4 @@
+title: EkologiyaCategoryController
+modelClass: Raxmatilla\Faoliyatlar\Models\EkologiyaCategory
+toolbar:
+    buttons: reorder_toolbar
