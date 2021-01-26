@@ -9,7 +9,8 @@ scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "slug"
 noRecordsMessage = "No records found"
-detailsPage = "-"
+detailsPage = "fakultetlar-detal-sahifasi"
+detailsKeyColumn = "slug"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 sortColumn = "created_at"
@@ -79,7 +80,7 @@ sortDirection = "asc"
                                         </div>
                                     </div>
                                     <div class="ttm-product-content">
-                                        <a class="ttm-product-title" href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}">
+                                        <a class="ttm-product-title" href="{{'/fakultetlar-detal-sahifasi'}}/{{ record.slug }}">
                                             <h2>{{ record.title }}</h2>
                                         </a>
                                         <div class="star-ratings"></div>
@@ -87,7 +88,7 @@ sortDirection = "asc"
                                             <span class="product-Price-currencySymbol">{% if record.markaz_or_bolim == 0 %} {{"OTM Markazi"|_}} {% else %} {{"OTM Bo'limi"|_}} {% endif %}</span>
                                         </span>#}
                                         <div class="add-to-cart-btn">
-                                            <a href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Fakultet haqida"|_}} </a>
+                                            <a href="{{'/fakultetlar-detal-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Fakultet haqida"|_}} </a>
                                         </div>
                                     </div>
                                 </div>
