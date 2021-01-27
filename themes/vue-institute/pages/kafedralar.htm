@@ -1,574 +1,132 @@
 title = "Kafedralar"
-url = "/kafedralar"
-layout = "default"
+url = "/kafedralar/:page?"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
 
 [viewBag]
 localeUrl[en] = "/kafedralar"
 localeUrl[ru] = "/kafedralar"
-==
-<div class="hero-wrap hero-wrap-2" style="background-image: url({{'/storage/app/media/Kafedralar/ScienceEducation-640x416.png'}}); background-attachment:fixed;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 ftco-animate text-center">
-           
-            <h1 class="mb-3 bread">{{'Kafedralar'|_}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <section class="ftco-section bg-light">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">{{'Kafedralar'|_}}</h2>
-          </div>
+[builderList]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Kafedralar"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "kafedra-detal-sahifasi"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+<!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{"OTM Kafedralari"|_}}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+ <style>
+   .shadow {
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+   }
+  </style>
+
+    <!--site-main start-->
+    <div class="site-main">
+
+        <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12 content-area">
+                      
+                        <div class="products row">
+                      
+                        {% for record in records %}
+                         {% if record.active == 1 %}
+                            <!-- product -->                            
+                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 20px;">
+                                <div class="ttm-product-box">
+                                    <!-- ttm-product-box-inner -->
+                                    <div class="ttm-product-box-inner shadow">
+                                        <div class="ttm-shop-icon">
+                                            <div class="product-btn"> <h5 style="color: #fff;">{{ record.fakultet }}</h5></div>
+                                        </div>
+                                        <div class="ttm-product-image-box">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image|media | resize(251,251, { mode:'crop', quality: '80' }) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="ttm-product-content">
+                                        <a class="ttm-product-title" href="{{'/kafedra-detal-sahifasi'}}/{{ record.slug }}">
+                                            <h2>{{ record.title }}</h2>
+                                        </a>
+                                        <div class="star-ratings"></div>
+                                       {#<span class="price"><span class="product-Price-amount">
+                                            <span class="product-Price-currencySymbol">{{ record.fakultet }}</span>
+                                        </span>#}
+                                        <div class="add-to-cart-btn">
+                                            <a href="{{'/kafedra-detal-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"Kafedra haqida"|_}} </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif%}
+                            
+                            {#{{ record}}#}
+                            {% else %}
+                            
+                            {% endfor %}
+                            
+                            
+                            
+
+
+
+                        </div>
+                        {% if records.lastPage > 1 %}
+                            <ul class="pagination">
+                                {% if records.currentPage > 1 %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+                                {% endif %}
+                        
+                                {% for page in 1..records.lastPage %}
+                                    <li class="{{ records.currentPage == page ? 'active' : null }}">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                        
+                                {% if records.lastPage > records.currentPage %}
+                                    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                      
+                    </div>
+               
+                </div><!-- row end -->
+            </div>
         </div>
-        
-         <center><h3><a href="{{'/fakultetlarr/aniq-fakultet'}}" >{{ "Aniq fanlar fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        	<!-- bu yerda yangi kafedralar qoshdim -->
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/matematika_logo_kafedra.png'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/matematika-kafedrasi'}}">{{"Matematika kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/fizika_kafedrasi_logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/fizika-fanlar-kafedrasi'}}">{{'Fizika fani kafedrasi'|_}}</a></h3>
-        			
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        	
-        	
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/informatika_kafedrasi_malumotlari_logo.png'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/informatika-kafedrasi'}}">{{"Informatika kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        		
-        			<!-- bu yerda yangi kafedralar qoshdim -->
-        
-       
-       </div>
-       
-        <br>
-        <br>
-       
-         <center><h3><a href="{{'/tabiiy-fanlar-fakulteti'}}" >{{ "Tabiiy fanlar fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        <!-- bu yerda yangi kafedralar qoshdim -->
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/Kafedralar/kiyo/kimyo-sur-kafedra-1.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kimyo-kafedrasi'}}">{{"Kimyo kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        	
-        	
-        		<!-- bu yerda yangi kafedralar qoshdim -->
-        		 	<!-- bu yerda yangi kafedralar qoshdim -->
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/biologiya-logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/biologiya-kafedrasi'}}">{{"Biologiya kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        	
-        	
-        	
-        		<!-- bu yerda yangi kafedralar qoshdim -->
-        		
-        		
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/geografiya_logo_1.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/geografiya-kafedrasi'}}">{{"Geografiya kafedrasi"|_}}  </a></h3>
-        		
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        		
-        
-        
-        
-        </div>
-        <!-- Bu yerdan tabiy -->
-        
-        
-          <br>
-        <br>
-         <center><h3><a href="{{'/fakultetlarr/tarixvatillarfakulteti'}}" >{{ "Tarix va tillar fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/%D0%91%D0%B5%D0%B7%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1.png'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/tarix-va-ijtimoiy-fanlar-kafedrasi'}}">{{'Tarix kafedrasi'|_}}</a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        
-        
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/ijtimoiy-fanlar-logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/ijtimoiy-fanlar'}}">{{"Ijtimoiy fanlar kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        
-        
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/ozbek-tili-va-adabiyoti-logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/ozbek-tili-va-adabiyoti-kafedrasi'}}">{{"О‘zbek tili va adabiyoti kafedrasi"|_}}</a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/institut_ichki/rus_tili_logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/rus-tili-va-adabiyoti-kafedrasi'}}">{{'Rus tili va adabiyoti kafedrasi'|_}}</a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        
-        
-        	
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/xorijiy_til_logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/xorijiy-tillar-kafedrasi'}}">{{'Xorijiy tillar kafedrasi'|_}}</a></h3>
-        					
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        
-        	
-        	
-        		<!-- bu yerda yangi kafedralar qoshdim -->
-        	
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/fakultetlar_aro_chet_logo2222.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/fakultetlararo-chet-tillar'}}">{{"Fakultetlararo chet tillar kafedrasi"|_}}  </a></h3>
-        				
-        				</div>
-        			</div>
-        			
-        			
-        	
-        		
-        		</div>
-        	</div>
-        	
-        	
-        
-        
-            
-        
-        
-        
-        
-        </div>
-        
-        
-        
-         <br>
-        <br>
-            
-         <center><h3><a href="{{'/fakultetlarr/pedagogikavapsixologiya'}}" >{{ "Pedagogika fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        
-        
-        
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/pedagogika_va_managment-logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/pedagogika-va-menejment-kafedrasi'}}">{{'Pedagogika va menejment kafedrasi'|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        				
-        		</div>
-        	</div>
-        
-        
-        		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/psixologiya_kafedrasi_logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/psixologiya-kafedrasi'}}">{{"Psixologiya kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	
-        
-        	
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/logotip-musqa.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/musiqa-va-defektologiya-kafedrasi'}}">{{"Musiqa va defektologiya kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        		
-        		</div>
-        	</div>
-        
-        
-        </div>
-        
-         <br>
-        <br>
-          <center><h3><a href="{{'/fakultetlarr/maktabgacha-va-boshlangich-talim-fakulteti'}}" >{{ "Maktabgacha va boshlang'ich ta'lim fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        
-        
-        	
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/maktabgacha.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/maktabgacha-talim'}}">{{"Maktabgacha ta’lim kafedrasi"|_}} </a></h3>
-        			
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        	
-        	
-        	
-        
-        					<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/Kafedralar/photo_2019-08-31_10-25-56.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/boshlangich-talim'}}">{{"Boshlang'ich ta'lim kafedrasi"|_}}  </a></h3>
-        			
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        		
-        		</div>
-        	</div>
-        	
-        	
-        	
-        	
-        	
-        	
-        	
-        	
-        
-        
-        </div>
-        
-         <br>
-        <br>
-        
-          <center><h3><a href="{{'/sport-va-chaqiriqqacha-harbiy-talim-fakulteti'}}" >{{ "Sport va chaqiriqqacha harbiy ta'lim fakulteti"|_}}</a></h3></center>
-        <hr>
-          <br>
-        <div class="row">
-        
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        			<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/12.2019/texnalogik_llogo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/texnologik-talim-kafedrasi'}}">{{"Texnologik ta'lim kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/Kafedralar/jismoniy/1.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/jismoniy-madaniyat-kafedrasi'}}">{{"Jismoniy madaniyat kafedrasi"|_}}</a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        	
-        
-        
-        	 	
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/2019-%20yilgi/11.2019/logo_tasviriy_sanat.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/tasviriy-san-va-mehnat-talimi-kafedrasi'}}">{{"“Tasviriy san’at va mehnat ta’limi” kafedrasi"|_}}</a></h3>
-        				
-        				</div>
-        			</div>
-        			
-        		</div>
-        	</div>
-        
-        
-        
-        
-        	<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/bolimlar/fakultetlarar-jis-tar-logo.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/fakultetlararo-jismoniy-tarbiya'}}">{{"Fakultetlararo jismoniy tarbiya kafedrasi"|_}}  </a></h3>
-        				
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        
-        
-        </div>
-        
-        
-        	{#<div class="col-lg-4 mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'/storage/app/media/Kafedralar/64.jpg'}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralar/tabiiy-fanlar-kafedrasi'}}">{{'Tabiiy fanlar kafedrasi'|_}}</a></h3>
-        					<span class="position">{{'Bekchanov Davronbek Jumazarovich'|_}}</span>
-        					
-        				</div>
-        			</div>
-        			<div class="text">
-						{{"<p>Lavozimi: Kafedra mudiri </p> Qabul kunlari: Chorshanba-Juma, 14:00 - 17:00</p>"|_}}
-        			</div>
-        		</div>
-        	</div>#}
-        
-        	
-        	
-        
-        	
-        	
-        	
-        	
-        	
-       
-        	
-        	
-        	
-        		
-        
-        	
-        	
-        
-        		
-        	
-        	
-        	
-        	
-        	
-        	
-        	
-        	
-        
-        	
-        	
-        	{#
-        	 		<div class="col-lg-4 mb-sm-4 ftco-animate">
-        			<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url({{'jismoniy_madaniyat_surat'|_}});"></div>
-        				<div class="info ml-4">
-        					<h3><a href="{{'/kafedralarr/jismoniy-madaniyat-kafedrasi'}}">{{"Jismoniy madaniyat kafedrasi"|_}}  </a></h3>
-        					<span class="position">{{'jismoniy_madaniyat_mudiri'|_}}</span>
-        					
-        				</div>
-        			</div>
-        			
-        			
-        	
-        			
-        		</div>
-        	</div>
-        	#}
-        	
-        	 	
-        	
-        </div>
-      </div>
-    </section>
+
+    </div><!--site-main end-->
