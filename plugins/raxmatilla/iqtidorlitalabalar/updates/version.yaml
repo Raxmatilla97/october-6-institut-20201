@@ -72,3 +72,12 @@
 1.0.25:
     - 'Updated table raxmatilla_iqtidorlitalabalar_fakultetlar'
     - builder_table_update_raxmatilla_iqtidorlitalabalar_fakultetlar_4.php
+1.0.26:
+    - 'Created table raxmatilla_iqtidorlitalabalar_kafedralar'
+    - builder_table_create_raxmatilla_iqtidorlitalabalar_kafedralar.php
+1.0.27:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_kafedralar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_kafedralar.php
+1.0.28:
+    - 'Updated table raxmatilla_iqtidorlitalabalar_kafedralar'
+    - builder_table_update_raxmatilla_iqtidorlitalabalar_kafedralar_2.php

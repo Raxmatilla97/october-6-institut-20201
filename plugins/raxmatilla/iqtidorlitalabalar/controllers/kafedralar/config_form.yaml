@@ -1,0 +1,10 @@
+name: Kafedralar
+form: $/raxmatilla/iqtidorlitalabalar/models/kafedralar/fields.yaml
+modelClass: Raxmatilla\IqtidorliTalabalar\Models\Kafedralar
+defaultRedirect: raxmatilla/iqtidorlitalabalar/kafedralar
+create:
+    redirect: 'raxmatilla/iqtidorlitalabalar/kafedralar/update/:id'
+    redirectClose: raxmatilla/iqtidorlitalabalar/kafedralar
+update:
+    redirect: raxmatilla/iqtidorlitalabalar/kafedralar
+    redirectClose: raxmatilla/iqtidorlitalabalar/kafedralar

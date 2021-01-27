@@ -26,3 +26,7 @@ navigation:
                 label: Fakultetlar
                 url: raxmatilla/iqtidorlitalabalar/fakultetlar
                 icon: icon-trophy
+            side-menu-item5:
+                label: Kafedralar
+                url: raxmatilla/iqtidorlitalabalar/kafedralar
+                icon: icon-try

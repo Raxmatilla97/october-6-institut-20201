@@ -1,0 +1,76 @@
+fields:
+    title:
+        label: 'Kafedra nomi'
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+    slug:
+        label: 'Kafedra sahifasi manzili'
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    image:
+        label: 'Kafedra logotipi'
+        mode: image
+        imageWidth: '200'
+        span: auto
+        type: mediafinder
+    created_at:
+        label: 'Yangilangan sana'
+        mode: datetime
+        span: auto
+        type: datepicker
+    active:
+        label: 'Aktivmi?'
+        span: auto
+        type: switch
+    fakultet:
+        label: Fakulteti
+        span: auto
+        attributes:
+            translatable: 'true'
+        type: text
+tabs:
+    fields:
+        content:
+            label: 'Content qismi'
+            size: giant
+            span: full
+            attributes:
+                translatable: 'true'
+            type: richeditor
+            tab: 'Asosiy ma''lumotlar'
+        joylashuv:
+            label: 'Kafedra joylashuvi'
+            span: auto
+            attributes:
+                translatable: 'true'
+            type: text
+            tab: 'Kafedra mudiri'
+        tell:
+            label: 'Kafedra telefon manzili'
+            span: auto
+            type: text
+            tab: 'Kafedra mudiri'
+        mudir_fish:
+            label: 'Kafedra mudiri'
+            span: auto
+            attributes:
+                translatable: 'true'
+            type: text
+            tab: 'Kafedra mudiri'
+        email:
+            label: 'Kafedra email pochtasi'
+            span: auto
+            type: text
+            tab: 'Kafedra mudiri'
+        mudir_surat:
+            label: 'Mudir surati'
+            mode: image
+            imageWidth: '200'
+            span: auto
+            type: mediafinder
+            tab: 'Kafedra mudiri'

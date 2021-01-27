@@ -1,0 +1,14 @@
+columns:
+    title:
+        label: 'Kafedra nimi'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'Yaratilgan sana'
+        type: datetime
+        searchable: true
+        sortable: true
+    mudir_fish:
+        label: 'Mudir ismi'
+        type: text
