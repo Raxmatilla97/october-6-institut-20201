@@ -1,0 +1,229 @@
+title = "Kafedra detal sahifasi"
+url = "/kafedra-detal-sahifasi/:slug?"
+layout = "yangiliklar_va_boshqa"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Raxmatilla\IqtidorliTalabalar\Models\Kafedralar"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "slug"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+        {% set displayColumn = builderDetails.displayColumn %}
+        {% set notFoundMessage = builderDetails.notFoundMessage %}
+
+        
+        <!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ record.title }}</h2>
+                                <h5>{{"Fakultet dekani:"|_}} {{ record.dekan_fish }}</h5>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span>
+                                 <a title="Homepage" href="{{'/kafedralar'}}">{{"Kafedralar sahifasi"|_}}</a>
+                                 </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
+
+    <!--site-main start-->
+    <div class="site-main">
+
+
+        <section class="ttm-row clearfix">
+            <div class="ttm-team-member-single-content-wrapper ttm-team-member-view-default">
+                <div class="container">
+                    <div class="ttm-team-member-single-content row">
+                        <div class="col-lg-12">
+                            <!-- ttm-learn-press-profile-header -->
+                            <div class="ttm-learn-press-profile-header">
+                                <div class="ttm-learn-press-profile-item clearfix">
+                                    <div class="ttm-learn-press-left" style="width: 290px;height: 240px;">
+                                        {% if record.dekan_surati %}
+                                            <img src="{{ record.dekan_surati|media| resize(290,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.dekan_fish }}" class="shadow_asosiy avatar alignnone photo">
+                                            {% else %}
+                                             <img src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_male_avatar_323b.png' | resize(240,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.dekan_fish }}" class="shadow avatar alignnone photo">
+                                        {% endif %}
+                                    </div>
+                                                                   
+                                   
+                                    <div class="ttm-learn-press-right" style="margin-left: 50px;">
+                                        <h2 class="ttm-authorname" style="margin-top: 20px;"><a href="{{ record.dekan_slug }}">{{ record.dekan_fish }}</a></h2>
+                                        <div class="ttm_instructor_designation">{{"Fakultet dekani:"|_}}</div>
+                                        <div class="ttm-social-links-wrapper">
+                                           <div class="tt_txts">
+                                           <div class="tt_fclines"><strong>{{"Joylashuv"|_}}:</strong> <span> {{ record.fakultet_joylashuvi }} </span></div>
+                                            
+                                            <div class="tt_fclines"><strong>{{"Telefon"|_}}:</strong> <span> {{ record.dekan_telefon }} </span></div>
+                                            <div class="tt_fclines"><strong>{{"E-mail"|_}}: <a href="mailto:{{ record.dekan_email }}">{{ record.dekan_email }}</a></strong><span></span><span> </span></div>
+                                            <div class="tt_fclines">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                                             
+            <hr>
+      <style>
+   .shadow {
+   background: #4569da;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 5px;
+   }
+   .shadow_asosiy {
+       background: #ff4f01d9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 8px;
+   }
+  </style>
+                            
+                          
+                            
+                            <!-- ttm-learn-press-profile-header end -->
+                            <div id="learn-press-profile-nav">
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Asosiy ma'lumotlar:"|_}}</h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            {{ record.content|raw }}
+                                        </div>
+                                    </div>
+                                </div>                               
+                                                          
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Qo'shimcha"|_}}</h4>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                            <h6>{{ record.title }}{{"ga tegishli boshqa ma'lumotlar"|_}}</h6>
+                                            <div class="ttm-tabs ttm-tab-style-horizontal" data-effect="fadeIn">
+                                                <ul class="tabs clearfix">
+                                                <li class="tab active"><a href="#">{{"Kafedralar"|_}}</a></li>
+                                                    <li class="tab"><a href="#">{{"Hodimlar"|_}}</a></li>
+                                                    <li class="tab"><a href="#">{{"Xujjatlar"|_}}</a></li>
+                                                    
+                                                </ul>
+                                                <div class="content-tab">    
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner active" style="display: block;">
+                                                        <div class="row">
+                                                        
+                                                        {% for kafedra in record.kafedralar %}
+                                                            <div class="ttm-box-col-wrapper col-lg-4 col-sm-6 col-md-4 col-xs-12 ">
+                                                                <div class="featured-imagebox featured-imagebox-course">
+                                                                    <div class="ttm-post-thumbnail featured-thumbnail" > 
+                                                                        <img class="img-fluid" style="display: block; margin: 0 auto;" src="{{ kafedra.kafedra_logosi|media | resize(210, 200,  { mode: 'crop', quality: '80' })}}" alt="image"> 
+                                                                    </div>
+                                                                    <div class="featured-content featured-content-post">
+                                                                        <div class="featured-content-post-inner">
+                                                                            <div class="post-title featured-title">
+                                                                                <h5><a href="{{'/'}}{{ kafedra.kafedra_manzili }}" tabindex="-1">{{ kafedra.kafedra_title}}</a></h5>
+                                                                            </div>                                                                           
+                                                                        </div>                                                                       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% else %}
+                                                            
+                                                            {% endfor %}
+                                                            
+                                                        </div>
+                                                    </div><!-- content-inner end-->
+                                                                               
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner">                                                  
+                                                      <div class="learn-press-message success" {% if record.team %}style="background: #fbfbfb !important;" {% else %} style="background: #fff !important;" {% endif %} ><i class="fa"></i>
+                                                        <div class="col-md-12">
+                                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                               
+                                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">   
+                                                                         {% for hodim in record.teamlar %}
+                                                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{'/'}}{{ hodim.slug}}">{{ hodim.hodim_fish }} </a></b> </div> <br> <strong style="color: #ff4f01;"> {{"Lavozimi"|_}}  </strong> {{ hodim.hodim_lavozimi }}                                                                           
+                                                                            <img style="margin-left: 10%; border-radius: 50%; margin-top: -30px; " src="{{ hodim.hodim_surati|media | resize(80, 80,  { mode: 'crop', quality: '80' })}}" alt="{{ hodim.hodim_fish }}" class="avatar">
+                                                                            </li>
+                                                                            <hr> 
+                                                                            {% else %}
+                                                                             <img style="" src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_Posts_re_ormv.png' | resize(400,279,  { mode: 'crop', quality: '80' })}}"  class="avatar center">
+                                                                            
+                                                                          {% endfor%} 
+                                                                          
+                                                                    
+                                                                    </ul>
+                                                                </div>
+                                                              </div>
+                                                        </div>
+      
+    
+                                                     </div>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    </div><!-- content-inner end-->
+                                                    <!-- content-inner -->
+                                                    <div class="content-inner"> 
+                                                        <div class="learn-press-message success" {% if record.hujjatlar %}style="background: #fbfbfb !important;" {% else %} style="background: #fff !important;" {% endif %} ><i class="fa"></i>
+                                                         <div class="col-md-12">
+                                                            <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                                               
+                                                                <div class="pt-10 pb-30 res-991-pb-15">
+                                                                
+                                                                    <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">   
+                                                                         {% for hujjat in record.hujjatlar %}
+                                                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content"><b><a href="{{url('/')}}{{ hujjat.hujjat_file|media}}"> {{ hujjat.hujjat_nomi }} </a></b> </div> <br> 
+                                                                            </li>                                                                            
+                                                                            <hr> 
+                                                                             {% else %}   
+                                                                              <img style="" src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_teamwork_hpdk.png' | resize(400,279,  { mode: 'crop', quality: '80' })}}"  class="avatar center">
+                                                                   {% endfor%} 
+                                                                    </ul>
+                                                                     
+                                                                </div>
+                                                              </div>
+                                                        </div>
+                                                        
+                                                      
+                                                        </div>
+                                                    </div><!-- content-inner end-->
+                                                    
+                                                    
+                                                
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+    </div><!--site-main end-->
