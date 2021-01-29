@@ -1,0 +1,12 @@
+list: $/raxmatilla/abiturentlar/models/bakalvriant/columns.yaml
+modelClass: Raxmatilla\Abiturentlar\Models\Bakalvriant
+title: Bakalavriant
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'raxmatilla/abiturentlar/bakalavriant/update/:id'

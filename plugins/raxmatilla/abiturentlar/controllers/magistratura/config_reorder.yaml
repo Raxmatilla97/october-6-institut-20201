@@ -1,0 +1,4 @@
+title: Magistratura
+modelClass: Raxmatilla\Abiturentlar\Models\Magisteratura
+toolbar:
+    buttons: reorder_toolbar

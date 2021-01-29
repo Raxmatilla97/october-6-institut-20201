@@ -1,0 +1,10 @@
+name: Bakalavriant
+form: $/raxmatilla/abiturentlar/models/bakalvriant/fields.yaml
+modelClass: Raxmatilla\Abiturentlar\Models\Bakalvriant
+defaultRedirect: raxmatilla/abiturentlar/bakalavriant
+create:
+    redirect: 'raxmatilla/abiturentlar/bakalavriant/update/:id'
+    redirectClose: raxmatilla/abiturentlar/bakalavriant
+update:
+    redirect: raxmatilla/abiturentlar/bakalavriant
+    redirectClose: raxmatilla/abiturentlar/bakalavriant

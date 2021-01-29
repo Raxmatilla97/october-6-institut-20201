@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table raxmatilla_abiturentlar_bakalavr'
+    - builder_table_create_raxmatilla_abiturentlar_bakalavr.php
+1.0.3:
+    - 'Created table raxmatilla_abiturentlar_magister'
+    - builder_table_create_raxmatilla_abiturentlar_magister.php

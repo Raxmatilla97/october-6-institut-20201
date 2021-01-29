@@ -1,0 +1,10 @@
+name: Magistratura
+form: $/raxmatilla/abiturentlar/models/magisteratura/fields.yaml
+modelClass: Raxmatilla\Abiturentlar\Models\Magisteratura
+defaultRedirect: raxmatilla/abiturentlar/magistratura
+create:
+    redirect: 'raxmatilla/abiturentlar/magistratura/update/:id'
+    redirectClose: raxmatilla/abiturentlar/magistratura
+update:
+    redirect: raxmatilla/abiturentlar/magistratura
+    redirectClose: raxmatilla/abiturentlar/magistratura

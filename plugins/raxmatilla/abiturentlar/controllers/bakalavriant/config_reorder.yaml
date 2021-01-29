@@ -1,0 +1,4 @@
+title: Bakalavriant
+modelClass: Raxmatilla\Abiturentlar\Models\Bakalvriant
+toolbar:
+    buttons: reorder_toolbar

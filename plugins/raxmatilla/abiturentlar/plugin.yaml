@@ -1,0 +1,20 @@
+plugin:
+    name: 'raxmatilla.abiturentlar::lang.plugin.name'
+    description: 'raxmatilla.abiturentlar::lang.plugin.description'
+    author: Raxmatilla
+    icon: oc-icon-btc
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Abiturentlar
+        url: raxmatilla/abiturentlar/bakalavriant
+        icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: Bakalavriant
+                url: raxmatilla/abiturentlar/bakalavriant
+                icon: icon-spinner
+            side-menu-item2:
+                label: Magistratura
+                url: raxmatilla/abiturentlar/magistratura
+                icon: icon-star
