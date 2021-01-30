@@ -1,7 +1,17 @@
 title = "Bakalavriyat"
 url = "/bakalavriyatt"
-layout = "default"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
+
+[builderList]
+modelClass = "Raxmatilla\Abiturentlar\Models\Bakalvriant"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -58,30 +68,30 @@ is_hidden = 0
                         
                         {% for record in records %}
                             <!-- product -->                            
-                            <div class="product col-lg-3 col-md-6 col-xs-12" style="padding-bottom: 20px;">
+                            <div class="product col-lg-4 col-md-6 col-xs-12" style="padding-bottom: 20px;">
                                 <div class="ttm-product-box">
                                     <!-- ttm-product-box-inner -->
                                     <div class="ttm-product-box-inner shadow">
                                         <div class="ttm-shop-icon">
                                         
                                         
-                                            <div class="product-btn"> <img class="img-fluid" style="border-radius: 50%;" src="{%if record.b_boshligi_avatar%}{{ record.b_boshligi_avatar|media | resize(100,100, { mode:'crop', quality: '80' }) }}{% else %} {% endif %}" alt=""></div>
-                                            <div class="product-btn"> <h5 style="color: #fff;">{{ record.b_boshligi }}</h5></div>
+                                        
+                                            <div class="product-btn"> <h5 style="color: #fff;">{{ "2020"|_ }}</h5></div>
                                         </div>
                                         <div class="ttm-product-image-box">
-                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.logo|media | resize(251,251, { mode:'crop', quality: '80' }) }}" alt="">
+                                            <img class="img-fluid" style="display:block; margin:auto; " src="{{ record.image|media | resize(345,271, { mode:'crop', quality: '80' }) }}" alt="">
                                         </div>
                                     </div>
                                     <div class="ttm-product-content">
-                                        <a class="ttm-product-title" href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}">
+                                        <a class="ttm-product-title" href="{{'/bakalavriyat-sahifasi'}}/{{ record.slug }}">
                                             <h2>{{ record.title }}</h2>
                                         </a>
                                         <div class="star-ratings"></div>
-                                        <span class="price"><span class="product-Price-amount">
+                                       {# <span class="price"><span class="product-Price-amount">
                                             <span class="product-Price-currencySymbol">{% if record.markaz_or_bolim == 0 %} {{"OTM Markazi"|_}} {% else %} {{"OTM Bo'limi"|_}} {% endif %}</span>
-                                        </span>
+                                        </span>#}
                                         <div class="add-to-cart-btn">
-                                            <a href="{{'/markaz-va-bolim-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{% if record.markaz_or_bolim == 0 %} {{"Markaz haqida"|_}} {% else %} {{"Bo'lim haqida"|_}} {% endif %}</a>
+                                            <a href="{{'/bakalavriyat-sahifasi'}}/{{ record.slug }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">{{"To'liq o'qish"|_}}</a>
                                         </div>
                                     </div>
                                 </div>

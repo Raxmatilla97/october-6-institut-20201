@@ -1,200 +1,89 @@
-title = "Abiturient 2020"
-url = "/abiturient-2020"
-layout = "default"
+title = "Bakalavriyat sahifasi"
+url = "/bakalavriyat-sahifasi/:slug?"
+layout = "yangiliklar_va_boshqa"
 is_hidden = 0
-role = 0
-permission = 0
-anonymous_only = 0
-logged_only = 0
+
+[builderDetails]
+modelClass = "Raxmatilla\Abiturentlar\Models\Bakalvriant"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "slug"
+notFoundMessage = "Record not found"
 ==
-<div class="hero-wrap hero-wrap-2" style="background-image: url('{{'/storage/app/media/abutrentlarga%20eslatma.jpg'}}'); background-attachment:fixed;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 ftco-animate text-center">
-          
-            <h1 class="mb-3 bread">{{"Bakalavriyat 2020"|_}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+{% set record = builderDetails.record %}
+        {% set displayColumn = builderDetails.displayColumn %}
+        {% set notFoundMessage = builderDetails.notFoundMessage %}
 
-<div><br/><br/><br/><br/></div>
+        
+        <!-- page-title -->
+        <div class="ttm-page-title-row">
+            <div class="ttm-page-title-row-inner ttm-textcolor-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ record.title }}</h2>                              
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <span>
+                                    <a title="Homepage" href="{{'/'}}">{{"Bosh sahifa"|_}}</a>
+                                </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span>
+                                 <a title="Homepage" href="{{'/bakalavriyatt'}}">{{"Bakalavriyat"|_}}</a>
+                                 </span>
+                                <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                                <span class="current">{{"Siz turgan sahifa"|_}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+        </div><!-- page-title end-->
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row d-flex">
-    		
-    		
-    			    <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/video-cameralar'}}" class="block-20" style="background-image: url('{{'/storage/app/media/unnamed.png'}}');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/video-cameralar'}}">{{"IJODIY IMTIXONLAR O'TADIGAN JOYLARDAGI VIDEO CAMERALAR"|_}}</a></h3>
-                <p>{{""|_}}</p>
-              </div>
-            </div>
-          </div>
-    		
-    				  <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/ijodiy-imtixonlar-2020'}}" class="block-20" style="background-image: url({{'/storage/app/media/2019-%20yilgi/07.2019/tasviriy-sanat-va-muhandislik3-min.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
+    <!--site-main start-->
+    <div class="site-main">
+
+
+        <section class="ttm-row clearfix">
+            <div class="ttm-team-member-single-content-wrapper ttm-team-member-view-default">
+                <div class="container">
+                    <div class="ttm-team-member-single-content row">
+                        <div class="col-lg-12">
+                                                    
+                              
+                                    
+                          
+                            
+                            <!-- ttm-learn-press-profile-header end -->
+                            <div id="learn-press-profile-nav">
+                                <div class="mt-50">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-2 col-sm-12">
+                                            <h4>{{"Asosiy ma'lumotlar:"|_}}</h4>
+                                        </div>
+                                        
+                                        <div class="col-lg-10 col-md-10 col-sm-12">
+                                        
+                                           <div class="ttm-learn-press-left" style="width: 290px;height: 240px;">
+                                        {% if record.image %}
+                                            <img src="{{ record.image|media| resize(290,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.image }}" class="shadow_asosiy avatar alignnone photo">
+                                            {% else %}
+                                             <img src="{{ '/storage/app/media/sayt%20sozlamlari%20suratlari/undraw_male_avatar_323b.png' | resize(240,240, { mode: 'crop', quality: '80' })}}" alt="{{ record.title }}" class="shadow avatar alignnone photo">
+                                        {% endif %}
+                                    </div>
+                                    
+                                            {{ record.content|raw }}
+                                        </div>
+                                    </div>
+                                </div>                               
+                                                          
               
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="heading mt-3"><a href="{{'/ijodiy-imtixonlar-2020'}}">{{"Ijodiy imtixonlar o'tkazish jadvali va abiturientlar ro'yxati"|_}}</a></h3>
-                <p></p>
-              </div>
             </div>
-          </div>
-    		
-    		
-    		  <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/kasbiy-ijodiy-imtihonda-abiturient-tomonidan-bajarilgan-amaliy-ish-quydagi-mezon-asosida-baholanadi'}}" class="block-20" style="background-image: url({{'/storage/temp/public/808/c59/d92/thumb_808c59d92405ca154c84e7ffd7c803771598269792_300x255_auto.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-              
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/kasbiy-ijodiy-imtihonda-abiturient-tomonidan-bajarilgan-amaliy-ish-quydagi-mezon-asosida-baholanadi'}}">{{"Kasbiy (ijodiy) imtihonda abiturient tomonidan bajarilgan amaliy ish quydagi mezon asosida baholanadi."|_}}</a></h3>
-                <p>{{""|_}}</p>
-              </div>
-            </div>
-          </div>
-    		
-    		  <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/imtihon-fanlari-royhati-2020'}}" class="block-20" style="background-image: url({{'/storage/app/media/no-translate-detected_34448-6.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-              
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/imtihon-fanlari-royhati-2020'}}">{{"IMTIHON FANLARI RO'YHATI"|_}}</a></h3>
-                <p>{{"Ta'lim yo'nalishlari va test bo'yicha ularga muvofiq keluvchi fanlar majmuasi (2020-2021 o'quv yili uchun."|_}}</p>
-              </div>
-            </div>
-          </div>
-    			        <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/qabul-2020-murojaat-uchun'}}" class="block-20" style="background-image: url(http://cspi.uz/storage/app/media/can-i-keep-my-phone-number-if-i-change-broadband-providers.jpg);">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/qabul-2020-murojaat-uchun'}}">{{"Qabul 2020 telefon raqami ishga tushdi. Murojaat qilishingiz mumkin."|_}}</a></h3>
-                <p></p>
-              </div>
-            </div>
-          </div>
-    		
-    		 <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/abituriyentlarga-eslatma'}}" class="block-20" style="background-image: url({{'/storage/app/media/1550990046_08q81n14243671663194_b.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/abituriyentlarga-eslatma'}}">{{"ABITURIYENTLARGA ESLATMA"|_}}</a></h3>
-                <p>{{"Abituriyent qabul komissiyasiga tegishli hujjatlarni topshirishi, topshirgan hujjatlariga mos ma'lumotlar abituriyentlar bazasiga to'g'ri kiritilganini tasdiqlashi lozim."|_}} </p>
-              </div>
-            </div>
-          </div>
-    		
-    		 
-    		<div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/davlat-test-markazi-abiturientlar-uchun-onlayn-hujjat-topshirish-jarayoni-haqida-video-qollanma-elon-qildi'}}" class="block-20" style="background-image: url('{{'/storage/app/media/2020-yilgi/06%20iyun/28555169.png'}}');">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/davlat-test-markazi-abiturientlar-uchun-onlayn-hujjat-topshirish-jarayoni-haqida-video-qollanma-elon-qildi'}}">{{"Davlat test markazi abiturientlar uchun onlayn hujjat topshirish jarayoni haqida video-qo‘llanma e’lon qildi"|_}}</a></h3>
-                <p>{{"Video qo'llanmani ko'rish uchun bu yerga bosing."|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-         <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/yonalishlar-haqida-malumot-2020'}}" class="block-20" style="background-image: url({{'/storage/app/media/bannerlar/654g5j4fgjgfjh.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/yonalishlar-haqida-malumot-2020'}}">{{"Yo'nalishlar haqida ma'lumot"|_}}</a></h3>
-                <p>{{"Toshkent viloyati Chirchiq davlat pedagogika instituti 2020-2021 o'quv yili uchun statistik ma'lumotlar"|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-           <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/qabul-kvotalari-2020'}}" class="block-20" style="background-image: url({{'/storage/app/media/qabul%20kvota.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/qabul-kvotalari-2020'}}">{{"QABUL KVOTALARI 2020 (KUNDUZGI, SIRTQI, KECHKI)"|_}}</a></h3>
-                <p>{{""|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-           <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/storage/app/media/2020-yilgi/06%20iyun/PQ-4749.pdf'}}" class="block-20" style="background-image: url({{'/storage/app/media/66827.jpg'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/storage/app/media/2020-yilgi/06%20iyun/PQ-4749.pdf'}}">{{"Oʻzbekiston Respublikasi Prezidentining qarorlari"|_}}</a></h3>
-                <p>{{""|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-            <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="{{'/storage/app/media/2020-yilgi/06%20iyun/planshet11062020-pdfio.pdf'}}" class="block-20" style="background-image: url({{'/storage/app/media/banner4dWritePro.png'}});">
-              </a>
-              <div class="text p-4 d-block">
-              	<div class="meta mb-3">
-                
-                </div>
-                <h3 class="heading mt-3"><a href="{{'/storage/app/media/2020-yilgi/06%20iyun/planshet11062020-pdfio.pdf'}}">{{"UMUMIY MA'LUMOTLAR PDF"|_}}</a></h3>
-                <p>{{""|_}}</p>
-              </div>
-            </div>
-          </div>
-          
-          
-          
-        </div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
+        </section>
+      
+    </div><!--site-main end-->
